@@ -2,12 +2,6 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.tibco.bw</groupId>
-    <artifactId>BWCE_Quote.parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../BWCE_Quote.parent</relativePath>
-  </parent>
   <artifactId>BWCE_DemoResources</artifactId>
   <packaging>bwmodule</packaging>
   <build>
@@ -30,4 +24,6 @@
       </plugin>
     </plugins>
   </build>
+  <groupId>com.tibco.bw</groupId>
+  <version>1.0.0</version>
 </project>
