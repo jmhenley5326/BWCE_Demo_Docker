@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://xmlns.example.com/20160420160916" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GenerateQuoteService" targetNamespace="http://xmlns.example.com/20160420160916">
+	<wsdl:types>
+		<xsd:schema xmlns:extns="http://www.example.org/Quote" xmlns:extns1="http://www.example.org/QuoteRequest" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160420160916">
+            <xsd:import namespace="http://www.example.org/QuoteRequest"/>
+            <xsd:import namespace="http://www.example.org/Quote" schemaLocation="../Schemas/Quote.xsd"/>
+			<xsd:element name="GenerateQuoteRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+                        <xsd:element name="QuoteRequest" type="extns1:QuoteRequestType"/>
+                    </xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerateQuoteResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Quote" type="extns:QuoteType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GenerateQuoteFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fault" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="GenerateQuoteRequest">
+		<wsdl:part element="tns:GenerateQuoteRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GenerateQuoteResponse">
+		<wsdl:part element="tns:GenerateQuoteResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GenerateQuoteFault">
+		<wsdl:part element="tns:GenerateQuoteFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="GenerateQuoteService">
+		<wsdl:operation name="GenerateQuote">
+			<wsdl:input message="tns:GenerateQuoteRequest" name="GenerateQuoteInput"/>
+			<wsdl:output message="tns:GenerateQuoteResponse" name="GenerateQuoteOutput"/>
+			<wsdl:fault message="tns:GenerateQuoteFault" name="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

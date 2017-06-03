@@ -1,0 +1,17 @@
+{
+    "resources": [
+        {
+            "location": "Service Descriptors/bwce_productcat.module.api.ProductAPI-Product.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/bwce_productcat.module.api.ProductListAPI-ProductList.json",
+            "type": "generated"
+        }
+    ],
+    "records": [{
+        "items": [],
+        "name": "Cloud",
+        "url": "http://192.168.59.103:8888"
+    }]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_qll40AWiEeaK0ZTfqFj5Ag" targetNamespace="http://tns.tibco.com/bw/composite/BWCE_DiscountAPI.module" name="BWCE_DiscountAPI.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_b0K5UAcKEeasLes9HPTFQg" name="discount" promote="ComponentDiscount/discount">
+    <sca:interface.wsdl xmi:id="_b0N8oAcKEeasLes9HPTFQg" interface="http://xmlns.example.com/20160420101327PLT#wsdl.interface(discount)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Discount.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_b0RnAAcKEeasLes9HPTFQg" name="RestService4" path="/discount/{custId}" docBasePath="http://localhost:7777/BWCE_DiscountAPI.module" docResourcePath="Discount" connector="bwce_productcat.module.Discount" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bwce_productcat.module.api.Discount-Discount.json">
+      <operation xmi:id="_b0SOEAcKEeasLes9HPTFQg" operationName="get" nickname="get-discount" httpMethod="GET"/>
+      <parameters xmi:id="_gjquUAcKEeasLes9HPTFQg">
+        <parameterMapping xmi:id="_gjquUQcKEeasLes9HPTFQg" parameterName="custId" parameterType="Path"/>
+      </parameters>
+      <clientFormat>JSON</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_b0SOEQcKEeasLes9HPTFQg" bindingName="RestService4"/>
+  </sca:service>
+  <sca:property xmi:id="_qtQnEAWiEeaK0ZTfqFj5Ag" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtX70AWiEeaK0ZTfqFj5Ag" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtbmMAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtfQkAWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qti68AWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-Y0VEEfNEeedDspHRh-jnQ" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_b0GA0AcKEeasLes9HPTFQg" name="ComponentDiscount" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_b0GA0QcKEeasLes9HPTFQg" processName="bwce_productcat.module.api.Discount"/>
+    <sca:service xmi:id="_b0IdEAcKEeasLes9HPTFQg" name="discount">
+      <sca:interface.wsdl xmi:id="_b0JEIAcKEeasLes9HPTFQg" interface="http://xmlns.example.com/20160420101327PLT#wsdl.interface(discount)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Discount.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

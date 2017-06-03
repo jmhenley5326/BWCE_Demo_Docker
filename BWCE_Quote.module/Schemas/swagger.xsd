@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema" xmlns:tns="fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Product" type="tns:Product"/>
+    <xs:complexType name="Product">
+        <xs:sequence>
+            <xs:element name="manufacturer" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="productId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Products" type="tns:Products"/>
+    <xs:complexType name="Products">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Product" type="tns:Product"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Quote" elementFormDefault="qualified" targetNamespace="http://www.example.org/Quote">
+    <complexType name="LineItemType">
+		<sequence>
+			<element name="productId" type="string"/>
+			<element name="quantity" type="integer"/>
+			<element minOccurs="0" name="unitPrice" type="double"/>
+		</sequence>
+	</complexType>
+	<element name="LineItem" type="tns:LineItemType"/>
+	<complexType name="QuoteType">
+		<sequence>
+			<element name="QuoteId" type="string"/>
+			<element name="CustomerId" type="string"/>
+			<element name="TotalPrice" type="double"/>
+			<element maxOccurs="unbounded" minOccurs="1" name="LineItems" type="tns:LineItemType"/>
+		</sequence>
+	</complexType>
+	<element name="Quote" type="tns:QuoteType"/>
+</schema>

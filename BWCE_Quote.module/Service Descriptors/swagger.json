@@ -1,0 +1,204 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "BWCE_ProductCat"
+  },
+  "host" : "jhenley.api.mashery.com:80",
+  "basePath" : "",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/discount/{custId}" : {
+      "get" : {
+        "tags" : [ "Discount" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "custId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "number",
+              "format" : "float"
+            }
+          }
+        }
+      }
+    },
+    "/inventory/{productId}" : {
+      "get" : {
+        "tags" : [ "Inventory" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          }
+        }
+      }
+    },
+    "/price/{productId}" : {
+      "get" : {
+        "tags" : [ "Price" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "number",
+              "format" : "float"
+            }
+          }
+        }
+      }
+    },
+    "/product/{productId}" : {
+      "get" : {
+        "tags" : [ "Product" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/Product"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Product" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "Product",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Product"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Product" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "Product",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Product"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/products" : {
+      "get" : {
+        "tags" : [ "ProductList" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/Products"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Product" : {
+      "required" : [ "productId", "name", "description", "brand", "manufacturer" ],
+      "properties" : {
+        "productId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "brand" : {
+          "type" : "string"
+        },
+        "manufacturer" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Products" : {
+      "properties" : {
+        "Product" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Product"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "api_key",
+      "in" : "query"
+    }
+  },
+  "security" : {
+  	"apiKey" : []
+  }
+}

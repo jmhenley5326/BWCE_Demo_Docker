@@ -1,0 +1,37 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Price Rest API",
+    "description" : "Price Rest API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/price/{productId}" : {
+      "get" : {
+        "description" : "Get Price for a Product",
+        "operationId" : "get-price",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a number to be returned",
+            "schema" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

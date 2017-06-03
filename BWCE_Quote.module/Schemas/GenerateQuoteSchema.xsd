@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:source="bw.rest" xmlns:tns="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160420160916PLT/ConceptSchema">
+  <element name="inventory-productIdGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="inventory-productIdPutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="inventory-productIdPostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="inventory-productIdDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="price-productIdGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="price-productIdPutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="price-productIdPostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="price-productIdDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="product-productIdGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="product-productIdPutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="product-productIdPostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="product-productIdDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="discount-custIdGetParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="custId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="discount-custIdPutParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="custId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="discount-custIdPostParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="custId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="discount-custIdDeleteParameters">
+    <complexType>
+      <sequence>
+        <element maxOccurs="1" minOccurs="1" name="custId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

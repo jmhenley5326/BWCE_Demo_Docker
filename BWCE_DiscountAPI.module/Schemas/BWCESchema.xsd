@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/FMCSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/FMCSchema">
+
+    <complexType name="PriceType">
+    	<sequence>
+    		<element name="productId" type="string"/>
+    		<element name="price" type="string"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Price" type="tns:PriceType"/>
+
+    <complexType name="InventoryType">
+    	<sequence>
+    		<element name="productId" type="string"/>
+    		<element name="quantity" type="int"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Inventory" type="tns:InventoryType"/>
+    
+    <complexType name="DiscountType">
+    	<sequence>
+    		<element name="custId" type="string"/>
+    		<element name="discount" type="double"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Discount" type="tns:DiscountType"/>
+    
+    <complexType name="CustomerType">
+    	<sequence>
+    		<element name="custId" type="string"/>
+    		<element name="name" type="string"/>
+    	</sequence>
+    </complexType>
+
+    <element name="Customer" type="tns:CustomerType"/>
+</schema>

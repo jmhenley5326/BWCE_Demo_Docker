@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://bwce.tibco.com/schema/Inventory" xmlns:tns="http://bwce.tibco.com/wsdl/Inventory" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InventorySOAP" targetNamespace="http://bwce.tibco.com/wsdl/Inventory">
+  <wsdl:import namespace="http://bwce.tibco.com/schema/Inventory"/>
+  <wsdl:message name="getInventoryRequest">
+    <wsdl:part element="extns:getInventoryRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getInventoryResponse">
+    <wsdl:part element="extns:getInventoryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="InventorySOAP">
+    <wsdl:operation name="getInventory">
+      <wsdl:input message="tns:getInventoryRequest" name="getInventoryInput"/>
+      <wsdl:output message="tns:getInventoryResponse" name="getInventoryOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

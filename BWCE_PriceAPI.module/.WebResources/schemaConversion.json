@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_PriceAPI.module/Service Descriptors/bwce_priceapi.module.api.Price-Price.json",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_PriceAPI.module/Service Descriptors/bwce_priceapi.module.api.Price-Price.json",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/20160420095213PLT/ConceptSchema"
+    }
+]}

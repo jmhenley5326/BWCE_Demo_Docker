@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://xmlns.example.com/20160420093437" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InventoryDBService" targetNamespace="http://xmlns.example.com/20160420093437">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160420093437">
+      <xsd:element name="CheckInventoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="quantity" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckInventoryFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fault" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="CreateInventoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="quantity" type="xsd:integer"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="CreateInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="UpdateInventoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="quantity" type="xsd:integer"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="UpdateInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckInventoryRequest">
+    <wsdl:part element="tns:CheckInventoryRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckInventoryResponse">
+    <wsdl:part element="tns:CheckInventoryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckInventoryFault">
+    <wsdl:part element="tns:CheckInventoryFault" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreateInventoryRequest">
+    <wsdl:part element="tns:CreateInventoryRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreateInventoryResponse">
+    <wsdl:part element="tns:CreateInventoryResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="UpdateInventoryRequest">
+    <wsdl:part element="tns:UpdateInventoryRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="UpdateInventoryResponse">
+    <wsdl:part element="tns:UpdateInventoryResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="InventoryDBService">
+    <wsdl:operation name="CheckInventory">
+      <wsdl:input message="tns:CheckInventoryRequest" name="operationInput"/>
+      <wsdl:output message="tns:CheckInventoryResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:CheckInventoryFault" name="Fault"/>
+    </wsdl:operation>
+        <wsdl:operation name="CreateInventory">
+      <wsdl:input message="tns:CreateInventoryRequest" name="operationInput0"/>
+      <wsdl:output message="tns:CreateInventoryResponse" name="operationOutput0"/>
+    </wsdl:operation>
+        <wsdl:operation name="UpdateInventory">
+      <wsdl:input message="tns:UpdateInventoryRequest" name="operationInput1"/>
+      <wsdl:output message="tns:UpdateInventoryResponse" name="operationOutput1"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

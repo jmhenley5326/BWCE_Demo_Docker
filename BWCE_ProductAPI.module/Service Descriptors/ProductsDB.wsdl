@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1461030234431" xmlns:tns="http://www.example.org/wsdl/1461030234390" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductsDB" targetNamespace="http://www.example.org/wsdl/1461030234390">
+	<wsdl:import location="../Schemas/ProductsDBSchema.xsd" namespace="http://www.example.org/schema/1461030234431"/>
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/wsdl/1461030234390">
+			<xsd:element name="GetProductFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GetProductFault" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GetProductsFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GetProductsFault" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CreateProductFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CreateProductFault" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="UpdateProductFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="UpdateProductFault" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="GetProductsRequest">
+		<wsdl:part element="extns:GetProductsRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetProductsResponse">
+		<wsdl:part element="extns:GetProductsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetProductRequest">
+		<wsdl:part element="extns:GetProductRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetProductResponse">
+		<wsdl:part element="extns:GetProductResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetProductFault">
+		<wsdl:part element="tns:GetProductFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetProductsFault">
+		<wsdl:part element="tns:GetProductsFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CreateProductRequest">
+		<wsdl:part element="extns:CreateProductRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CreateProductResponse">
+		<wsdl:part element="extns:CreateProductResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CreateProductFault">
+		<wsdl:part element="tns:CreateProductFault" name="parameters"/>
+	</wsdl:message>
+    <wsdl:message name="UpdateProductRequest">
+    <wsdl:part element="extns:UpdateProductRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="UpdateProductResponse">
+    <wsdl:part element="extns:UpdateProductResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateProductFault">
+		<wsdl:part element="tns:UpdateProductFault" name="parameters"/>
+	</wsdl:message>
+    <wsdl:message name="CreateProduct2Request">
+    <wsdl:part element="extns:CreateProduct2Request" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreateProduct2Response">
+    <wsdl:part element="extns:CreateProduct2Response" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ProductsDB">
+		<wsdl:operation name="GetProducts">
+			<wsdl:input message="tns:GetProductsRequest" name="GetProductsInput"/>
+			<wsdl:output message="tns:GetProductsResponse" name="GetProductsOutput"/>
+			<wsdl:fault message="tns:GetProductsFault" name="fault"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetProduct">
+			<wsdl:input message="tns:GetProductRequest" name="operationInput"/>
+			<wsdl:output message="tns:GetProductResponse" name="operationOutput"/>
+			<wsdl:fault message="tns:GetProductFault" name="fault"/>
+		</wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,101 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Quote REST API",
+    "description" : "Quote REST API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/quote" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "post-quote",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/QuoteRequest"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Quote to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Quote"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          },
+          "200" : {
+            "description" : "OK",
+            "headers" : { }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "QuoteRequest" : {
+      "type" : "object",
+      "required" : [ "LineItems", "CustomerId" ],
+      "properties" : {
+        "CustomerId" : {
+          "type" : "string"
+        },
+        "LineItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItems",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Quote" : {
+      "type" : "object",
+      "required" : [ "LineItems", "QuoteId", "TotalPrice", "CustomerId" ],
+      "properties" : {
+        "QuoteId" : {
+          "type" : "string"
+        },
+        "CustomerId" : {
+          "type" : "string"
+        },
+        "TotalPrice" : {
+          "type" : "number"
+        },
+        "LineItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItems",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "LineItems" : {
+      "type" : "object",
+      "required" : [ "quantity", "productId" ],
+      "properties" : {
+        "productId" : {
+          "type" : "string"
+        },
+        "quantity" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

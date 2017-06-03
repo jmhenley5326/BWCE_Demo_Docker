@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:Inventory="http://bwce.tibco.com/wsdl/Inventory" xmlns:Inventory_1="http://bwce.tibco.com/schema/Inventory" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_qll40AWiEeaK0ZTfqFj5Ag" targetNamespace="http://tns.tibco.com/bw/composite/BWCE_InventoryAPI.module" name="BWCE_InventoryAPI.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_MGdKoAcHEeaZMqD3MFvkQw" name="inventory" promote="ComponentInventory/inventory">
+    <sca:interface.wsdl xmi:id="_MGltgAcHEeaZMqD3MFvkQw" interface="http://xmlns.example.com/20160420095013PLT#wsdl.interface(inventory)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Inventory.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_MGqmAAcHEeaZMqD3MFvkQw" name="RestService2" path="/inventory/{productId}" docBasePath="http://localhost:7777/BWCE_InventoryAPI.module" docResourcePath="Inventory" connector="bwce_productcat.module.Inventory" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bwce_productcat.module.api.Inventory-Inventory.json">
+      <operation xmi:id="_MGrNEAcHEeaZMqD3MFvkQw" operationName="get" nickname="get-inventory" httpMethod="GET"/>
+      <operation xmi:id="_Vxk4wCwtEeacAtaZtcjhGg" operationName="put" nickname="put-inventory" httpMethod="PUT"/>
+      <parameters xmi:id="_MGtCQAcHEeaZMqD3MFvkQw">
+        <parameterMapping xmi:id="_MGtCQQcHEeaZMqD3MFvkQw" parameterName="productId" parameterType="Path"/>
+      </parameters>
+      <clientFormat>JSON</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_MGrNEQcHEeaZMqD3MFvkQw" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_ExAucOyCEeaNyK2OCbiCWQ" name="InventorySOAP" promote="ComponentInventorySOAP/InventorySOAP">
+    <sca:interface.wsdl xmi:id="_ExIDMOyCEeaNyK2OCbiCWQ" interface="http://bwce.tibco.com/wsdl/Inventory#wsdl.interface(InventorySOAP)" scaext:wsdlLocation="../Service%20Descriptors/InventorySOAP.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_XFJ-wOyDEeaNyK2OCbiCWQ" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/a233d3765bf94f2e8f94c5420858602a/SOAPServiceBinding" portTypeQName="Inventory:InventorySOAP" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/BWCE_InventoryAPI.module/Service%20Descriptors/InventorySOAP.wsdl">
+      <bindingType xmi:id="_XFShoOyDEeaNyK2OCbiCWQ"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_FBnEUOyEEea3ZI5qGs2G2A" endpointURI="/SOAPServiceBinding/inventorySOAP/" httpConnector="bwce_productcat.module.Inventory"/>
+      <operationConfiguration xmi:id="_XFU94OyDEeaNyK2OCbiCWQ" operationName="getInventory" action="getInventory" actionNeeded="true">
+        <bindingType xmi:id="_XFU94eyDEeaNyK2OCbiCWQ"/>
+        <messageConfiguration xmi:id="_XFU94uyDEeaNyK2OCbiCWQ" messageQName="Inventory:getInventoryRequest" wsdlLocation="platform:/resource/BWCE_InventoryAPI.module/Service%20Descriptors/InventorySOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XFU94-yDEeaNyK2OCbiCWQ" partName="parameters" partElementName="Inventory_1:getInventoryRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_XFU95OyDEeaNyK2OCbiCWQ" messageQName="Inventory:getInventoryResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/BWCE_InventoryAPI.module/Service%20Descriptors/InventorySOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_XFU95eyDEeaNyK2OCbiCWQ" partName="parameters" partElementName="Inventory_1:getInventoryResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_XFU95uyDEeaNyK2OCbiCWQ">
+          <inputMapping xmi:id="_XFVk8OyDEeaNyK2OCbiCWQ"/>
+          <outputMapping xmi:id="_XFVk8eyDEeaNyK2OCbiCWQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_XFVk8uyDEeaNyK2OCbiCWQ" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_qtQnEAWiEeaK0ZTfqFj5Ag" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtX70AWiEeaK0ZTfqFj5Ag" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtbmMAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtfQkAWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qti68AWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_1GUsoEfmEeeplfWDFgbleg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_MGTZoAcHEeaZMqD3MFvkQw" name="ComponentInventory" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MGTZoQcHEeaZMqD3MFvkQw" processName="bwce_productcat.module.api.Inventory"/>
+    <sca:service xmi:id="_MGXrEAcHEeaZMqD3MFvkQw" name="inventory">
+      <sca:interface.wsdl xmi:id="_MGY5MAcHEeaZMqD3MFvkQw" interface="http://xmlns.example.com/20160420095013PLT#wsdl.interface(inventory)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Inventory.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_2iWQUOyBEeaNyK2OCbiCWQ" name="ComponentInventorySOAP" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_2iWQUeyBEeaNyK2OCbiCWQ" processName="bwce_productcat.module.soap.InventorySOAP"/>
+    <sca:service xmi:id="_Ew7O4OyCEeaNyK2OCbiCWQ" name="InventorySOAP">
+      <sca:interface.wsdl xmi:id="_Ew8dAOyCEeaNyK2OCbiCWQ" interface="http://bwce.tibco.com/wsdl/Inventory#wsdl.interface(InventorySOAP)" scaext:wsdlLocation="../Service%20Descriptors/InventorySOAP.wsdl"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

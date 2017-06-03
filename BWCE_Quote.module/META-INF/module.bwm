@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_ZTKe4Ac7EeaAUfkeF9ylHA" targetNamespace="http://tns.tibco.com/bw/composite/BWCE_Quote.module" name="BWCE_Quote.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_qnEpIAdbEeaF4pB90FrPVw" name="quote" promote="ComponentQuote/quote">
+    <sca:interface.wsdl xmi:id="_qnEpJAdbEeaF4pB90FrPVw" interface="http://xmlns.example.com/20160420195456PLT#wsdl.interface(quote)" scaext:wsdlLocation="../Processes/bwce_quote/module/Quote.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_qnFQMAdbEeaF4pB90FrPVw" name="RestService" path="/quote" docBasePath="http://localhost:7777/BWCE_Quote.module" docResourcePath="Quote" connector="bwce_quote.module.Quote" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bwce_quote.module.Quote-Quote.json">
+      <operation xmi:id="_qnF3QAdbEeaF4pB90FrPVw" operationName="post" nickname="post-quote" httpMethod="POST" statusLines="_xLWXkAfhEeafybjMLOW1Sg _yRvX4AfhEeafybjMLOW1Sg _yyAzYAfhEeafybjMLOW1Sg"/>
+      <parameters xmi:id="_qnGeUAdbEeaF4pB90FrPVw"/>
+      <clientFormat>JSON</clientFormat>
+      <statusLines xmi:id="_xLWXkAfhEeafybjMLOW1Sg" statusCode="200" reasonPhrase="OK"/>
+      <statusLines xmi:id="_yRvX4AfhEeafybjMLOW1Sg" statusCode="400" reasonPhrase="Bad Request"/>
+      <statusLines xmi:id="_yyAzYAfhEeafybjMLOW1Sg" statusCode="500" reasonPhrase="Internal Server Error"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_qnF3QQdbEeaF4pB90FrPVw" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_ZaP-UAc7EeaAUfkeF9ylHA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZaXTEAc7EeaAUfkeF9ylHA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZabkgAc7EeaAUfkeF9ylHA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZafO4Ac7EeaAUfkeF9ylHA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZajgUAc7EeaAUfkeF9ylHA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZanKsAc7EeaAUfkeF9ylHA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_Zaq1EAc7EeaAUfkeF9ylHA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Jk0y8AfZEeafybjMLOW1Sg" name="MicroServiceHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SnE2kAfZEeafybjMLOW1Sg" name="MicroServicePort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gFqvIAr5EeaASuewYmzx3A" name="api_key" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_mDXo0Ef8EeeplfWDFgbleg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZbDLgEf-EeeplfWDFgbleg" name="INVENTORY_SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cPtrgEf-EeeplfWDFgbleg" name="PRICE_SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cacU0Ef-EeeplfWDFgbleg" name="DISCOUNT_SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cjBpEEf-EeeplfWDFgbleg" name="PRODUCT_SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_qnECEAdbEeaF4pB90FrPVw" name="ComponentQuote" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_qnECEQdbEeaF4pB90FrPVw" processName="bwce_quote.module.Quote"/>
+    <sca:service xmi:id="_qnECEgdbEeaF4pB90FrPVw" name="quote">
+      <sca:interface.wsdl xmi:id="_qnECEwdbEeaF4pB90FrPVw" interface="http://xmlns.example.com/20160420195456PLT#wsdl.interface(quote)" scaext:wsdlLocation="../Processes/bwce_quote/module/Quote.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

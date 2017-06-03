@@ -1,0 +1,76 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Inventory Rest API",
+    "description" : "Inventory Rest API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/inventory/{productId}" : {
+      "get" : {
+        "description" : "Check Inventory for a Product",
+        "operationId" : "get-inventory",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a integer to be returned",
+            "schema" : {
+              "type" : "integer"
+            }
+          }
+        }
+      },
+      "put" : {
+        "description" : "",
+        "operationId" : "put-inventory",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/quantity"
+          },
+          "required" : true
+        }, {
+          "name" : "productId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "quantity" : {
+      "type" : "object",
+      "required" : [ "quantity" ],
+      "properties" : {
+        "quantity" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

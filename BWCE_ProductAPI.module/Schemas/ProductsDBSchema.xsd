@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:extns="http://www.example.org/Product" xmlns:tns="http://www.example.org/schema/1461030234431" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1461030234431">
+    <import namespace="http://www.example.org/Product" schemaLocation="Product.xsd"/>
+    <element name="GetProductsRequest">
+    <complexType>
+      <sequence>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GetProductsResponse">
+    <complexType>
+      <sequence>
+                <element name="Products">
+          <complexType>
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="Products" type="extns:ProductType"/>
+            </sequence>
+          </complexType>
+        </element>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="GetProductRequest">
+    <complexType>
+      <sequence>
+        <element name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="GetProductResponse">
+    <complexType>
+      <sequence>
+                <element name="Product" type="extns:ProductType"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="CreateProductRequest">
+    <complexType>
+      <sequence>
+                <element name="Product" type="extns:ProductType"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="CreateProductResponse">
+    <complexType>
+      <sequence>
+        <element name="ack" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="UpdateProductRequest">
+    <complexType>
+      <sequence>
+                <element name="Product" type="extns:ProductType"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="UpdateProductResponse">
+    <complexType>
+      <sequence>
+        <element name="out" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="CreateProduct2Request">
+    <complexType>
+      <sequence>
+                <element name="Product" type="extns:ProductType"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="CreateProduct2Response">
+    <complexType>
+      <sequence>
+        <element name="out" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

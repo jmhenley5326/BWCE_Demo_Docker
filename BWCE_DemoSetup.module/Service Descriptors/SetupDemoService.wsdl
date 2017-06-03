@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1461787254527" xmlns:tns="http://xmlns.example.com/20160427150054" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SetupDemoService" targetNamespace="http://xmlns.example.com/20160427150054">
+  <wsdl:import namespace="http://www.example.org/schema/1461787254527"/>
+  <wsdl:message name="setupDemoRequest">
+    <wsdl:part element="extns:setupDemoRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="setupDemoResponse">
+    <wsdl:part element="extns:setupDemoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="operationFault">
+    <wsdl:part element="extns:setupDemoFault" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Service">
+    <wsdl:operation name="setupDemo">
+      <wsdl:input message="tns:setupDemoRequest" name="operationInput"/>
+      <wsdl:output message="tns:setupDemoResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:operationFault" name="Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

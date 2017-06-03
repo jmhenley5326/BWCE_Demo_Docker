@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bwce.tibco.com/schema/Inventory" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://bwce.tibco.com/schema/Inventory">
+  <element name="getInventoryRequest">
+    <complexType>
+      <sequence>
+        <element name="productId" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getInventoryResponse">
+    <complexType>
+      <sequence>
+        <element name="inventory" type="integer"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

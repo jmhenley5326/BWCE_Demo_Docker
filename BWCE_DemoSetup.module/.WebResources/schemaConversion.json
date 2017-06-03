@@ -1,0 +1,5 @@
+{"records": [{
+    "conversionType": "linked",
+    "jsonSchemaLocation": "/BWCE_Setup.module/Service Descriptors/bwce_demosetup.module.Setup-Setup.json",
+    "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+}]}

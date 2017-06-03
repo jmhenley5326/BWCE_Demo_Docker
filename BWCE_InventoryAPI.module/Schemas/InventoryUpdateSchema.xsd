@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/InventoryUpdateSchema" xmlns:tns="http://www.example.org/InventoryUpdateSchema" elementFormDefault="qualified">
+<complexType name="quantityType">
+      <sequence>
+        <element name="quantity" type="int"/>
+            </sequence>
+    </complexType>
+    <element name="quantity" type="tns:quantityType"/>
+</schema>

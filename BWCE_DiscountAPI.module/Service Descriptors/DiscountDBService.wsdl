@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://xmlns.example.com/20160420094450" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DiscountDBService" targetNamespace="http://xmlns.example.com/20160420094450">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160420094450">
+      <xsd:element name="CheckDiscountRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckDiscountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="discount" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckDiscountFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fault" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="operationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custId" type="xsd:string"/>
+                        <xsd:element name="discount" type="xsd:double"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="operationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDiscountRequest">
+    <wsdl:part element="tns:CheckDiscountRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckDiscountResponse">
+    <wsdl:part element="tns:CheckDiscountResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckDiscountFault">
+    <wsdl:part element="tns:CheckDiscountFault" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreateDiscountRequest">
+    <wsdl:part element="tns:operationRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreateDiscountResponse">
+    <wsdl:part element="tns:operationResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="DiscountDBService">
+    <wsdl:operation name="CheckDiscount">
+      <wsdl:input message="tns:CheckDiscountRequest" name="operationInput"/>
+      <wsdl:output message="tns:CheckDiscountResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:CheckDiscountFault" name="Fault"/>
+    </wsdl:operation>
+        <wsdl:operation name="CreateDiscount">
+      <wsdl:input message="tns:CreateDiscountRequest" name="operationInput0"/>
+      <wsdl:output message="tns:CreateDiscountResponse" name="operationOutput0"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

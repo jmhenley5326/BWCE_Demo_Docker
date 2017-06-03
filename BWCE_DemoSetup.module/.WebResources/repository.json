@@ -1,0 +1,7 @@
+{
+    "resources": [{
+        "location": "Service Descriptors/bwce_demosetup.module.Setup-Setup.json",
+        "type": "generated"
+    }],
+    "records": []
+}

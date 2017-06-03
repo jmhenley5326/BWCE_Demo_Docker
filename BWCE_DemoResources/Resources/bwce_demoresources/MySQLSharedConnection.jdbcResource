@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_w5BMEQywEeaZo9uXMFpVRA" name="bwce_demoresources.MySQLSharedConnection" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_w5NZUAywEeaZo9uXMFpVRA" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_w5NZUQywEeaZo9uXMFpVRA">
+    <substitutionBindings xmi:id="_xh8NQAywEeaZo9uXMFpVRA" template="username" propName="/MySQL_Props/userName"/>
+    <substitutionBindings xmi:id="_yiMwYAywEeaZo9uXMFpVRA" template="password" propName="/MySQL_Props/password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_w5NZUgywEeaZo9uXMFpVRA" jdbcDriver="com.mysql.jdbc.Driver" dbURL="jdbc:mysql://&lt;localhost>:&lt;port>/&lt;DBName>">
+      <substitutionBindings xmi:id="_0nVQ4AywEeaZo9uXMFpVRA" template="dbURL" propName="/MySQL_Props/uri"/>
+    </connectionConfig>
+    <connectionProperties xmi:id="_HCIxkEedEeei9rolOehX6g" key="jarFile" value="mysql"/>
+  </jndi:configuration>
+</jndi:namedResource>

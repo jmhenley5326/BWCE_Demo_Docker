@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_ProductAPI.module/Service Descriptors/bwce_productcat.module.api.ProductAPI-Product.json",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Product"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_ProductAPI.module/Service Descriptors/bwce_productcat.module.api.ProductAPI-Product.json",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    }
+]}

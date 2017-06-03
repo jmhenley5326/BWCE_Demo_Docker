@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_InventoryAPI.module/Service Descriptors/bwce_productcat.module.api.Inventory-Inventory.json",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_InventoryAPI.module/Service Descriptors/bwce_productcat.module.api.Inventory-Inventory.json",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/20160420095013PLT/ConceptSchema"
+    }
+]}

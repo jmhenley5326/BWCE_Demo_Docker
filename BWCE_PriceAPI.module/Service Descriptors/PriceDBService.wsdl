@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://xmlns.example.com/20160420094119" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PriceDBService" targetNamespace="http://xmlns.example.com/20160420094119">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://xmlns.example.com/20160420094119">
+      <xsd:element name="CheckPriceRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckPriceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="price" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckPriceFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fault" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="CreatePriceRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="price" type="xsd:double"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="CreatePriceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckPriceRequest">
+    <wsdl:part element="tns:CheckPriceRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckPriceResponse">
+    <wsdl:part element="tns:CheckPriceResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckPriceFault">
+    <wsdl:part element="tns:CheckPriceFault" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreatePriceRequest">
+    <wsdl:part element="tns:CreatePriceRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="CreatePriceResponse">
+    <wsdl:part element="tns:CreatePriceResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="PriceDBService">
+    <wsdl:operation name="CheckPrice">
+      <wsdl:input message="tns:CheckPriceRequest" name="operationInput"/>
+      <wsdl:output message="tns:CheckPriceResponse" name="operationOutput"/>
+      <wsdl:fault message="tns:CheckPriceFault" name="Fault"/>
+    </wsdl:operation>
+        <wsdl:operation name="CreatePrice">
+      <wsdl:input message="tns:CreatePriceRequest" name="operationInput0"/>
+      <wsdl:output message="tns:CreatePriceResponse" name="operationOutput0"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

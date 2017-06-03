@@ -1,0 +1,22 @@
+{"records": [
+    {
+        "conversionType": "generated",
+        "jsonSchemaLocation": "/BWCE_Quote.module/Service Descriptors/swagger.json",
+        "xsdSchemaTargetNamespace": "fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_Quote.module/Service Descriptors/bwce_quote.module.Quote-Quote.json",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_Quote.module/Service Descriptors/bwce_quote.module.Quote-Quote.json",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Quote"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_Quote.module/Service Descriptors/bwce_quote.module.Quote-Quote.json",
+        "xsdSchemaTargetNamespace": "http://www.example.org/QuoteRequest"
+    }
+]}

@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_DiscountAPI.module/Service Descriptors/bwce_productcat.module.api.Discount-Discount.json",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/20160420095213PLT/ConceptSchema"
+    },
+    {
+        "conversionType": "linked",
+        "jsonSchemaLocation": "/BWCE_DiscountAPI.module/Service Descriptors/bwce_productcat.module.api.Discount-Discount.json",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    }
+]}

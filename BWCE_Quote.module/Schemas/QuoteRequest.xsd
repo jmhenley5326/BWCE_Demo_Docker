@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/QuoteRequest" xmlns:tns="http://www.example.org/QuoteRequest" elementFormDefault="qualified">
+<complexType name="LineItemRequestType">
+		<sequence>
+			<element name="productId" type="string"/>
+			<element name="quantity" type="integer"/>
+		</sequence>
+	</complexType>
+	<element name="LineItemRequest" type="tns:LineItemRequestType"/>
+	<complexType name="QuoteRequestType">
+		<sequence>
+			<element name="CustomerId" type="string"/>
+			<element maxOccurs="unbounded" minOccurs="1" name="LineItems" type="tns:LineItemRequestType"/>
+		</sequence>
+	</complexType>
+	<element name="QuoteRequest" type="tns:QuoteRequestType"/>
+</schema>

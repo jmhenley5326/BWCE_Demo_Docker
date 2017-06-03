@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_qll40AWiEeaK0ZTfqFj5Ag" targetNamespace="http://tns.tibco.com/bw/composite/BWCE_PriceAPI.module" name="BWCE_PriceAPI.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_d4aJUQcHEeaZMqD3MFvkQw" name="price" promote="ComponentPrice/price">
+    <sca:interface.wsdl xmi:id="_d4aJVQcHEeaZMqD3MFvkQw" interface="http://xmlns.example.com/20160420095213PLT#wsdl.interface(price)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Price.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_d4awYAcHEeaZMqD3MFvkQw" name="RestService3" path="/price/{productId}" docBasePath="http://localhost:7777/BWCE_PriceAPI.module" docResourcePath="Price" connector="bwce_productcat.module.Price" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/bwce_productcat.module.api.Price-Price.json">
+      <operation xmi:id="_d4awYQcHEeaZMqD3MFvkQw" operationName="get" nickname="get-price" httpMethod="GET"/>
+      <parameters xmi:id="_d4bXcAcHEeaZMqD3MFvkQw">
+        <parameterMapping xmi:id="_d4bXcQcHEeaZMqD3MFvkQw" parameterName="productId" parameterType="Path"/>
+      </parameters>
+      <clientFormat>JSON</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_d4awYgcHEeaZMqD3MFvkQw" bindingName="RestService3"/>
+  </sca:service>
+  <sca:property xmi:id="_qtQnEAWiEeaK0ZTfqFj5Ag" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtX70AWiEeaK0ZTfqFj5Ag" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtbmMAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtfQkAWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qti68AWiEeaK0ZTfqFj5Ag" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fOssgEf7EeeplfWDFgbleg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_d4ZiQAcHEeaZMqD3MFvkQw" name="ComponentPrice" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_d4ZiQQcHEeaZMqD3MFvkQw" processName="bwce_productcat.module.api.Price"/>
+    <sca:service xmi:id="_d4ZiQgcHEeaZMqD3MFvkQw" name="price">
+      <sca:interface.wsdl xmi:id="_d4aJUAcHEeaZMqD3MFvkQw" interface="http://xmlns.example.com/20160420095213PLT#wsdl.interface(price)" scaext:wsdlLocation="../Processes/bwce_productcat/module/api/Price.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

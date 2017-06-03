@@ -1,0 +1,69 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Product API",
+    "description" : "Product API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/products" : {
+      "get" : {
+        "description" : "Get List of Products",
+        "operationId" : "get-product-list",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Products to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Products"
+            },
+            "headers" : { }
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Products" : {
+      "type" : "object",
+      "properties" : {
+        "Product" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Product",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Product" : {
+      "type" : "object",
+      "required" : [ "productId", "name", "description", "brand", "manufacturer" ],
+      "properties" : {
+        "productId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "brand" : {
+          "type" : "string"
+        },
+        "manufacturer" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
