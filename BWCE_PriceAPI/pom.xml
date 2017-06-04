@@ -64,12 +64,14 @@
                 </tags>
                 <ports>
                   <port>8080</port>
+                  <port>7777</port>
                 </ports>
               </build>
               <run>
                 <namingStrategy>alias</namingStrategy>
                 <ports>
                   <port>${bwdocker.port.p0}</port>
+                  <port>${bwdocker.port.p1}</port>
                 </ports>
                 <envPropertyFile>${docker.env.property.file}</envPropertyFile>
               </run>
