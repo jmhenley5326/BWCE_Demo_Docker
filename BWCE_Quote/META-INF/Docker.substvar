@@ -195,11 +195,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DemoResources///MySQL_Props/uri</name>
-			<value>jdbc:mysql://34.201.244.182/bwce_demo</value>
+			<value>jdbc:mysql://172.31.38.137/bwce_demo</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 	</globalVariables>
 </repository>
