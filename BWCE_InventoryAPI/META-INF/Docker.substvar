@@ -3,11 +3,11 @@
 	<globalVariables>
 		<globalVariable>
 			<name>//BWCE_InventoryAPI.module//SERVICE_NAME</name>
-			<value></value>
+			<value>#SERVICE_NAME#/inventory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_InventoryAPI.module//BW.APPNODE.NAME</name>
