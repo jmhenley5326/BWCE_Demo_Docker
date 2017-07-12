@@ -19,6 +19,9 @@
   <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_fOssgEf7EeeplfWDFgbleg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_e9JMcGdKEeeTD-7dZjOWDw" name="/MySQL/jdbcURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gOPn8GdKEeeTD-7dZjOWDw" name="/MySQL/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_gTR48GdKEeeTD-7dZjOWDw" name="/MySQL/password" type="property:password" scaext:simpleValue="#!HG5xH9pjDYmrL38DjlbIkQ==" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_d4ZiQAcHEeaZMqD3MFvkQw" name="ComponentPrice" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_d4ZiQQcHEeaZMqD3MFvkQw" processName="bwce_productcat.module.api.Price"/>
     <sca:service xmi:id="_d4ZiQgcHEeaZMqD3MFvkQw" name="price">

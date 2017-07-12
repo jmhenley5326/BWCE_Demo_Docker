@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_dmAaYWdKEeeTD-7dZjOWDw" name="bwce_productcat.module.PriceDB" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_dmAaYmdKEeeTD-7dZjOWDw" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_dmAaY2dKEeeTD-7dZjOWDw">
+    <substitutionBindings xmi:id="_kbXvsGdKEeeTD-7dZjOWDw" template="username" propName="/MySQL/username"/>
+    <substitutionBindings xmi:id="_kpGpsGdKEeeTD-7dZjOWDw" template="password" propName="/MySQL/password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_dmAaZGdKEeeTD-7dZjOWDw" jdbcDriver="com.mysql.jdbc.Driver" dbURL="jdbc:mysql://&lt;localhost>:&lt;port>/&lt;DBName>">
+      <substitutionBindings xmi:id="_lHZIMGdKEeeTD-7dZjOWDw" template="dbURL" propName="/MySQL/jdbcURL"/>
+    </connectionConfig>
+    <connectionProperties xmi:id="_Am5xUGdLEeeTD-7dZjOWDw" key="jarFile" value="mysql"/>
+  </jndi:configuration>
+</jndi:namedResource>
