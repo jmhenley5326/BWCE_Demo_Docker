@@ -41,6 +41,9 @@
   <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_1GUsoEfmEeeplfWDFgbleg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HEDs4GdJEeeTD-7dZjOWDw" name="/MySQL/jdbcURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_IL10UGdJEeeTD-7dZjOWDw" name="/MySQL/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_IQV50GdJEeeTD-7dZjOWDw" name="/MySQL/password" type="property:password" scaext:simpleValue="#!SIKB2zgD4o1lm/WnZm2N8Q==" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_MGTZoAcHEeaZMqD3MFvkQw" name="ComponentInventory" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MGTZoQcHEeaZMqD3MFvkQw" processName="bwce_productcat.module.api.Inventory"/>
     <sca:service xmi:id="_MGXrEAcHEeaZMqD3MFvkQw" name="inventory">

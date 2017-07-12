@@ -3,72 +3,9 @@
   <packaging:description></packaging:description>
   <packaging:properties>
     <packaging:property>
-      <packaging:name>//BWCE_DemoResources///MySQL_Props/userName</packaging:name>
+      <packaging:name>//BWCE_InventoryAPI.module//SERVICE_NAME</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources///MySQL_Props/password</packaging:name>
-      <packaging:type>property:password</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.APPNODE.NAME</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.HOST.NAME</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.MODULE.VERSION</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.DEPLOYMENTUNIT.NAME</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources///MySQL_Props/uri</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.CLOUD.PORT</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.DEPLOYMENTUNIT.VERSION</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//BWCE_DemoResources//BW.MODULE.NAME</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
@@ -87,14 +24,35 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//BWCE_InventoryAPI.module//BW.MODULE.VERSION</packaging:name>
+      <packaging:name>//BWCE_InventoryAPI.module//BW.DEPLOYMENTUNIT.NAME</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//BWCE_InventoryAPI.module//BW.DEPLOYMENTUNIT.NAME</packaging:name>
+      <packaging:name>//BWCE_InventoryAPI.module//BW.DEPLOYMENTUNIT.VERSION</packaging:name>
+      <packaging:type>xsd:string</packaging:type>
+      <packaging:visibility>private</packaging:visibility>
+      <packaging:scalable>true</packaging:scalable>
+      <packaging:overrideValue>false</packaging:overrideValue>
+    </packaging:property>
+    <packaging:property>
+      <packaging:name>//BWCE_InventoryAPI.module///MySQL/jdbcURL</packaging:name>
+      <packaging:type>xsd:string</packaging:type>
+      <packaging:visibility>public</packaging:visibility>
+      <packaging:scalable>true</packaging:scalable>
+      <packaging:overrideValue>false</packaging:overrideValue>
+    </packaging:property>
+    <packaging:property>
+      <packaging:name>//BWCE_InventoryAPI.module///MySQL/username</packaging:name>
+      <packaging:type>xsd:string</packaging:type>
+      <packaging:visibility>public</packaging:visibility>
+      <packaging:scalable>true</packaging:scalable>
+      <packaging:overrideValue>false</packaging:overrideValue>
+    </packaging:property>
+    <packaging:property>
+      <packaging:name>//BWCE_InventoryAPI.module//BW.MODULE.VERSION</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
@@ -108,13 +66,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//BWCE_InventoryAPI.module//BW.DEPLOYMENTUNIT.VERSION</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//BWCE_InventoryAPI.module//BW.MODULE.NAME</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
@@ -122,8 +73,8 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//BWCE_InventoryAPI.module//SERVICE_NAME</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
+      <packaging:name>//BWCE_InventoryAPI.module///MySQL/password</packaging:name>
+      <packaging:type>property:password</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -131,13 +82,8 @@
   </packaging:properties>
   <packaging:modules>
     <packaging:module>
-      <packaging:symbolicName>BWCE_DemoResources</packaging:symbolicName>
-      <packaging:technologyType>bw-sharedmodule,osgi-bundle</packaging:technologyType>
-      <packaging:technologyVersion>1.0.0.qualifier</packaging:technologyVersion>
-    </packaging:module>
-    <packaging:module>
       <packaging:symbolicName>BWCE_InventoryAPI.module</packaging:symbolicName>
-      <packaging:technologyType>bw-appmodule,osgi-bundle</packaging:technologyType>
+      <packaging:technologyType>osgi-bundle,bw-appmodule</packaging:technologyType>
       <packaging:technologyVersion>1.0.0.qualifier</packaging:technologyVersion>
     </packaging:module>
   </packaging:modules>
