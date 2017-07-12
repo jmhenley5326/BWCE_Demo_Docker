@@ -1696,7 +1696,7 @@
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
             <bpws:from>
-                <bpws:literal>bwce_demoresources.MySQLSharedConnection</bpws:literal>
+                <bpws:literal>bwce_productcat.module.ProductDB</bpws:literal>
             </bpws:from>
         </bpws:variable>
         <bpws:variable messageType="ns2:GetProductsResponse"
