@@ -19,6 +19,9 @@
   <sca:property xmi:id="_qtnMYAWiEeaK0ZTfqFj5Ag" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_qtq2wAWiEeaK0ZTfqFj5Ag" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_-Y0VEEfNEeedDspHRh-jnQ" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_8FdGwGdHEeeTD-7dZjOWDw" name="/MySQL/jdbcURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__CzosGdHEeeTD-7dZjOWDw" name="/MySQL/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__JI6MGdHEeeTD-7dZjOWDw" name="/MySQL/password" type="property:password" scaext:simpleValue="#!le/2H6MsPUDO+ga5zgYJpw==" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_b0GA0AcKEeasLes9HPTFQg" name="ComponentDiscount" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_b0GA0QcKEeasLes9HPTFQg" processName="bwce_productcat.module.api.Discount"/>
     <sca:service xmi:id="_b0IdEAcKEeasLes9HPTFQg" name="discount">
