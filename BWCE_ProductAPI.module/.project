@@ -3,7 +3,6 @@
 	<name>BWCE_ProductAPI.module</name>
 	<comment></comment>
 	<projects>
-		<project>BWCE_DemoResources</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
