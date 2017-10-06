@@ -483,8 +483,113 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="7"
+                                    x="12"
                                     xsi:type="notation:Bounds" y="10"/>
+                                    </children>
+
+                                    <children
+                                    description="Log Incoming Quote Request"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    height="55"
+                                    width="107"
+                                    x="20"
+                                    xsi:type="notation:Bounds" y="90"/>
+                                    </children>
+
+                                    <children
+                                    description="Delegate to Quote Business Process"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    height="55"
+                                    width="137"
+                                    x="134"
+                                    xsi:type="notation:Bounds" y="90"/>
+                                    </children>
+
+                                    <children
+                                    description="Format and respond to Consumer"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    height="55"
+                                    width="137"
+                                    x="282"
+                                    xsi:type="notation:Bounds" y="90"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -510,8 +615,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="122"
-                                    width="416" xsi:type="notation:Bounds"/>
+                                    height="156"
+                                    width="429" xsi:type="notation:Bounds"/>
                                     </children>
 
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -530,8 +635,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
                                     <layoutConstraint
-                                    height="122"
-                                    width="419"
+                                    height="156"
+                                    width="432"
                                     x="15" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -621,7 +726,7 @@
                                     height="40"
                                     width="40"
                                     x="135"
-                                    xsi:type="notation:Bounds" y="22"/>
+                                    xsi:type="notation:Bounds" y="4"/>
                                     </children>
 
                                     <children type="4002 bw.generalactivities.log">
@@ -677,7 +782,42 @@
                                     height="40"
                                     width="40"
                                     x="-19"
-                                    xsi:type="notation:Bounds" y="22"/>
+                                    xsi:type="notation:Bounds" y="4"/>
+                                    </children>
+
+                                    <children
+                                    description="Catch and Log underlying Business Exception and Respond to Consumer"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    height="55"
+                                    width="235"
+                                    x="9"
+                                    xsi:type="notation:Bounds" y="84"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -701,7 +841,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@faultHandlers/@catch.0/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="113"
+                                    height="173"
                                     width="338" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -716,13 +856,15 @@
 
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <styles
+                                    restoreHeight="122"
+                                    restoreWidth="389" xsi:type="bwnotation:ResizingStyle"/>
 
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@faultHandlers/@catch.0"/>
 
                                     <layoutConstraint
-                                    height="120"
-                                    width="359" xsi:type="notation:Bounds"/>
+                                    height="179"
+                                    width="389" xsi:type="notation:Bounds"/>
                                     </children>
 
                                     <children type="4029">
@@ -806,8 +948,43 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="75"
-                                    xsi:type="notation:Bounds" y="16"/>
+                                    x="190"
+                                    xsi:type="notation:Bounds" y="19"/>
+                                    </children>
+
+                                    <children
+                                    description="Catch any other exception and respond to Consumer"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    height="55"
+                                    width="204"
+                                    x="6"
+                                    xsi:type="notation:Bounds" y="25"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -831,7 +1008,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="118"
+                                    height="119"
                                     width="338" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -846,14 +1023,17 @@
 
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <styles
+                                    restoreHeight="128"
+                                    restoreWidth="389"
+                                    restoreY="122" xsi:type="bwnotation:ResizingStyle"/>
 
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@faultHandlers/@catchAll"/>
 
                                     <layoutConstraint
-                                    height="126"
+                                    height="128"
                                     width="389"
-                                    xsi:type="notation:Bounds" y="119"/>
+                                    xsi:type="notation:Bounds" y="122"/>
                                     </children>
 
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -872,10 +1052,10 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@faultHandlers"/>
 
                                     <layoutConstraint
-                                    height="272"
+                                    height="333"
                                     width="399"
                                     x="21"
-                                    xsi:type="notation:Bounds" y="122"/>
+                                    xsi:type="notation:Bounds" y="156"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -889,8 +1069,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
                                     <layoutConstraint
-                                    height="395"
-                                    width="459" xsi:type="notation:Bounds"/>
+                                    height="490"
+                                    width="472" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -949,8 +1129,8 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
                                     <layoutConstraint
-                                    height="414"
-                                    width="521"
+                                    height="509"
+                                    width="534"
                                     x="2" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -964,7 +1144,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
-                                    height="444" width="540" xsi:type="notation:Bounds"/>
+                                    height="539" width="553" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -979,8 +1159,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="499"
-                                    width="550" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="549"
+                                    width="563" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -991,7 +1171,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="499" width="553" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="549" width="566" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
@@ -1002,7 +1182,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="523" width="553" x="1"
+                    <layoutConstraint height="573" width="566" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -1012,7 +1192,7 @@
             <styles fontName=".Helvetica Neue DeskInterface"
                 lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="575" width="895" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="625" width="908" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -1048,6 +1228,36 @@
             <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.1"/>
             <bendpoints points="[25, -1, -92, 0]$[93, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, 19, 56]$[-19, -31, 0, 25]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.31386861313868614,0.0)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[6, 0, -3, 56]$[6, -31, -3, 25]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.32116788321167883,0.0)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[-23, -37, 31, 56]$[-50, -68, 4, 25]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(1.0,0.6727272727272727)" xsi:type="notation:IdentityAnchor"/>
         </edges>
     </notation:Diagram>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
