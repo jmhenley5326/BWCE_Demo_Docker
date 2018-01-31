@@ -59,7 +59,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DemoSetup.module///MySQL/jdbcUrl</name>
-			<value>#BWCE_Demo.credentials.uri#</value>
+			<value>#BWCE_Demo.credentials.jdbcUrl#</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

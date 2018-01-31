@@ -11,6 +11,7 @@
   <artifactId>BWCE_DiscountAPI</artifactId>
   <packaging>bwear</packaging>
   <properties>
+    <pcf.property.file>pcfdev.properties</pcf.property.file>
     <docker.env.property.file>docker-host-env-dev.properties</docker.env.property.file>
     <docker.property.file>docker-dev.properties</docker.property.file>
   </properties>
@@ -19,7 +20,7 @@
       <plugin>
         <groupId>com.tibco.plugins</groupId>
         <artifactId>bw6-maven-plugin</artifactId>
-        <version>1.2.1</version>
+        <version>1.3.0</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>
@@ -37,6 +38,7 @@
         <configuration>
           <files>
             <file>${docker.property.file}</file>
+            <file>${pcf.property.file}</file>
           </files>
         </configuration>
       </plugin>
@@ -75,6 +77,44 @@
               </run>
             </image>
           </images>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.cloudfoundry</groupId>
+        <artifactId>cf-maven-plugin</artifactId>
+        <version>1.1.3</version>
+        <configuration>
+          <server>${bwpcf.server}</server>
+          <target>${bwpcf.target}</target>
+          <trustSelfSignedCerts>${bwpcf.trustSelfSignedCerts}</trustSelfSignedCerts>
+          <org>${bwpcf.org}</org>
+          <space>${bwpcf.space}</space>
+          <appname>${bwpcf.appName}</appname>
+          <url>${bwpcf.url}</url>
+          <instances>${bwpcf.instances}</instances>
+          <skip>false</skip>
+          <memory>${bwpcf.memory}</memory>
+          <buildpack>${bwpcf.buildpack}</buildpack>
+          <env>
+          	<APP_CONFIG_PROFILE>${bwpcf.env.0}</APP_CONFIG_PROFILE>
+            <BW_PROFILE>${bwpcf.env.0}</BW_PROFILE>
+            <BW_LOGLEVEL>${bwpcf.env.1}</BW_LOGLEVEL>
+            <SERVICE_NAME>${bwpcf.env.3}</SERVICE_NAME>
+          </env>
+          <services>
+            <service>
+              <name>discovery-service</name>
+              <label>p-service-registry</label>
+              <version></version>
+              <plan>standard</plan>
+            </service>
+            <service>
+              <name>BWCE_Demo</name>
+              <label>p-mysql</label>
+              <version></version>
+              <plan>100mb</plan>
+            </service>
+          </services>
         </configuration>
       </plugin>
     </plugins>

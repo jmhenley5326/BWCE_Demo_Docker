@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_vU7isQXXEeadWcHRqJtPCA" name="bwce_productcat.module.Discount" type="httpconnector:HttpConnectorConfiguration">
-  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_vU7isgXXEeadWcHRqJtPCA">
-    <substitutionBindings xmi:id="_vU7iswXXEeadWcHRqJtPCA" template="host" propName="BW.HOST.NAME"/>
-    <substitutionBindings xmi:id="_Aq2pIEfOEeedDspHRh-jnQ" template="svcRegServiceName" propName="SERVICE_NAME"/>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_o_-PMQXuEeitcurGBrzU8Q" name="bwce_productcat.module.Discount" type="httpconnector:HttpConnectorConfiguration">
+  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_o_-2QAXuEeitcurGBrzU8Q" acceptQueueSize="-1" newAccessLogs="true">
+    <substitutionBindings xmi:id="_o_-2QQXuEeitcurGBrzU8Q" template="host" propName="BW.HOST.NAME"/>
+    <substitutionBindings xmi:id="_o_-2QgXuEeitcurGBrzU8Q" template="port" propName="BW.CLOUD.PORT"/>
+    <substitutionBindings xmi:id="_q0jLMAXuEeitcurGBrzU8Q" template="svcRegServiceName" propName="SERVICE_NAME"/>
   </jndi:configuration>
 </jndi:namedResource>

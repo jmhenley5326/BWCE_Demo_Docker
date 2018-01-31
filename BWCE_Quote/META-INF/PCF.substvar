@@ -2,7 +2,7 @@
 <repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
 	<globalVariables>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.APPNODE.NAME</name>
+			<name>//BWCE_Quote.module//BW.APPNODE.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -10,7 +10,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.HOST.NAME</name>
+			<name>//BWCE_Quote.module//BW.HOST.NAME</name>
 			<value>localhost</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -18,7 +18,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.MODULE.VERSION</name>
+			<name>//BWCE_Quote.module//BW.MODULE.VERSION</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -26,7 +26,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.DEPLOYMENTUNIT.NAME</name>
+			<name>//BWCE_Quote.module//BW.DEPLOYMENTUNIT.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -34,15 +34,15 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.CLOUD.PORT</name>
-			<value>8084</value>
+			<name>//BWCE_Quote.module//BW.CLOUD.PORT</name>
+			<value>8085</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.DEPLOYMENTUNIT.VERSION</name>
+			<name>//BWCE_Quote.module//BW.DEPLOYMENTUNIT.VERSION</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -50,7 +50,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//BW.MODULE.NAME</name>
+			<name>//BWCE_Quote.module//BW.MODULE.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -58,7 +58,55 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module//SERVICE_NAME</name>
+			<name>//BWCE_Quote.module//MicroServiceHost</name>
+			<value>localhost</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//MicroServicePort</name>
+			<value>8080</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Integer</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//api_key</name>
+			<value>yg7h8vakgd7raf8523583eaw</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//SERVICE_NAME</name>
+			<value>#SERVICE_NAME#-quote</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>true</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//PRODUCT_SERVICE_NAME</name>
+			<value>#SERVICE_NAME#-product</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>true</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//INVENTORY_SERVICE_NAME</name>
+			<value>#SERVICE_NAME#-inventory</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>true</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_Quote.module//PRICE_SERVICE_NAME</name>
 			<value>#SERVICE_NAME#-price</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -66,29 +114,12 @@
 			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_PriceAPI.module///MySQL/jdbcURL</name>
-			<value>#BWCE_Demo.credentials.jdbcUrl#</value>
+			<name>//BWCE_Quote.module//DISCOUNT_SERVICE_NAME</name>
+			<value>#SERVICE_NAME#-discount</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//BWCE_PriceAPI.module///MySQL/username</name>
-			<value>#BWCE_Demo.credentials.username#</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>true</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//BWCE_PriceAPI.module///MySQL/password</name>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Password</type>
-			<isOverride>true</isOverride>
-			<useLookupValue>true</useLookupValue>
-			<lookupValue>#BWCE_Demo.credentials.password#</lookupValue>
 		</globalVariable>
 	</globalVariables>
 </repository>

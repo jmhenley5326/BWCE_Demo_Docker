@@ -59,35 +59,36 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_ProductAPI.module//SERVICE_NAME</name>
-			<value></value>
+			<value>#SERVICE_NAME#-product</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_ProductAPI.module///MySQL/jdbcURL</name>
-			<value></value>
+			<value>#BWCE_Demo.credentials.jdbcUrl#</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_ProductAPI.module///MySQL/username</name>
-			<value></value>
+			<value>#BWCE_Demo.credentials.username#</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_ProductAPI.module///MySQL/password</name>
-			<value>#!PyN5/0If5DDLAxZQ4BQ25A==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
+			<useLookupValue>true</useLookupValue>
+			<lookupValue>#BWCE_Demo.credentials.password#</lookupValue>
 		</globalVariable>
 	</globalVariables>
 </repository>

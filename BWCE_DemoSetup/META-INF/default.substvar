@@ -75,11 +75,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DemoSetup.module///MySQL/password</name>
-			<value>#!X7EVqQzb3yzsrVPgDAAcx4JR0EPgMdJpGKF1MqthXk0=</value>
+			<value>#!/tl6R+I2dIHVx8hdGRW+s3rq8N79utWgsYoyXeYA/Ls=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 	</globalVariables>
 </repository>

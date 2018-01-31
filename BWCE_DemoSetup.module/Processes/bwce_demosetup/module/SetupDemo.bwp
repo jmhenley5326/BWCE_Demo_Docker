@@ -419,8 +419,9 @@
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
         createdOn="Wed Apr 27 15:00:54 CDT 2016" description=""
-        modifiers="public" productVersion="1.0.0 V48 2015-11-20"
-        scalable="true" singleton="true" stateless="true" type="IT"/>
+        extraErrorVars="false" modifiers="public"
+        productVersion="1.0.0 V48 2015-11-20" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -1344,8 +1345,6 @@
             </bpws:reply>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+3eb49f8d-3173-487d-aff3-3a805b77d946+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;create_products_table-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;CREATE TABLE IF NOT EXISTS product (productId int,name text,description text,brand text,manufacturer text);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="create_products_table-input"
                     name="create_products_table"
                     outputVariable="create_products_table"
@@ -1380,8 +1379,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2794ebf1-13f2-45fd-b758-010edea1d37b+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;create_inventory_table-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;CREATE TABLE IF NOT EXISTS inventory (productId text, quantity integer);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="create_inventory_table-input"
                     name="create_inventory_table"
                     outputVariable="create_inventory_table"
@@ -1416,8 +1413,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+7bf6c1bc-4a50-40d1-b33c-6eb7ed333212+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;create_price_table-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;CREATE TABLE IF NOT EXISTS price (productId text, price double);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="create_price_table-input"
                     name="create_price_table"
                     outputVariable="create_price_table"
@@ -1452,8 +1447,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+ade34f7c-435f-4861-9e5c-3e4da7e981af+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;create_customer_table-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;CREATE TABLE IF NOT EXISTS customer (custId text, name text);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="create_customer_table-input"
                     name="create_customer_table"
                     outputVariable="create_customer_table"
@@ -1488,8 +1481,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+046735ba-dc19-4b90-834f-eab4357eb2c8+input&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;create_discount_table-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;CREATE TABLE IF NOT EXISTS discount (custId text, discount double);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="create_discount_table-input"
                     name="create_discount_table"
                     outputVariable="create_discount_table"
@@ -1524,8 +1515,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+fe65e8d7-aa07-4336-aae3-48fb5232f017+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;seed_products-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;INSERT INTO product VALUES ('1','Suction Line Damper', '','',''),('2','Piston Rod Clamp', '','',''),('3','Enhanced Horizontal Subsea Tree', '','',''),('4','Enhanced Vertical Deepwater Tree', '','','');&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="seed_products-input"
                     name="seed_products" outputVariable="seed_products"
                     tibex:xpdlId="fe65e8d7-aa07-4336-aae3-48fb5232f017" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1559,8 +1548,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+d3e651f9-169b-4524-83f8-50148b8ebd8e+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;seed_inventory-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;INSERT INTO inventory VALUES ('1',300),('2',150),('3',10),('4',7);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="seed_inventory-input"
                     name="seed_inventory"
                     outputVariable="seed_inventory"
@@ -1595,8 +1582,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2eec9969-e2ba-4587-933e-8b6a9ebbcdef+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;seed_price-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;INSERT INTO price VALUES ('1',150),('2',300),('3',1500000),('4',1750000);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="seed_price-input" name="seed_price"
                     outputVariable="seed_price"
                     tibex:xpdlId="2eec9969-e2ba-4587-933e-8b6a9ebbcdef" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1630,8 +1615,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+9baecfb9-47e7-4c5f-8ad2-20030a592048+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;seed_customer-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;INSERT INTO customer VALUES ('1','ACME Inc.');&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="seed_customer-input"
                     name="seed_customer" outputVariable="seed_customer"
                     tibex:xpdlId="9baecfb9-47e7-4c5f-8ad2-20030a592048" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1665,8 +1648,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2bc811c9-657b-4a49-81bb-2fc4742bec85+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;seed_discount-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;INSERT INTO discount VALUES ('1',.2);&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="seed_discount-input"
                     name="seed_discount" outputVariable="seed_discount"
                     tibex:xpdlId="2bc811c9-657b-4a49-81bb-2fc4742bec85" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1700,8 +1681,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+e469f0f2-d2bc-45ca-b451-73e42dbbc4d7+input&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;drop_tables-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputType>&lt;statement>&lt;xsl:value-of select=&quot;&amp;quot;DROP TABLE IF EXISTS product, price, inventory, discount, customer&amp;quot;&quot;/>&lt;/statement>&lt;/tns:ActivityInputType>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="drop_tables-input" name="drop_tables"
                     outputVariable="drop_tables"
                     tibex:xpdlId="e469f0f2-d2bc-45ca-b451-73e42dbbc4d7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
