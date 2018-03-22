@@ -1,0 +1,56 @@
+<process-dir height="366" id="bwce_productcat.module.worker.DiscountDB" name="bwce_productcat.module.worker.DiscountDB" type="process" width="617" x="140" y="20">
+<partnerLinks>
+<partner-link id="DiscountDB" myRole="use" name="DiscountDB" partnerLinkType="partnerLinkType"/>
+</partnerLinks>
+<ProcessInfo createdBy="jasonhenley" createdOn="Wed Apr 20 09:44:50 CDT 2016" description="" modifiedBy="" modifiedOn="" modifiers="public" productVersion="1.0.0 V48 2015-11-20" scalable="true" singleton="true" stateless="true" type="IT"/>
+<pick collapse="false" createInstance="true" height="317" id="2d9ba3e7-65e9-422b-abf1-c9f8fa728e61" name="pick" type="pick" width="465" x="76" y="44">
+<on-message height="150" id="2df48ae6-251e-46e0-8a1a-0ab61063b27f" input="true" operation="CheckDiscount" output="true" partner-link="DiscountDB" portType="DiscountDBService" type="onMessage" variable="CheckDiscount" width="447" x="9" y="11">
+<activity-dir height="16" id="aa31c6f3-789a-4825-ba77-1c2fc16c4f67" name="OnMessageStart" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="6968f926-d6a1-48a1-83b9-91ee4ff42aba" label="" linkType="SUCCESS" name="JDBCQueryToEnd" points="[[234,68],[319,68]]" source="62a947fb-c897-4dcd-8aa0-385ebe534c9f" target="dc2a0cd7-85bf-4c3d-839e-2afcf263caad"/>
+<activity-dir height="48" id="62a947fb-c897-4dcd-8aa0-385ebe534c9f" name="JDBCQuery" type="bw.jdbc.JDBCQuery" width="48" x="185" y="44">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+5ace7d6d-410c-4c83-8239-42bc18d41068+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CheckDiscount&quot;/&gt;&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcQueryActivityInput&gt;&lt;custId&gt;&lt;xsl:value-of select=&quot;$CheckDiscount/parameters/tns1:CheckDiscountRequest/custId&quot;/&gt;&lt;/custId&gt;&lt;/tns:jdbcQueryActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+5ace7d6d-410c-4c83-8239-42bc18d41068+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CheckDiscount.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcQueryActivityInput&gt;&#10;            &lt;custId&gt;&#10;                &lt;xsl:value-of select=&quot;$CheckDiscount.parameters/custId&quot;/&gt;&#10;            &lt;/custId&gt;&#10;        &lt;/tns:jdbcQueryActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.JDBCQuery">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+<value maxRows="100" sharedResourceProperty="jdbcProperty" sqlStatement="SELECT `discount`&#10;  FROM `discount`&#10;  WHERE `custId` = ?&#10;" timeout="10" type="jdbcPalette:JDBCQueryActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="custId"/>
+<columnMetadata columnName="discount" dataType="8" status="OptionalElement" typeName="DOUBLE"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="dc2a0cd7-85bf-4c3d-839e-2afcf263caad" name="End" operation="CheckDiscount" partnerLink="DiscountDB" portType="DiscountDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="operationOut-input" width="48" x="319" y="44">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&lt;tns:CheckDiscountResponse&gt;&lt;parameters&gt;&lt;tns:CheckDiscountResponse&gt;&lt;discount&gt;&lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/discount&quot;/&gt;&lt;/discount&gt;&lt;/tns:CheckDiscountResponse&gt;&lt;/parameters&gt;&lt;/tns:CheckDiscountResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&#10;    &lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:CheckDiscountResponse&gt;&#10;            &lt;discount&gt;&#10;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/discount&quot;/&gt;&#10;            &lt;/discount&gt;&#10;        &lt;/tns:CheckDiscountResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="26b99ed6-29ad-4320-b723-d2d21bc74dea" name="OnMessageEnd" type="onMessageEnd" width="16" x="445" y="63"/>
+</on-message>
+<on-message height="147" id="1d197f97-3df0-42f9-8d87-3d27f325e80d" input="true" operation="CreateDiscount" output="true" partner-link="DiscountDB" portType="DiscountDBService" type="onMessage" variable="CreateDiscount" width="447" x="9" y="161">
+<activity-dir height="16" id="f9b03342-c4af-4ffc-9f51-a1b25a8d551b" name="OnMessageStart1" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="b86fa55f-e686-4efb-b07a-9fc331803bdd" label="" linkType="SUCCESS" name="JDBCUpdateToReply" points="[[222,91],[266,91],[266,96],[311,96]]" source="31397e95-14c9-4278-a567-e0c001a0e9f8" target="d3669bc2-c40c-42b4-a484-dbcd0da58ff3"/>
+<activity-dir height="48" id="31397e95-14c9-4278-a567-e0c001a0e9f8" name="JDBCUpdate" type="bw.jdbc.update" width="48" x="173" y="67">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f4f6b4ec-96fc-45a4-ba21-5d7a21fc8eda+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CreateDiscount&quot;/&gt;&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcUpdateActivityInput&gt;&lt;custId&gt;&lt;xsl:value-of select=&quot;$CreateDiscount/parameters/tns2:operationRequest/custId&quot;/&gt;&lt;/custId&gt;&lt;discount&gt;&lt;xsl:value-of select=&quot;$CreateDiscount/parameters/tns2:operationRequest/discount&quot;/&gt;&lt;/discount&gt;&lt;/tns:jdbcUpdateActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f4f6b4ec-96fc-45a4-ba21-5d7a21fc8eda+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CreateDiscount.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcUpdateActivityInput&gt;&#10;            &lt;custId&gt;&#10;                &lt;xsl:value-of select=&quot;$CreateDiscount.parameters/custId&quot;/&gt;&#10;            &lt;/custId&gt;&#10;            &lt;discount&gt;&#10;                &lt;xsl:value-of select=&quot;$CreateDiscount.parameters/discount&quot;/&gt;&#10;            &lt;/discount&gt;&#10;        &lt;/tns:jdbcUpdateActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.update">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
+<value sharedResourceProperty="jdbcProperty" sqlStatement="INSERT INTO `discount` (`custId`,&#10;  `discount`)&#10;  VALUES (?, ?)" timeout="10" type="jdbcPalette:JDBCUpdateActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="custId"/>
+<PreparedParameters DataType="8" DataTypeDisplayValue="DOUBLE" ParameterName="discount"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="d3669bc2-c40c-42b4-a484-dbcd0da58ff3" name="Reply" operation="CreateDiscount" partnerLink="DiscountDB" portType="DiscountDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="Reply-input" width="48" x="311" y="72">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&lt;tns:CreateDiscountResponse&gt;&lt;parameters&gt;&lt;tns:operationResponse&gt;&lt;out&gt;&lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&lt;/out&gt;&lt;/tns:operationResponse&gt;&lt;/parameters&gt;&lt;/tns:CreateDiscountResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094450&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:operationResponse&gt;&#10;            &lt;out&gt;&#10;                &lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&#10;            &lt;/out&gt;&#10;        &lt;/tns:operationResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="50e5e3d7-304c-4dd0-82a5-5629f9e3ef1d" name="OnMessageEnd1" type="onMessageEnd" width="16" x="445" y="63"/>
+</on-message>
+</pick>
+</process-dir>

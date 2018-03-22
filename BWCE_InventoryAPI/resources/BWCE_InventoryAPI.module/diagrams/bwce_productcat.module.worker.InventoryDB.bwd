@@ -1,0 +1,80 @@
+<process-dir height="557" id="bwce_productcat.module.worker.InventoryDB" name="bwce_productcat.module.worker.InventoryDB" type="process" width="610" x="140" y="20">
+<partnerLinks>
+<partner-link id="InventoryDB" myRole="use" name="InventoryDB" partnerLinkType="partnerLinkType"/>
+</partnerLinks>
+<ProcessInfo createdBy="jasonhenley" createdOn="Wed Apr 20 09:34:37 CDT 2016" description="" modifiedBy="" modifiedOn="" modifiers="public" productVersion="1.0.0 V48 2015-11-20" scalable="true" singleton="true" stateless="true" type="IT"/>
+<pick collapse="false" createInstance="true" height="508" id="efd68a0a-f14d-45af-adb8-9fc32e557e52" name="pick" type="pick" width="458" x="76" y="44">
+<on-message height="143" id="c60ba65e-10cb-4325-9612-bd71702736a6" input="true" operation="CheckInventory" output="true" partner-link="InventoryDB" portType="InventoryDBService" type="onMessage" variable="CheckInventory" width="440" x="9" y="11">
+<activity-dir height="16" id="9030b728-3926-456a-ba7d-26aab3996e5c" name="OnMessageStart" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="dc3456f5-703d-49ca-8262-ead6df3f5d50" label="" linkType="SUCCESS" name="JDBCQueryToEnd" points="[[206,57],[307,57]]" source="2dcaa7e2-25cb-40b1-ab37-cb29bbfd7a80" target="a7ea0bf0-3ce1-4a88-a93e-3ec864619cb7"/>
+<activity-dir height="48" id="2dcaa7e2-25cb-40b1-ab37-cb29bbfd7a80" name="JDBCQuery" type="bw.jdbc.JDBCQuery" width="48" x="157" y="33">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+05fc5d8a-e961-448f-92fc-3e73ee488ea3+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CheckInventory&quot;/&gt;&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcQueryActivityInput&gt;&lt;productId&gt;&lt;xsl:value-of select=&quot;$CheckInventory/parameters/tns1:CheckInventoryRequest/productId&quot;/&gt;&lt;/productId&gt;&lt;/tns:jdbcQueryActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+05fc5d8a-e961-448f-92fc-3e73ee488ea3+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CheckInventory.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcQueryActivityInput&gt;&#10;            &lt;productId&gt;&#10;                &lt;xsl:value-of select=&quot;$CheckInventory.parameters/productId&quot;/&gt;&#10;            &lt;/productId&gt;&#10;        &lt;/tns:jdbcQueryActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.JDBCQuery">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+<value maxRows="100" sharedResourceProperty="jdbcProperty" sqlStatement="SELECT `quantity`&#10;  FROM `inventory`&#10;  WHERE `productId` = ?&#10;" timeout="10" type="jdbcPalette:JDBCQueryActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="productId"/>
+<columnMetadata columnName="quantity" dataType="4" status="OptionalElement" typeName="INT"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="a7ea0bf0-3ce1-4a88-a93e-3ec864619cb7" name="End" operation="CheckInventory" partnerLink="InventoryDB" portType="InventoryDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="operationOut-input" width="48" x="307" y="33">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&lt;tns:CheckInventoryResponse&gt;&lt;parameters&gt;&lt;tns:CheckInventoryResponse&gt;&lt;quantity&gt;&lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/quantity&quot;/&gt;&lt;/quantity&gt;&lt;/tns:CheckInventoryResponse&gt;&lt;/parameters&gt;&lt;/tns:CheckInventoryResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&#10;    &lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:CheckInventoryResponse&gt;&#10;            &lt;quantity&gt;&#10;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/quantity&quot;/&gt;&#10;            &lt;/quantity&gt;&#10;        &lt;/tns:CheckInventoryResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="cdb55e17-9c1f-41b7-add1-1538f1d9cfbd" name="OnMessageEnd" type="onMessageEnd" width="16" x="438" y="63"/>
+</on-message>
+<on-message height="166" id="fa1f3af9-13a5-4189-af87-73130bd3ed35" input="true" operation="CreateInventory" output="true" partner-link="InventoryDB" portType="InventoryDBService" type="onMessage" variable="CreateInventory" width="440" x="9" y="154">
+<activity-dir height="16" id="41e5ff2a-1987-4988-b634-e8c2d5bb42ae" name="OnMessageStart1" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="4eb6b626-164e-45be-b70c-1160cb2dd4eb" label="" linkType="SUCCESS" name="JDBCUpdateToReply" points="[[212,81],[255,81],[255,82],[298,82]]" source="c9ac17fb-a5fa-4775-924f-89752524fc34" target="3cac6854-970a-46f9-8398-f630ce59a415"/>
+<activity-dir height="48" id="c9ac17fb-a5fa-4775-924f-89752524fc34" name="JDBCUpdate" type="bw.jdbc.update" width="48" x="163" y="57">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+acff3fff-243d-498a-9b1c-2b01d2e4dcbd+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CreateInventory&quot;/&gt;&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcUpdateActivityInput&gt;&lt;productId&gt;&lt;xsl:value-of select=&quot;$CreateInventory/parameters/tns1:CreateInventoryRequest/productId&quot;/&gt;&lt;/productId&gt;&lt;quantity&gt;&lt;xsl:value-of select=&quot;xsd:int($CreateInventory/parameters/tns1:CreateInventoryRequest/quantity)&quot;/&gt;&lt;/quantity&gt;&lt;/tns:jdbcUpdateActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+acff3fff-243d-498a-9b1c-2b01d2e4dcbd+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CreateInventory.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcUpdateActivityInput&gt;&#10;            &lt;productId&gt;&#10;                &lt;xsl:value-of select=&quot;$CreateInventory.parameters/productId&quot;/&gt;&#10;            &lt;/productId&gt;&#10;            &lt;quantity&gt;&#10;                &lt;xsl:value-of select=&quot;xsd:int($CreateInventory.parameters/quantity)&quot;/&gt;&#10;            &lt;/quantity&gt;&#10;        &lt;/tns:jdbcUpdateActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.update">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
+<value sharedResourceProperty="jdbcProperty" sqlStatement="INSERT INTO `inventory` (`productId`,&#10;  `quantity`)&#10;  VALUES (?, ?)" timeout="10" type="jdbcPalette:JDBCUpdateActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="productId"/>
+<PreparedParameters DataType="4" DataTypeDisplayValue="INTEGER" ParameterName="quantity"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="3cac6854-970a-46f9-8398-f630ce59a415" name="Reply" operation="CreateInventory" partnerLink="InventoryDB" portType="InventoryDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="Reply-input" width="48" x="298" y="58">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&lt;tns:CreateInventoryResponse&gt;&lt;parameters&gt;&lt;tns:CreateInventoryResponse&gt;&lt;out&gt;&lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&lt;/out&gt;&lt;/tns:CreateInventoryResponse&gt;&lt;/parameters&gt;&lt;/tns:CreateInventoryResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:CreateInventoryResponse&gt;&#10;            &lt;out&gt;&#10;                &lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&#10;            &lt;/out&gt;&#10;        &lt;/tns:CreateInventoryResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="8559d114-b9f9-41a9-b05e-719b5ac13dfd" name="OnMessageEnd1" type="onMessageEnd" width="16" x="438" y="63"/>
+</on-message>
+<on-message height="179" id="e71daf98-0bba-4f3d-bd7f-46492d60978b" input="true" operation="UpdateInventory" output="true" partner-link="InventoryDB" portType="InventoryDBService" type="onMessage" variable="UpdateInventory" width="440" x="9" y="320">
+<activity-dir height="16" id="005b75d9-b3ff-4760-961b-c6dc0a297615" name="OnMessageStart2" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="3761760e-50f8-4889-9d8c-f62f011be43c" label="" linkType="SUCCESS" name="JDBCUpdate1ToReply1" points="[[210,77],[312,77]]" source="0e0dbffb-8bad-466f-b541-b13286144581" target="bdfe5dc2-cb48-4e5a-b91a-a2f1e4421005"/>
+<activity-dir height="48" id="0e0dbffb-8bad-466f-b541-b13286144581" name="JDBCUpdate1" type="bw.jdbc.update" width="48" x="161" y="53">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+37d12887-b9d5-4d54-83d3-0f18802cea3b+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;UpdateInventory&quot;/&gt;&lt;xsl:template name=&quot;JDBCUpdate1-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcUpdateActivityInput&gt;&lt;quantity&gt;&lt;xsl:value-of select=&quot;xsd:int($UpdateInventory/parameters/tns1:UpdateInventoryRequest/quantity)&quot;/&gt;&lt;/quantity&gt;&lt;productId&gt;&lt;xsl:value-of select=&quot;$UpdateInventory/parameters/tns1:UpdateInventoryRequest/productId&quot;/&gt;&lt;/productId&gt;&lt;/tns:jdbcUpdateActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+37d12887-b9d5-4d54-83d3-0f18802cea3b+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420093437&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;UpdateInventory.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCUpdate1-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcUpdateActivityInput&gt;&#10;            &lt;quantity&gt;&#10;                &lt;xsl:value-of select=&quot;xsd:int($UpdateInventory.parameters/quantity)&quot;/&gt;&#10;            &lt;/quantity&gt;&#10;            &lt;productId&gt;&#10;                &lt;xsl:value-of select=&quot;$UpdateInventory.parameters/productId&quot;/&gt;&#10;            &lt;/productId&gt;&#10;        &lt;/tns:jdbcUpdateActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.update">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
+<value sharedResourceProperty="jdbcProperty" sqlStatement="UPDATE `inventory`&#10;  SET `quantity` = ?&#10;  WHERE `productId` = ?" timeout="10" type="jdbcPalette:JDBCUpdateActivity">
+<PreparedParameters DataType="4" DataTypeDisplayValue="INTEGER" ParameterName="quantity"/>
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="productId"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="bdfe5dc2-cb48-4e5a-b91a-a2f1e4421005" name="Reply1" operation="UpdateInventory" partnerLink="InventoryDB" portType="InventoryDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="Reply1-input" width="48" x="312" y="53">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&lt;xsl:template name=&quot;Reply1-input&quot; match=&quot;/&quot;&gt;&lt;tns:UpdateInventoryResponse&gt;&lt;parameters&gt;&lt;tns:UpdateInventoryResponse&gt;&lt;out&gt;&lt;xsl:value-of select=&quot;&amp;quot;Updated&amp;quot;&quot;/&gt;&lt;/out&gt;&lt;/tns:UpdateInventoryResponse&gt;&lt;/parameters&gt;&lt;/tns:UpdateInventoryResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420093437&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:template name=&quot;Reply1-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:UpdateInventoryResponse&gt;&#10;            &lt;out&gt;&#10;                &lt;xsl:value-of select=&quot;&amp;quot;Updated&amp;quot;&quot;/&gt;&#10;            &lt;/out&gt;&#10;        &lt;/tns:UpdateInventoryResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="6ca0c228-dd2f-4d75-a0e9-e3e9283be43a" name="OnMessageEnd2" type="onMessageEnd" width="16" x="438" y="63"/>
+</on-message>
+</pick>
+</process-dir>

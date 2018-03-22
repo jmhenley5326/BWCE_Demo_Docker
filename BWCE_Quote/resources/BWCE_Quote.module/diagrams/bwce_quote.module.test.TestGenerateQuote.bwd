@@ -1,0 +1,62 @@
+<process-dir height="215" id="bwce_quote.module.test.TestGenerateQuote" name="bwce_quote.module.test.TestGenerateQuote" type="process" width="531" x="140" y="20">
+<partnerLinks>
+<partner-link id="GenerateQuote" name="GenerateQuote" partnerLinkType="partnerLinkType" partnerRole="use"/>
+</partnerLinks>
+<ProcessInfo createdBy="jasonhenley" createdOn="Wed Apr 20 19:02:24 CDT 2016" description="" modifiedBy="" modifiedOn="" modifiers="public" productVersion="1.0.0 V48 2015-11-20" scalable="true" singleton="true" stateless="true" type="IT"/>
+<link-dir id="8c676e07-449e-40d1-bcb2-7027d24d3569" label="" linkType="SUCCESS" name="InvokeToLog" points="[[296,90],[392,90]]" source="2e279b89-6302-43e4-81f3-cc81902f9cd1" target="61e8e688-d648-42df-ba20-91bc481f5e35"/>
+<activity-dir height="48" id="2e279b89-6302-43e4-81f3-cc81902f9cd1" inputVariable="Invoke-input" name="Invoke" outputVariable="Invoke" partnerLink="GenerateQuote" portType="GenerateQuoteService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Invoke" width="48" x="247" y="66">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns1=&quot;http://www.example.org/Quote&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;&gt;&lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;&gt;&lt;tns:GenerateQuoteRequest&gt;&lt;parameters&gt;&lt;tns:GenerateQuoteRequest&gt;&lt;QuoteRequest&gt;&lt;tns2:CustomerId&gt;&lt;xsl:value-of select=&quot;&amp;quot;1&amp;quot;&quot;/&gt;&lt;/tns2:CustomerId&gt;&lt;tns2:LineItems&gt;&lt;tns2:productId&gt;&lt;xsl:value-of select=&quot;&amp;quot;3&amp;quot;&quot;/&gt;&lt;/tns2:productId&gt;&lt;tns2:quantity&gt;&lt;xsl:value-of select=&quot;1000&quot;/&gt;&lt;/tns2:quantity&gt;&lt;/tns2:LineItems&gt;&lt;/QuoteRequest&gt;&lt;/tns:GenerateQuoteRequest&gt;&lt;/parameters&gt;&lt;/tns:GenerateQuoteRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns1=&quot;http://www.example.org/Quote&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:GenerateQuoteRequest&gt;&#10;            &lt;QuoteRequest&gt;&#10;                &lt;tns2:CustomerId&gt;&#10;                    &lt;xsl:value-of select=&quot;&amp;quot;1&amp;quot;&quot;/&gt;&#10;                &lt;/tns2:CustomerId&gt;&#10;                &lt;tns2:LineItems&gt;&#10;                    &lt;tns2:productId&gt;&#10;                        &lt;xsl:value-of select=&quot;&amp;quot;3&amp;quot;&quot;/&gt;&#10;                    &lt;/tns2:productId&gt;&#10;                    &lt;tns2:quantity&gt;&#10;                        &lt;xsl:value-of select=&quot;1000&quot;/&gt;&#10;                    &lt;/tns2:quantity&gt;&#10;                &lt;/tns2:LineItems&gt;&#10;            &lt;/QuoteRequest&gt;&#10;        &lt;/tns:GenerateQuoteRequest&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<link-dir id="dd1161db-264c-46be-9b6b-04fb79961f71" label="" linkType="SUCCESS" name="TimerToInvoke" points="[[149,90],[247,90]]" source="e24a93b6-0bc9-40cc-84ab-ea30c9090646" target="2e279b89-6302-43e4-81f3-cc81902f9cd1"/>
+<activity-dir height="48" id="e24a93b6-0bc9-40cc-84ab-ea30c9090646" name="Timer" type="bw.generalactivities.timer" width="48" x="100" y="66">
+<BWActivity activityTypeID="bw.generalactivities.timer" version="6.0.0.001">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/generalactivities#//Timer"/>
+<value endTime="2016-04-20T19:02:45.690-0500" intervalUnit="Second" runOnce="true" startTime="2016-04-20T19:02:45.690-0500" timeInterval="1" type="generalactivities:Timer"/>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="61e8e688-d648-42df-ba20-91bc481f5e35" name="Log" type="bw.generalactivities.log" width="48" x="392" y="66">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;Invoke&quot;/&gt;&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;&gt;&lt;tns:ActivityInput&gt;&lt;message&gt;&lt;xsl:value-of select=&quot;tib:render-xml($Invoke/parameters/tns1:GenerateQuoteResponse/Quote, true(), true())&quot;/&gt;&lt;/message&gt;&lt;/tns:ActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;Invoke.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:ActivityInput&gt;&#10;            &lt;message&gt;&#10;                &lt;xsl:value-of select=&quot;tib:render-xml($Invoke.parameters/Quote, true(), true())&quot;/&gt;&#10;            &lt;/message&gt;&#10;        &lt;/tns:ActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.generalactivities.log" version="6.0.0.001">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+<value role="Info" suppressJobInfo="true" type="generalactivities:Log"/>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<catch faultName="Fault" faultVariable="Fault" height="179" id="0d0c7304-03d2-481c-bc2a-65fea0590e4d" messageType="GenerateQuoteFault" type="catch" width="374" x="83" y="204">
+<activity-dir height="48" id="6f95310e-2ef7-46ea-9958-191f21f49280" name="Log2" type="bw.generalactivities.log" width="48" x="184" y="70">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;Fault&quot;/&gt;&lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;&gt;&lt;tns:ActivityInput&gt;&lt;message&gt;&lt;xsl:value-of select=&quot;$Fault/parameters/tns1:GenerateQuoteFault/fault&quot;/&gt;&lt;/message&gt;&lt;/tns:ActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;Fault.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:ActivityInput&gt;&#10;            &lt;message&gt;&#10;                &lt;xsl:value-of select=&quot;$Fault.parameters/fault&quot;/&gt;&#10;            &lt;/message&gt;&#10;        &lt;/tns:ActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.generalactivities.log" version="6.0.0.001">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+<value role="Info" suppressJobInfo="true" type="generalactivities:Log"/>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+</catch>
+<catch-all faultDetailsVar="FaultDetails" faultNameVar="FaultName" height="179" id="eff16d2a-a214-4b74-ae22-326a33627c66" type="catchAll" width="374" x="83" y="383">
+<activity-dir height="48" id="bfe71a1d-1af9-46c2-86c6-881270919c8a" name="Log1" type="bw.generalactivities.log" width="48" x="164" y="68">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;FaultDetails&quot;/&gt;&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;&gt;&lt;tns:ActivityInput&gt;&lt;message&gt;&lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/&gt;&lt;/message&gt;&lt;/tns:ActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;FaultDetails&quot;/&gt;&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;&gt;&lt;tns:ActivityInput&gt;&lt;message&gt;&lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/&gt;&lt;/message&gt;&lt;/tns:ActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.generalactivities.log" version="6.0.0.001">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+<value role="Info" suppressJobInfo="true" type="generalactivities:Log"/>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+</catch-all>
+</process-dir>

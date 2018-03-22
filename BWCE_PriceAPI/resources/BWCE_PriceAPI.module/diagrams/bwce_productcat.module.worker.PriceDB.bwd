@@ -1,0 +1,56 @@
+<process-dir height="367" id="bwce_productcat.module.worker.PriceDB" name="bwce_productcat.module.worker.PriceDB" type="process" width="611" x="140" y="20">
+<partnerLinks>
+<partner-link id="PriceDB" myRole="use" name="PriceDB" partnerLinkType="partnerLinkType1"/>
+</partnerLinks>
+<ProcessInfo createdBy="jasonhenley" createdOn="Wed Apr 20 09:41:19 CDT 2016" description="" modifiedBy="" modifiedOn="" modifiers="public" productVersion="1.0.0 V48 2015-11-20" scalable="true" singleton="true" stateless="true" type="IT"/>
+<pick collapse="false" createInstance="true" height="318" id="477c798e-ec19-4fb4-b6ac-b782c34e2158" name="pick" type="pick" width="459" x="76" y="44">
+<on-message height="152" id="d70d8506-8482-4f7d-b1d5-c20755a20a94" input="true" operation="CheckPrice" output="true" partner-link="PriceDB" portType="PriceDBService" type="onMessage" variable="CheckPrice" width="441" x="9" y="11">
+<activity-dir height="16" id="8f533d4c-4652-472e-945c-4dda07707274" name="OnMessageStart" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="3a653dec-e4f6-4d56-843b-382e88fe99ea" label="" linkType="SUCCESS" name="JDBCQueryToEnd" points="[[169,72],[304,72]]" source="18744193-fb10-4570-bb12-a9a874ea6a31" target="f164a894-c81b-4220-9044-6f636372ab50"/>
+<activity-dir height="48" id="18744193-fb10-4570-bb12-a9a874ea6a31" name="JDBCQuery" type="bw.jdbc.JDBCQuery" width="48" x="120" y="48">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+93ee3e19-009f-4607-bab0-0c53d704459b+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CheckPrice&quot;/&gt;&lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcQueryActivityInput&gt;&lt;productId&gt;&lt;xsl:value-of select=&quot;$CheckPrice/parameters/tns1:CheckPriceRequest/productId&quot;/&gt;&lt;/productId&gt;&lt;/tns:jdbcQueryActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+93ee3e19-009f-4607-bab0-0c53d704459b+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CheckPrice.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcQueryActivityInput&gt;&#10;            &lt;productId&gt;&#10;                &lt;xsl:value-of select=&quot;$CheckPrice.parameters/productId&quot;/&gt;&#10;            &lt;/productId&gt;&#10;        &lt;/tns:jdbcQueryActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.JDBCQuery">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+<value maxRows="100" sharedResourceProperty="jdbcProperty" sqlStatement="SELECT `price`&#10;  FROM `price`&#10;  WHERE `productId` = ?&#10;" timeout="10" type="jdbcPalette:JDBCQueryActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="productId"/>
+<columnMetadata columnName="price" dataType="8" status="OptionalElement" typeName="DOUBLE"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="f164a894-c81b-4220-9044-6f636372ab50" name="End" operation="CheckPrice" partnerLink="PriceDB" portType="PriceDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="operationOut-input" width="48" x="304" y="48">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&lt;tns:CheckPriceResponse&gt;&lt;parameters&gt;&lt;tns:CheckPriceResponse&gt;&lt;price&gt;&lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/price&quot;/&gt;&lt;/price&gt;&lt;/tns:CheckPriceResponse&gt;&lt;/parameters&gt;&lt;/tns:CheckPriceResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;JDBCQuery&quot;/&gt;&#10;    &lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:CheckPriceResponse&gt;&#10;            &lt;price&gt;&#10;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/price&quot;/&gt;&#10;            &lt;/price&gt;&#10;        &lt;/tns:CheckPriceResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="fa543cf6-959d-45ba-9e66-c1fcb86ae501" name="OnMessageEnd" type="onMessageEnd" width="16" x="439" y="63"/>
+</on-message>
+<on-message height="146" id="39fe0616-008a-4294-a44a-597f9765d89e" input="true" operation="CreatePrice" output="true" partner-link="PriceDB" portType="PriceDBService" type="onMessage" variable="CreatePrice" width="441" x="9" y="163">
+<activity-dir height="16" id="1670fe75-e2b1-416c-b104-947eba2bd734" name="OnMessageStart1" type="onMessageStart" width="16" x="-19" y="63"/>
+<link-dir id="cdd79b23-dd4d-4e8d-bfdd-8f2932106433" label="" linkType="SUCCESS" name="JDBCUpdateToReply" points="[[167,64],[302,64]]" source="fe9164cd-c686-4729-a480-1ae6a0ae554d" target="fd2f4846-5908-4d38-a451-3e20573a5ad3"/>
+<activity-dir height="48" id="fe9164cd-c686-4729-a480-1ae6a0ae554d" name="JDBCUpdate" type="bw.jdbc.update" width="48" x="118" y="40">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f11da01a-e0ef-4c63-8950-5cd5cc730def+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&lt;xsl:param name=&quot;CreatePrice&quot;/&gt;&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&lt;tns:jdbcUpdateActivityInput&gt;&lt;productId&gt;&lt;xsl:value-of select=&quot;$CreatePrice/parameters/tns1:CreatePriceRequest/productId&quot;/&gt;&lt;/productId&gt;&lt;price&gt;&lt;xsl:value-of select=&quot;$CreatePrice/parameters/tns1:CreatePriceRequest/price&quot;/&gt;&lt;/price&gt;&lt;/tns:jdbcUpdateActivityInput&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f11da01a-e0ef-4c63-8950-5cd5cc730def+input&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:param name=&quot;CreatePrice.parameters&quot;/&gt;&#10;    &lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:jdbcUpdateActivityInput&gt;&#10;            &lt;productId&gt;&#10;                &lt;xsl:value-of select=&quot;$CreatePrice.parameters/productId&quot;/&gt;&#10;            &lt;/productId&gt;&#10;            &lt;price&gt;&#10;                &lt;xsl:value-of select=&quot;$CreatePrice.parameters/price&quot;/&gt;&#10;            &lt;/price&gt;&#10;        &lt;/tns:jdbcUpdateActivityInput&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+<BWActivity activityTypeID="bw.jdbc.update">
+<activityConfig>
+<properties name="config" type="activityconfig:EMFProperty">
+<type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
+<value sharedResourceProperty="jdbcProperty" sqlStatement="INSERT INTO `price` (`productId`,&#10;  `price`)&#10;  VALUES (?, ?)" timeout="10" type="jdbcPalette:JDBCUpdateActivity">
+<PreparedParameters DataType="12" DataTypeDisplayValue="VARCHAR" ParameterName="productId"/>
+<PreparedParameters DataType="8" DataTypeDisplayValue="DOUBLE" ParameterName="price"/>
+</value>
+</properties>
+</activityConfig>
+</BWActivity>
+</activity-dir>
+<activity-dir height="48" id="fd2f4846-5908-4d38-a451-3e20573a5ad3" name="Reply" operation="CreatePrice" partnerLink="PriceDB" portType="PriceDBService" type="com.tibco.bw.core.design.process.editor.Activity_4002_Reply" variable="Reply-input" width="48" x="302" y="40">
+<inputBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&lt;tns:CreatePriceResponse&gt;&lt;parameters&gt;&lt;tns:CreatePriceResponse&gt;&lt;out&gt;&lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&lt;/out&gt;&lt;/tns:CreatePriceResponse&gt;&lt;/parameters&gt;&lt;/tns:CreatePriceResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;"/>
+<partBinding expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420094119&quot; version=&quot;2.0&quot;&gt;&#10;    &lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;&gt;&#10;        &lt;tns:CreatePriceResponse&gt;&#10;            &lt;out&gt;&#10;                &lt;xsl:value-of select=&quot;&amp;quot;Created&amp;quot;&quot;/&gt;&#10;            &lt;/out&gt;&#10;        &lt;/tns:CreatePriceResponse&gt;&#10;    &lt;/xsl:template&gt;&#10;&lt;/xsl:stylesheet&gt;"/>
+</activity-dir>
+<activity-dir height="16" id="646f9dce-ac7c-4f26-8afe-10c84e311bf6" name="OnMessageEnd1" type="onMessageEnd" width="16" x="439" y="63"/>
+</on-message>
+</pick>
+</process-dir>
