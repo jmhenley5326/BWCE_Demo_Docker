@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpws:process exitOnStandardFault="no"
     name="bwce_demosetup.module.TestSetup" suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20160427145634"
+    targetNamespace="http://xmlns.example.com/20180321200442"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
-    xmlns:ns0="http://xmlns.example.com/20160427145634PLT"
-    xmlns:ns1="http://www.example.org/wsdl/1461779398992"
-    xmlns:ns2="http://tns.tibco.com/bw/activity/timer/xsd/output"
+    xmlns:ns0="http://xmlns.example.com/20180321200442PLT"
+    xmlns:ns1="http://tns.tibco.com/bw/activity/timer/xsd/output"
+    xmlns:ns2="http://xmlns.example.com/20160427150054"
     xmlns:ns3="http://www.tibco.com/pe/WriteToLogActivitySchema"
-    xmlns:ns4="http://xmlns.example.com/20160427150054"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -46,6 +45,35 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
                 final="extension restriction" name="FaultDetail">
                 <xs:sequence>
                     <xs:element
@@ -68,10 +96,10 @@
                         form="unqualified" name="StackTrace" type="xs:string"/>
                     <xs:element
                         block="extension restriction substitution"
-                        form="unqualified" name="Class" type="xs:string"/>
+                        form="unqualified" name="FullClass" type="xs:string"/>
                     <xs:element
                         block="extension restriction substitution"
-                        form="unqualified" name="FullClass" type="xs:string"/>
+                        form="unqualified" name="Class" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType block="extension restriction"
@@ -80,6 +108,12 @@
                     <xs:element
                         block="extension restriction substitution"
                         form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
                     <xs:element
                         block="extension restriction substitution"
                         form="unqualified" name="ProcessInstanceId" type="xs:string"/>
@@ -97,6 +131,8 @@
                     <xs:any namespace="##any" processContents="lax"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
             <xs:element block="extension restriction substitution"
                 final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
             <xs:element block="extension restriction substitution"
@@ -162,23 +198,24 @@
             <xs:element name="ActivityInput" type="tns:LogParametersType"/>
         </xs:schema>
         <wsdl:definitions
-            targetNamespace="http://xmlns.example.com/20160427145634PLT"
+            targetNamespace="http://xmlns.example.com/20180321200442PLT"
             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
-            xmlns:ptyp="http://www.example.org/wsdl/1461779398992"
-            xmlns:ptyp2="http://xmlns.example.com/20160427150054"
-            xmlns:tns="http://xmlns.example.com/20160427145634PLT"
+            xmlns:ptyp="http://xmlns.example.com/20160427150054"
+            xmlns:tns="http://xmlns.example.com/20180321200442PLT"
             xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <plnk:partnerLinkType name="partnerLinkType">
-                <plnk:role name="use" portType="ptyp2:Service"/>
+                <plnk:role name="use" portType="ptyp:Service"/>
             </plnk:partnerLinkType>
             <wsdl:import namespace="http://xmlns.example.com/20160427150054"/>
         </wsdl:definitions>
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
-        createdOn="Wed Apr 27 14:56:34 CDT 2016" description=""
-        modifiers="public" productVersion="1.0.0 V48 2015-11-20"
-        scalable="true" singleton="true" stateless="true" type="IT"/>
+        createdOn="Wed Mar 21 20:04:42 CDT 2018" description=""
+        extraErrorVars="false" modifiers="public"
+        productVersion="2.3.3 V12 2018-02-20" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
+    <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -208,30 +245,30 @@
                                     <children type="4002 bw.generalactivities.timer">
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
@@ -240,90 +277,87 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="52"
-                                    xsi:type="notation:Bounds" y="129"/>
+                                    x="35"
+                                    xsi:type="notation:Bounds" y="144"/>
                                     </children>
-                                    <children type="4002 bw.generalactivities.log">
+                                    <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint
-                                    height="40" width="40"
-                                    x="377"
-                                    xsi:type="notation:Bounds" y="129"/>
+                                    <layoutConstraint x="209"
+                                    xsi:type="notation:Bounds" y="137"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
-                                    <layoutConstraint x="187"
-                                    xsi:type="notation:Bounds" y="129"/>
+                                    <layoutConstraint x="371"
+                                    xsi:type="notation:Bounds" y="137"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
                                     </children>
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    <styles fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles backgroundColor="16777215"
                                     gradientEndColor="50431"
@@ -336,9 +370,7 @@
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
                             </children>
-                            <styles
-                                fontName=".Helvetica Neue DeskInterface"
-                                lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
@@ -349,8 +381,7 @@
                         <styles xsi:type="notation:FilteringStyle"/>
                         <element href="//0/@process/@activity"/>
                     </children>
-                    <styles fontName=".Helvetica Neue DeskInterface"
-                        lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
@@ -360,8 +391,7 @@
                 <styles xsi:type="notation:FilteringStyle"/>
                 <element href="//0/@process"/>
             </children>
-            <styles fontName=".Helvetica Neue DeskInterface"
-                lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
             <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
         </children>
@@ -369,27 +399,33 @@
         <element href="//0"/>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 0, -300, 0]$[301, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
             target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, -7, -149, 0]$[150, 0, -24, 7]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[25, 0, -165, 0]$[166, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.example.org/schema/1461787254527" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://xmlns.example.com/20160427150054"/>
     <bpws:partnerLinks>
         <bpws:partnerLink name="SetupDemo"
@@ -403,11 +439,12 @@
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:TimerOutputSchema" name="Timer" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:TimerOutputSchema" name="Timer" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns2:setupDemoRequest"
+            name="SetupDemo-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns2:setupDemoResponse"
+            name="SetupDemo" sca-bpel:internal="true"/>
         <bpws:variable element="ns3:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns4:setupDemoRequest"
-            name="Invoke-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns4:setupDemoResponse" name="Invoke" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -420,16 +457,16 @@
     <bpws:scope name="scope">
         <bpws:flow name="flow">
             <bpws:links>
-                <bpws:link name="TimerToInvoke" tibex:linkType="SUCCESS"/>
-                <bpws:link name="InvokeToLog" tibex:linkType="SUCCESS"/>
+                <bpws:link name="TimerToSetupDemo" tibex:linkType="SUCCESS"/>
+                <bpws:link name="SetupDemoToLog" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:extensionActivity>
                 <tibex:receiveEvent createInstance="yes"
                     eventTimeout="60" name="Timer"
-                    tibex:xpdlId="4edaecfb-a97d-47b9-9751-dcf2f3f2aa09"
+                    tibex:xpdlId="8a7b6236-bd58-4233-8f1c-9a00af7b447f"
                     variable="Timer" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:sources>
-                        <bpws:source linkName="TimerToInvoke"/>
+                        <bpws:source linkName="TimerToSetupDemo"/>
                     </bpws:sources>
                     <tibex:eventSource>
                         <bwext:BWActivity
@@ -442,10 +479,10 @@
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/generalactivities#//Timer"/>
                                     <value
-                                    endTime="2016-04-27T14:56:44.367-0500"
+                                    endTime="2018-03-21T20:04:53.578-0500"
                                     intervalUnit="Second"
                                     runOnce="true"
-                                    startTime="2016-04-27T14:56:44.367-0500"
+                                    startTime="2018-03-21T20:04:53.578-0500"
                                     timeInterval="1" xsi:type="generalactivities:Timer"/>
                                 </properties>
                             </activityConfig>
@@ -453,18 +490,35 @@
                     </tibex:eventSource>
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
+            <bpws:invoke inputVariable="SetupDemo-input"
+                name="SetupDemo" operation="setupDemo"
+                outputVariable="SetupDemo" partnerLink="SetupDemo"
+                portType="ns2:Service" tibex:xpdlId="b176896c-67b9-4210-b32c-22c4da2f7cf6">
+                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160427150054" xmlns:tns1="http://www.example.org/schema/1461787254527" version="2.0"&gt;&lt;xsl:template name="SetupDemo-input" match="/"&gt;&lt;tns:setupDemoRequest&gt;&lt;parameters&gt;&lt;tns1:setupDemoRequest&gt;&lt;in&gt;&lt;xsl:value-of select="&amp;quot;foo&amp;quot;"/&gt;&lt;/in&gt;&lt;/tns1:setupDemoRequest&gt;&lt;/parameters&gt;&lt;/tns:setupDemoRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160427150054&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;SetupDemo-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:setupDemoRequest>&#xa;            &lt;in>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;foo&amp;quot;&quot;/>&#xa;            &lt;/in>&#xa;        &lt;/tns1:setupDemoRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="TimerToSetupDemo"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="SetupDemoToLog"/>
+                </bpws:sources>
+            </bpws:invoke>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461779399057&quot; xmlns:tns2=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Invoke&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$Invoke/parameters/tns2:setupDemoResponse/out&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SetupDemo&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$SetupDemo/parameters/tns1:setupDemoResponse/out&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="Log-input" name="Log"
-                    tibex:xpdlId="ead2a723-d40c-4855-9119-89069fda09b3" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="e85239ff-bc2b-4e3b-96a5-ce0538fbb115" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="InvokeToLog"/>
+                        <bpws:target linkName="SetupDemoToLog"/>
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461779399057&quot; xmlns:tns2=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Invoke.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;$Invoke.parameters/out&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SetupDemo.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;$SetupDemo.parameters/out&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -484,22 +538,6 @@
                     </tibex:config>
                 </tibex:activityExtension>
             </bpws:extensionActivity>
-            <bpws:invoke inputVariable="Invoke-input" name="Invoke"
-                operation="setupDemo" outputVariable="Invoke"
-                partnerLink="SetupDemo" portType="ns4:Service" tibex:xpdlId="b97915d2-2093-4ac0-992d-4caef2cf7ebc">
-                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160427150054" xmlns:tns1="http://www.example.org/schema/1461787254527" version="2.0"&gt;&lt;xsl:template name="Invoke-input" match="/"&gt;&lt;tns:setupDemoRequest&gt;&lt;parameters&gt;&lt;tns1:setupDemoRequest&gt;&lt;in&gt;&lt;xsl:value-of select="&amp;quot;foo&amp;quot;"/&gt;&lt;/in&gt;&lt;/tns1:setupDemoRequest&gt;&lt;/parameters&gt;&lt;/tns:setupDemoRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
-                <tibex:inputBindings>
-                    <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160427150054&quot; xmlns:tns1=&quot;http://www.example.org/schema/1461787254527&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:setupDemoRequest>&#xa;            &lt;in>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;foo&amp;quot;&quot;/>&#xa;            &lt;/in>&#xa;        &lt;/tns1:setupDemoRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                </tibex:inputBindings>
-                <bpws:targets>
-                    <bpws:target linkName="TimerToInvoke"/>
-                </bpws:targets>
-                <bpws:sources>
-                    <bpws:source linkName="InvokeToLog"/>
-                </bpws:sources>
-            </bpws:invoke>
         </bpws:flow>
     </bpws:scope>
 </bpws:process>

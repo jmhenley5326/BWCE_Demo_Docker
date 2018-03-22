@@ -28,4 +28,7 @@
       <sca:interface.wsdl xmi:id="_SLwyYQyhEeaxlPKMOEu0jA" interface="http://xmlns.example.com/20160427125553PLT#wsdl.interface(setup)" scaext:wsdlLocation="../Processes/bwce_demosetup/module/Setup.bwp"/>
     </sca:service>
   </sca:component>
+  <sca:component xmi:id="_ATDxMC1tEeicf8W3Hh7JWA" name="ComponentTestSetup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ATDxMS1tEeicf8W3Hh7JWA" processName="bwce_demosetup.module.TestSetup"/>
+  </sca:component>
 </sca:composite>

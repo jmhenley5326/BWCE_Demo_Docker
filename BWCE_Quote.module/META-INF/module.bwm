@@ -33,4 +33,7 @@
       <sca:interface.wsdl xmi:id="_qnECEwdbEeaF4pB90FrPVw" interface="http://xmlns.example.com/20160420195456PLT#wsdl.interface(quote)" scaext:wsdlLocation="../Processes/bwce_quote/module/Quote.bwp"/>
     </sca:service>
   </sca:component>
+  <sca:component xmi:id="_XSux8C1tEeicf8W3Hh7JWA" name="ComponentTestGenerateQuote" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_XSux8S1tEeicf8W3Hh7JWA" processName="bwce_quote.module.test.TestGenerateQuote"/>
+  </sca:component>
 </sca:composite>

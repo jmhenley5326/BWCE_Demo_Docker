@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/MySQL/jdbcURL</name>
-			<value></value>
+			<value>jdbc:mysql://localhost/bwce_schema</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -75,7 +75,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/MySQL/username</name>
-			<value></value>
+			<value>bwce</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -83,7 +83,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/MySQL/password</name>
-			<value>#!le/2H6MsPUDO+ga5zgYJpw==</value>
+			<value>#!mLehgShvimdIUNyjzFMUfM44g/J1GfXHB9XbNcctNHM=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>

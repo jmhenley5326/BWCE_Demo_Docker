@@ -191,8 +191,9 @@
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
         createdOn="Wed Apr 20 19:54:56 CDT 2016" description=""
-        modifiers="public" productVersion="1.0.0 V48 2015-11-20"
-        scalable="true" singleton="true" stateless="true" type="IT"/>
+        extraErrorVars="false" modifiers="public"
+        productVersion="1.0.0 V48 2015-11-20" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -1343,7 +1344,7 @@
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log-input"
                                     name="Log"
-                                    tibex:xpdlId="a315cb81-eafe-40ab-bd19-c7c9eafe5434" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="68319f18-cdad-4afa-823d-23fa6cebc569" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="LogToReply"/>
                                     </bpws:sources>
@@ -1448,7 +1449,7 @@
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log1-input"
                                     name="Log1"
-                                    tibex:xpdlId="3a760799-8626-4ded-aa5b-e7abf5f9c0ca" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="9e57cd21-1475-43e6-98cd-dc26a36d5d9c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="Log1ToGenerateQuote"/>
                                     </bpws:sources>

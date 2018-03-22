@@ -365,8 +365,9 @@
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
         createdOn="Wed Apr 20 16:09:16 CDT 2016" description=""
-        modifiers="public" productVersion="1.0.0 V48 2015-11-20"
-        scalable="true" singleton="true" stateless="true" type="IT"/>
+        extraErrorVars="false" modifiers="public"
+        productVersion="1.0.0 V48 2015-11-20" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -2287,10 +2288,8 @@
                         </bpws:exit>
                         <bpws:extensionActivity>
                             <tibex:activityExtension
-                                expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails1/ActivityName&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                 inputVariable="Log2-input" name="Log2"
-                                tibex:xpdlId="2d17518b-127c-4dd0-8bc0-2fc9242e69eb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                tibex:xpdlId="cd9b016c-d295-4253-9dfb-23682aa99ce2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                 <bpws:sources>
                                     <bpws:source linkName="Log2ToReply2"/>
                                 </bpws:sources>
@@ -2367,7 +2366,7 @@
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"
                     inputVariable="TotalPrice" name="ApplyDiscount"
                     outputVariable="TotalPrice"
-                    tibex:xpdlId="a7fba542-b6c3-4a3b-aefd-451d78e03b93" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="de0986a6-248d-4590-ac93-210fd972cb9d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="getCustomerDiscountToAssign1"/>
                     </bpws:targets>
@@ -2466,11 +2465,9 @@
                                 </bpws:exit>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DefaultFault&quot;/>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;$DefaultFault/message&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log-input"
                                     name="Log"
-                                    tibex:xpdlId="910758d8-26c4-4d3d-b0a8-34b73c253016" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="3ebf85c7-989a-4209-b3d2-b74a7503746b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="LogTogetProduct"/>
                                     </bpws:sources>
@@ -2535,11 +2532,9 @@
                                 </bpws:exit>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log1-input"
                                     name="Log1"
-                                    tibex:xpdlId="c42e26e0-1bc7-401a-ae2f-6d16b2d16e61" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="8649e75a-1ae5-40ac-86f6-c4d63d6cb7ba" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="Log1ToReply1"/>
                                     </bpws:sources>
@@ -2573,7 +2568,8 @@
                 </bpws:faultHandlers>
                 <bpws:sequence name="sequence" tibex:group="foreach">
                     <bpws:assign name="GroupInit"
-                        tibex:group="groupInit" validate="no">
+                        tibex:group="groupInit"
+                        tibex:xpdlId="eb829baa-53e0-4079-af3f-01e3bb8a4dc1" validate="no">
                         <bpws:copy>
                             <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"><![CDATA[<?xml version="1.0" encoding="UTF-8"?> <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+395d2403-85c2-4953-a23f-9051f2b437f0" version="2.0"> <xsl:template name="LineItems" match="/"> <tns:AccumulatedOutput/> </xsl:template> </xsl:stylesheet>]]></bpws:from>
                             <bpws:to variable="LineItems"/>
@@ -2615,7 +2611,6 @@
                                     <tibex:activityExtension
                                     name="LineItems"
                                     outputVariable="LineItems"
-                                    tibex:group="groupEnd"
                                     tibex:xpdlId="395d2403-85c2-4953-a23f-9051f2b437f0" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
                                     <bpws:target linkName="Copy_1_BuildLineItemToGroupEnd"/>
@@ -2696,7 +2691,7 @@
                                     inputVariable="TotalPrice"
                                     name="UpdateTotalPrice"
                                     outputVariable="TotalPrice"
-                                    tibex:xpdlId="873a0ae9-ba9f-486a-a5a7-b9ac69aba137" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="9830613f-066f-44f7-8939-9ad0bc887ad2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
                                     <bpws:target linkName="Copy_1_getPriceToCopy_1_Assign"/>
                                     </bpws:targets>
@@ -2732,7 +2727,7 @@
                                     inputVariable="BuildLineItem-input"
                                     name="BuildLineItem"
                                     outputVariable="BuildLineItem"
-                                    tibex:xpdlId="20904b50-3c85-4aa5-8248-9b3f261da972" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="e2470aa0-8a83-4a5a-b9f8-91a2509fab26" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
                                     <bpws:target linkName="Copy_1_AssignToCopy_1_BuildLineItem"/>
                                     </bpws:targets>
@@ -2770,7 +2765,7 @@
                                     inputVariable="productId"
                                     name="SetProductId"
                                     outputVariable="productId"
-                                    tibex:xpdlId="9c898016-1c6c-4b1b-aa60-491a2577906e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="2a33ef64-766b-4e96-ae23-6b32eacfa00b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
                                     <bpws:target linkName="GroupStart1ToCopy_1_checkInventory"/>
                                     </bpws:targets>
@@ -2802,8 +2797,6 @@
                                 <bpws:throw faultName="ns2:DefaultFault"
                                     faultVariable="InsufficientInventory-input"
                                     name="InsufficientInventory" tibex:xpdlId="31bc896e-c582-4a73-8c83-9c224d9acaa8">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions" version="2.0"&gt;&lt;xsl:param name="productId"/&gt;&lt;xsl:template name="Throw-input" match="/"&gt;&lt;tns:DefaultFault&gt;&lt;message&gt;&lt;xsl:value-of select="$productId"/&gt;&lt;/message&gt;&lt;/tns:DefaultFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                     <tibex:inputBindings>
                                     <tibex:partBinding
                                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;productId&quot;/>&lt;xsl:template name=&quot;Throw-input&quot; match=&quot;/&quot;>&lt;tns:DefaultFault>&lt;message>&lt;xsl:value-of select=&quot;$productId&quot;/>&lt;/message>&lt;/tns:DefaultFault>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
