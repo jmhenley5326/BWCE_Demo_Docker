@@ -11,6 +11,7 @@
   "paths" : {
     "/quote" : {
       "post" : {
+        "summary" : "",
         "description" : "",
         "operationId" : "post-quote",
         "consumes" : [ "application/json" ],

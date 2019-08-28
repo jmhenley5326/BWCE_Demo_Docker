@@ -11,6 +11,7 @@
   "paths" : {
     "/setup" : {
       "get" : {
+        "summary" : "",
         "description" : "",
         "operationId" : "get-setup",
         "consumes" : [ "application/json" ],

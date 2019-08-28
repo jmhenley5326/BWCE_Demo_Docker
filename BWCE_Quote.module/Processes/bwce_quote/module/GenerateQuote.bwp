@@ -11,6 +11,7 @@
     xmlns:ns3="http://tns.tibco.com/bw/palette/internal/accumulateoutput+18674773-6906-4475-8239-8d2b7de175ce"
     xmlns:ns4="http://tns.tibco.com/bw/palette/internal/accumulateoutput+395d2403-85c2-4953-a23f-9051f2b437f0"
     xmlns:ns5="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns6="http://tns.tibco.com/bw/palette/internal/accumulateoutput+519563e5-831c-4efe-90c4-9c10e73de598"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -126,19 +127,18 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
-        <xs:schema elementFormDefault="qualified"
-            targetNamespace="http://tns.tibco.com/bw/palette/internal/accumulateoutput+395d2403-85c2-4953-a23f-9051f2b437f0"
-            xmlns:Q1="http://www.example.org/Quote"
-            xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+395d2403-85c2-4953-a23f-9051f2b437f0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:import namespace="http://www.example.org/Quote"/>
-            <xs:element name="AccumulatedOutput" type="tns:AccumulatedOutputType"/>
-            <xs:complexType name="AccumulatedOutputType">
-                <xs:sequence maxOccurs="1" minOccurs="0">
-                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="Q1:LineItem"/>
-                </xs:sequence>
-            </xs:complexType>
-        </xs:schema>
         <schema
             targetNamespace="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions"
             xmlns="http://www.w3.org/2001/XMLSchema"
@@ -170,6 +170,18 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:element name="ActivityInput" type="tns:LogParametersType"/>
+        </xs:schema>
+        <xs:schema elementFormDefault="qualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/accumulateoutput+519563e5-831c-4efe-90c4-9c10e73de598"
+            xmlns:Q1="http://www.example.org/Quote"
+            xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+519563e5-831c-4efe-90c4-9c10e73de598" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="http://www.example.org/Quote"/>
+            <xs:element name="AccumulatedOutput" type="tns:AccumulatedOutputType"/>
+            <xs:complexType name="AccumulatedOutputType">
+                <xs:sequence maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="Q1:LineItem"/>
+                </xs:sequence>
+            </xs:complexType>
         </xs:schema>
         <wsdl:definitions
             targetNamespace="http://xmlns.example.com/20160420160916PLT"
@@ -463,8 +475,8 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
-                                    <layoutConstraint x="886"
-                                    xsi:type="notation:Bounds" y="275"/>
+                                    <layoutConstraint x="875"
+                                    xsi:type="notation:Bounds" y="281"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
@@ -499,8 +511,8 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint x="684"
-                                    xsi:type="notation:Bounds" y="275"/>
+                                    <layoutConstraint x="716"
+                                    xsi:type="notation:Bounds" y="281"/>
                                     </children>
                                     <children type="4002 bw.generalactivities.bwassign">
                                     <children type="4017">
@@ -537,8 +549,46 @@
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="787"
-                                    xsi:type="notation:Bounds" y="275"/>
+                                    x="799"
+                                    xsi:type="notation:Bounds" y="281"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Receive">
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="-30"
+                                    xsi:type="notation:Bounds" y="233"/>
                                     </children>
                                     <children type="4018">
                                     <children type="3018">
@@ -547,114 +597,6 @@
                                     <children type="4005">
                                     <children type="3007">
 
-                                    <children type="4002">
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.2"/>
-
-                                    <layoutConstraint
-                                    x="80"
-                                    xsi:type="notation:Bounds" y="98"/>
-                                    </children>
-
-                                    <children type="4002">
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.3"/>
-
-                                    <layoutConstraint
-                                    x="168"
-                                    xsi:type="notation:Bounds" y="98"/>
-                                    </children>
-
                                     <children type="4002 bw.generalactivities.bwassign">
 
                                     <children type="4017">
@@ -702,16 +644,16 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.4"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.2"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="257"
-                                    xsi:type="notation:Bounds" y="98"/>
+                                    x="7"
+                                    xsi:type="notation:Bounds" y="108"/>
                                     </children>
 
-                                    <children type="4002 bw.generalactivities.mapper">
+                                    <children type="4002">
 
                                     <children type="4017">
 
@@ -758,69 +700,11 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.5"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
-                                    height="40"
-                                    width="40"
-                                    x="337"
-                                    xsi:type="notation:Bounds" y="98"/>
-                                    </children>
-
-                                    <children type="4002 bw.generalactivities.bwassign">
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <children type="4017">
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.6"/>
-
-                                    <layoutConstraint
-                                    height="40"
-                                    width="40"
-                                    x="-3"
-                                    xsi:type="notation:Bounds" y="98"/>
+                                    x="110"
+                                    xsi:type="notation:Bounds" y="108"/>
                                     </children>
 
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Throw">
@@ -870,123 +754,289 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.7"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.4"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="162"
-                                    xsi:type="notation:Bounds" y="178"/>
+                                    x="213"
+                                    xsi:type="notation:Bounds" y="189"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint
+                                    x="213"
+                                    xsi:type="notation:Bounds" y="108"/>
+                                    </children>
+
+                                    <children type="4002 bw.generalactivities.bwassign">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="308"
+                                    xsi:type="notation:Bounds" y="108"/>
+                                    </children>
+
+                                    <children type="4002 bw.generalactivities.mapper">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".Helvetica Neue DeskInterface"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.7"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="417"
+                                    xsi:type="notation:Bounds" y="108"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="278"
-                                    width="499" xsi:type="notation:Bounds"/>
+                                    height="274"
+                                    width="550" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
                                     <layoutConstraint
-                                    height="278"
-                                    width="502"
+                                    height="262"
+                                    width="553"
                                     x="15"
                                     xsi:type="notation:Bounds" y="20"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.0"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.0"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@activities.1"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.1"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4019">
@@ -995,12 +1045,14 @@
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@variables"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@variables"/>
+                                    <layoutConstraint
+                                    x="583"
+                                    xsi:type="notation:Bounds" y="153"/>
                                     </children>
                                     <children type="4022">
                                     <children type="3022">
@@ -1010,10 +1062,10 @@
                                     <children type="4032">
 
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0"/>
 
                                     <layoutConstraint
                                     height="34"
@@ -1029,6 +1081,8 @@
 
                                     <children type="3007">
 
+                                    <eAnnotations source="Pixel"/>
+
                                     <children type="4002">
 
                                     <children type="4017">
@@ -1076,11 +1130,11 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@activities.0"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@activities.0"/>
 
                                     <layoutConstraint
-                                    x="72"
-                                    xsi:type="notation:Bounds" y="8"/>
+                                    x="82"
+                                    xsi:type="notation:Bounds" y="18"/>
                                     </children>
 
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
@@ -1130,13 +1184,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@activities.1"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@activities.1"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="180"
-                                    xsi:type="notation:Bounds" y="8"/>
+                                    x="190"
+                                    xsi:type="notation:Bounds" y="18"/>
                                     </children>
 
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Exit">
@@ -1186,13 +1240,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@activities.2"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@activities.2"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="262"
-                                    xsi:type="notation:Bounds" y="8"/>
+                                    x="272"
+                                    xsi:type="notation:Bounds" y="18"/>
                                     </children>
 
                                     <children type="4002 bw.generalactivities.log">
@@ -1242,13 +1296,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@activities.3"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="-26"
-                                    xsi:type="notation:Bounds" y="8"/>
+                                    x="-16"
+                                    xsi:type="notation:Bounds" y="18"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -1259,7 +1313,7 @@
                                     </children>
 
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <styles
@@ -1269,27 +1323,25 @@
 
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity"/>
 
-                                    <layoutConstraint
-                                    height="109"
-                                    width="421" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles
-                                    restoreHeight="119"
-                                    restoreWidth="472" xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0"/>
+                                    restoreHeight="178"
+                                    restoreWidth="523" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0"/>
 
                                     <layoutConstraint
-                                    height="119"
-                                    width="472" xsi:type="notation:Bounds"/>
+                                    height="178"
+                                    width="523" xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4029">
                                     <children type="3031">
@@ -1297,10 +1349,10 @@
                                     <children type="4033">
 
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll"/>
 
                                     <layoutConstraint
                                     height="34"
@@ -1316,6 +1368,8 @@
 
                                     <children type="3007">
 
+                                    <eAnnotations source="Pixel"/>
+
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
 
                                     <children type="4017">
@@ -1363,13 +1417,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="130"
-                                    xsi:type="notation:Bounds" y="14"/>
+                                    x="140"
+                                    xsi:type="notation:Bounds" y="24"/>
                                     </children>
 
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Exit">
@@ -1419,13 +1473,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="243"
-                                    xsi:type="notation:Bounds" y="14"/>
+                                    x="253"
+                                    xsi:type="notation:Bounds" y="24"/>
                                     </children>
 
                                     <children type="4002 bw.generalactivities.log">
@@ -1475,13 +1529,13 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
 
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="9"
-                                    xsi:type="notation:Bounds" y="14"/>
+                                    x="19"
+                                    xsi:type="notation:Bounds" y="24"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -1492,7 +1546,7 @@
                                     </children>
 
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
 
                                     <styles
@@ -1502,98 +1556,50 @@
 
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity"/>
 
-                                    <layoutConstraint
-                                    height="120"
-                                    width="421" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles
-                                    restoreHeight="130"
-                                    restoreWidth="472"
-                                    restoreY="118" xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll"/>
-
-                                    <layoutConstraint
-                                    height="130"
-                                    width="472"
-                                    xsi:type="notation:Bounds" y="118"/>
-                                    </children>
-                                    <styles xsi:type="notation:SortingStyle"/>
-                                    <styles xsi:type="notation:FilteringStyle"/>
-                                    </children>
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers"/>
                                     <layoutConstraint
-                                    height="270"
-                                    width="482"
+                                    height="381"
+                                    width="533"
                                     x="21"
-                                    xsi:type="notation:Bounds" y="298"/>
+                                    xsi:type="notation:Bounds" y="317"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
                                     <styles
-                                    fontName=".Helvetica Neue DeskInterface"
+                                    fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles restoreHeight="364"
-                                    restoreWidth="542"
-                                    restoreX="133"
-                                    restoreY="-20" xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
-                                    <layoutConstraint
-                                    height="569" width="542"
-                                    x="133" xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Receive">
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles
-                                    fontName=".Helvetica Neue DeskInterface"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.4"/>
                                     <layoutConstraint
-                                    height="40" width="40"
-                                    x="-30"
-                                    xsi:type="notation:Bounds" y="233"/>
+                                    height="699" width="593"
+                                    x="122"
+                                    xsi:type="notation:Bounds" y="5"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1608,8 +1614,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="741"
-                                    width="1099" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="1068"
+                                    width="1008" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -1620,7 +1626,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="773" width="1102" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="1068" width="1011" xsi:type="notation:Bounds"/>
                         </children>
                         <children type="4022">
                             <children type="3022">
@@ -1821,7 +1827,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="811" width="1102" x="1"
+                    <layoutConstraint height="1269" width="1011" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -1831,7 +1837,7 @@
             <styles fontName=".Helvetica Neue DeskInterface"
                 lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="863" width="1444" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="1321" width="1353" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -1858,161 +1864,6 @@
             <bendpoints points="[25, 0, -55, 0]$[56, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[8, -12, -80, 119]$[71, -106, -17, 25]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[25, 0, -80, 0]$[81, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.2"/>
-            <bendpoints points="[25, 0, -94, 0]$[95, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.3"/>
-            <bendpoints points="[-7, 25, 0, -110]$[0, 111, 7, -24]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.2" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.4"/>
-            <bendpoints points="[25, -4, -52, 0]$[65, 0, -12, 4]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
-            <bendpoints
-                points="[25, 12, -250, -122]$[83, 40, -192, -94]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.5"/>
-            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
-            <bendpoints points="[192, 12, -117, -7]$[285, 17, -24, -2]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.6"/>
-            <bendpoints points="[1, 25, 0, -100]$[0, 101, -1, -24]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 1, -189, 0]$[190, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.1" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.2" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catch.0/@activity/@activity/@links/@children.2"/>
-            <bendpoints points="[25, -1, -55, 0]$[56, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.2"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.0" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.3/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[25, -1, -83, 0]$[84, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
             target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
@@ -2034,7 +1885,178 @@
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
             <bendpoints points="[25, -1, -139, 0]$[140, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[12, 4, -64, 0]$[52, 0, -24, -4]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints
+                points="[18, 25, -396, -550]$[315, 437, -99, -138]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, 0, -110, 0]$[111, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint x="33" xsi:type="notation:Location" y="45"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, 21, -69, -59]$[70, 59, -24, -21]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, 0, -100, 0]$[101, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[25, 0, -113, 0]$[114, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.5"/>
+            <bendpoints points="[25, 0, -84, 0]$[85, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.6"/>
+            <bendpoints points="[25, 0, -45, 0]$[58, 0, -12, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 1, -189, 0]$[190, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catch.0/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, -1, -55, 0]$[56, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4/@children.0/@children.4/@children.0/@children.1/@children.1/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".Helvetica Neue DeskInterface" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.4/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -1, -83, 0]$[84, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints
+                points="[279, -122, -154, 68]$[409, -179, -24, 11]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem namespace="http://www.example.org/Quote" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.example.org/QuoteRequest" prefix="tns2"/>
+        <tibex:namespaceItem
+            namespace="http://xmlns.example.com/20160420160916" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema" prefix="tns4"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
         location="../../../Service%20Descriptors/GenerateQuoteService.wsdl" namespace="http://xmlns.example.com/20160420160916"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
@@ -2077,6 +2099,7 @@
                                     parameterName="productId" parameterType="Path"/>
                                 </parameters>
                                 <clientFormat>JSON</clientFormat>
+                                <advancedConfig blockingQueueSize="2147483647"/>
                             </scaext:binding>
                         </referenceBinding>
                     </bwbinding:BWBaseBinding>
@@ -2114,6 +2137,7 @@
                                     parameterName="productId" parameterType="Path"/>
                                 </parameters>
                                 <clientFormat>JSON</clientFormat>
+                                <advancedConfig blockingQueueSize="2147483647"/>
                             </scaext:binding>
                         </referenceBinding>
                     </bwbinding:BWBaseBinding>
@@ -2158,6 +2182,7 @@
                                     parameterName="productId" parameterType="Path"/>
                                 </parameters>
                                 <clientFormat>JSON</clientFormat>
+                                <advancedConfig blockingQueueSize="2147483647"/>
                             </scaext:binding>
                         </referenceBinding>
                     </bwbinding:BWBaseBinding>
@@ -2195,6 +2220,7 @@
                                     parameterName="custId" parameterType="Path"/>
                                 </parameters>
                                 <clientFormat>JSON</clientFormat>
+                                <advancedConfig blockingQueueSize="2147483647"/>
                             </scaext:binding>
                         </referenceBinding>
                     </bwbinding:BWBaseBinding>
@@ -2216,34 +2242,40 @@
             name="getCustomerDiscount-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns:getResponse3"
             name="getCustomerDiscount" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getRequest"
-            name="checkInventory-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getResponse"
-            name="checkInventory" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getRequest1"
-            name="getPrice-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getResponse1" name="getPrice" sca-bpel:internal="true"/>
-        <bpws:variable element="tns:LineItem" name="BuildLineItem-input" sca-bpel:internal="true"/>
-        <bpws:variable element="tns:LineItem" name="BuildLineItem" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:GenerateQuoteRequest"
             name="Receive" sca-bpel:internal="true"/>
-        <bpws:variable element="ns4:AccumulatedOutput" name="LineItems" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:DefaultFault"
-            name="InsufficientInventory-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getRequest2"
-            name="getProduct-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns:getResponse2" name="getProduct" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns1:GenerateQuoteFault"
-            name="Reply-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns1:GenerateQuoteFault"
-            name="Reply1-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns5:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns5:ActivityInput" name="Log1-input" sca-bpel:internal="true"/>
         <bpws:variable name="FaultName1" sca-bpel:internal="true" type="xsd:string"/>
         <bpws:variable element="ns0:FaultDetail" name="FaultDetails1" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:GenerateQuoteFault"
             name="Reply2-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns5:ActivityInput" name="Log2-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getRequest"
+            name="Invoke_checkInventory-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getResponse"
+            name="Invoke_checkInventory" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:DefaultFault"
+            name="Throw_InsufficientInventory-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getRequest1"
+            name="Invoke_getPrice-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getResponse1"
+            name="Invoke_getPrice" sca-bpel:internal="true"/>
+        <bpws:variable element="tns:LineItem"
+            name="Mapper_BuildLineItem-input" sca-bpel:internal="true"/>
+        <bpws:variable element="tns:LineItem"
+            name="Mapper_BuildLineItem" sca-bpel:internal="true"/>
+        <bpws:variable element="ns6:AccumulatedOutput" name="LineItems" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getRequest2"
+            name="Invoke_getProduct-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns:getResponse2"
+            name="Invoke_getProduct" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:GenerateQuoteFault"
+            name="DefaultFault_Reply-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:ActivityInput"
+            name="DefaultFault_Log-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:GenerateQuoteFault"
+            name="Exception_Reply-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:ActivityInput"
+            name="Exception_Log-input" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -2269,10 +2301,23 @@
                             portType="ns1:GenerateQuoteService"
                             tibex:xpdlId="f95513fe-ed17-451d-acf6-d129bff5651a" variable="Reply2-input">
                             <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916" version="2.0"&gt;&lt;xsl:param name="FaultDetails1"/&gt;&lt;xsl:template name="Reply2-input" match="/"&gt;&lt;tns:GenerateQuoteFault&gt;&lt;parameters&gt;&lt;tns:GenerateQuoteFault&gt;&lt;fault&gt;&lt;xsl:value-of select="$FaultDetails1/StackTrace"/&gt;&lt;/fault&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/parameters&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20160420160916" version="2.0"&gt;
+    &lt;xsl:param name="FaultDetails1"/&gt;
+    &lt;xsl:template name="Reply2-input" match="/"&gt;
+        &lt;tns1:GenerateQuoteFault&gt;
+            &lt;parameters&gt;
+                &lt;tns1:GenerateQuoteFault&gt;
+                    &lt;fault&gt;
+                        &lt;xsl:value-of select="$FaultDetails1/StackTrace"/&gt;
+                    &lt;/fault&gt;
+                &lt;/tns1:GenerateQuoteFault&gt;
+            &lt;/parameters&gt;
+        &lt;/tns1:GenerateQuoteFault&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                             <tibex:inputBindings>
                                 <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FaultDetails1&quot;/>&#xa;    &lt;xsl:template name=&quot;Reply2-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:GenerateQuoteFault>&#xa;            &lt;fault>&#xa;                &lt;xsl:value-of select=&quot;$FaultDetails1/StackTrace&quot;/>&#xa;            &lt;/fault>&#xa;        &lt;/tns:GenerateQuoteFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FaultDetails1&quot;/>&#xa;    &lt;xsl:template name=&quot;Reply2-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:GenerateQuoteFault>&#xa;            &lt;fault>&#xa;                &lt;xsl:value-of select=&quot;$FaultDetails1/StackTrace&quot;/>&#xa;            &lt;/fault>&#xa;        &lt;/tns1:GenerateQuoteFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                             </tibex:inputBindings>
                             <bpws:targets>
                                 <bpws:target linkName="Log2ToReply2"/>
@@ -2289,13 +2334,13 @@
                         <bpws:extensionActivity>
                             <tibex:activityExtension
                                 inputVariable="Log2-input" name="Log2"
-                                tibex:xpdlId="cd9b016c-d295-4253-9dfb-23682aa99ce2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                tibex:xpdlId="8944d1f8-d202-464e-b91d-099b3f02908d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                 <bpws:sources>
                                     <bpws:source linkName="Log2ToReply2"/>
                                 </bpws:sources>
                                 <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails1/ActivityName&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FaultDetails1&quot;/>&#xa;    &lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:ActivityInput>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;$FaultDetails1/ActivityName&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns3:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:config>
                                     <bwext:BWActivity
@@ -2323,7 +2368,7 @@
             <bpws:links>
                 <bpws:link name="getCustomerDiscountToAssign1" tibex:linkType="SUCCESS"/>
                 <bpws:link name="Assign1ToEnd" tibex:linkType="SUCCESS"/>
-                <bpws:link name="ReceiveToForEach1" tibex:linkType="SUCCESS"/>
+                <bpws:link name="ReceiveToForEach11" tibex:linkType="SUCCESS"/>
                 <bpws:link name="ForEach1TogetCustomerDiscount" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:reply name="End" operation="GenerateQuote"
@@ -2331,10 +2376,10 @@
                 portType="ns1:GenerateQuoteService"
                 tibex:xpdlId="b1522640-175c-4f5c-889b-3324fa88b165" variable="operationOut-input">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916" xmlns:tns1="http://www.example.org/Quote" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:tns5="http://www.example.org/QuoteRequest" version="2.0"&gt;&lt;xsl:param name="TotalPrice"/&gt;&lt;xsl:param name="LineItems"/&gt;&lt;xsl:param name="Receive"/&gt;&lt;xsl:template name="operationOut-input" match="/"&gt;&lt;tns:GenerateQuoteResponse&gt;&lt;parameters&gt;&lt;tns:GenerateQuoteResponse&gt;&lt;Quote&gt;&lt;tns1:QuoteId&gt;&lt;xsl:value-of select="tib:random(10000, 99999)"/&gt;&lt;/tns1:QuoteId&gt;&lt;tns1:CustomerId&gt;&lt;xsl:value-of select="$Receive/parameters/tns:GenerateQuoteRequest/QuoteRequest/tns5:CustomerId"/&gt;&lt;/tns1:CustomerId&gt;&lt;tns1:TotalPrice&gt;&lt;xsl:value-of select="$TotalPrice"/&gt;&lt;/tns1:TotalPrice&gt;&lt;xsl:for-each select="$LineItems/tns1:LineItem"&gt;&lt;tns1:LineItems&gt;&lt;tns1:productId&gt;&lt;xsl:value-of select="tns1:productId"/&gt;&lt;/tns1:productId&gt;&lt;tns1:quantity&gt;&lt;xsl:value-of select="tns1:quantity"/&gt;&lt;/tns1:quantity&gt;&lt;xsl:if test="tns1:unitPrice"&gt;&lt;tns1:unitPrice&gt;&lt;xsl:value-of select="tns1:unitPrice"/&gt;&lt;/tns1:unitPrice&gt;&lt;/xsl:if&gt;&lt;/tns1:LineItems&gt;&lt;/xsl:for-each&gt;&lt;/Quote&gt;&lt;/tns:GenerateQuoteResponse&gt;&lt;/parameters&gt;&lt;/tns:GenerateQuoteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20160420160916" xmlns:tns="http://www.example.org/Quote" xmlns:tns2="http://www.example.org/QuoteRequest" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" version="2.0"&gt;&lt;xsl:param name="TotalPrice"/&gt;&lt;xsl:param name="Receive"/&gt;&lt;xsl:param name="LineItems"/&gt;&lt;xsl:template name="operationOut-input" match="/"&gt;&lt;tns1:GenerateQuoteResponse&gt;&lt;parameters&gt;&lt;tns1:GenerateQuoteResponse&gt;&lt;Quote&gt;&lt;tns:QuoteId&gt;&lt;xsl:value-of select="tib:random(10000, 99999)"/&gt;&lt;/tns:QuoteId&gt;&lt;tns:CustomerId&gt;&lt;xsl:value-of select="$Receive/parameters/tns1:GenerateQuoteRequest/QuoteRequest/tns2:CustomerId"/&gt;&lt;/tns:CustomerId&gt;&lt;tns:TotalPrice&gt;&lt;xsl:value-of select="$TotalPrice"/&gt;&lt;/tns:TotalPrice&gt;&lt;xsl:for-each select="$LineItems/tns:LineItem"&gt;&lt;tns:LineItems&gt;&lt;tns:productId&gt;&lt;xsl:value-of select="tns:productId"/&gt;&lt;/tns:productId&gt;&lt;tns:quantity&gt;&lt;xsl:value-of select="tns:quantity"/&gt;&lt;/tns:quantity&gt;&lt;xsl:if test="tns:unitPrice"&gt;&lt;tns:unitPrice&gt;&lt;xsl:value-of select="tns:unitPrice"/&gt;&lt;/tns:unitPrice&gt;&lt;/xsl:if&gt;&lt;/tns:LineItems&gt;&lt;/xsl:for-each&gt;&lt;/Quote&gt;&lt;/tns1:GenerateQuoteResponse&gt;&lt;/parameters&gt;&lt;/tns1:GenerateQuoteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns1=&quot;http://www.example.org/Quote&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns5=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;TotalPrice&quot;/>&#xa;    &lt;xsl:param name=&quot;LineItems&quot;/>&#xa;    &lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:GenerateQuoteResponse>&#xa;            &lt;Quote>&#xa;                &lt;tns1:QuoteId>&#xa;                    &lt;xsl:value-of select=&quot;tib:random(10000, 99999)&quot;/>&#xa;                &lt;/tns1:QuoteId>&#xa;                &lt;tns1:CustomerId>&#xa;                    &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns5:CustomerId&quot;/>&#xa;                &lt;/tns1:CustomerId>&#xa;                &lt;tns1:TotalPrice>&#xa;                    &lt;xsl:value-of select=&quot;$TotalPrice&quot;/>&#xa;                &lt;/tns1:TotalPrice>&#xa;                &lt;xsl:for-each select=&quot;$LineItems/tns1:LineItem&quot;>&#xa;                    &lt;tns1:LineItems>&#xa;                        &lt;tns1:productId>&#xa;                            &lt;xsl:value-of select=&quot;tns1:productId&quot;/>&#xa;                        &lt;/tns1:productId>&#xa;                        &lt;tns1:quantity>&#xa;                            &lt;xsl:value-of select=&quot;tns1:quantity&quot;/>&#xa;                        &lt;/tns1:quantity>&#xa;                        &lt;xsl:if test=&quot;tns1:unitPrice&quot;>&#xa;                            &lt;tns1:unitPrice>&#xa;                                &lt;xsl:value-of select=&quot;tns1:unitPrice&quot;/>&#xa;                            &lt;/tns1:unitPrice>&#xa;                        &lt;/xsl:if>&#xa;                    &lt;/tns1:LineItems>&#xa;                &lt;/xsl:for-each>&#xa;            &lt;/Quote>&#xa;        &lt;/tns:GenerateQuoteResponse>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns=&quot;http://www.example.org/Quote&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;TotalPrice&quot;/>&#xa;    &lt;xsl:param name=&quot;LineItems&quot;/>&#xa;    &lt;xsl:template name=&quot;operationOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:GenerateQuoteResponse>&#xa;            &lt;Quote>&#xa;                &lt;tns:QuoteId>&#xa;                    &lt;xsl:value-of select=&quot;tib:random(10000, 99999)&quot;/>&#xa;                &lt;/tns:QuoteId>&#xa;                &lt;tns:CustomerId>&#xa;                    &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns2:CustomerId&quot;/>&#xa;                &lt;/tns:CustomerId>&#xa;                &lt;tns:TotalPrice>&#xa;                    &lt;xsl:value-of select=&quot;$TotalPrice&quot;/>&#xa;                &lt;/tns:TotalPrice>&#xa;                &lt;xsl:for-each select=&quot;$LineItems/tns:LineItem&quot;>&#xa;                    &lt;tns:LineItems>&#xa;                        &lt;tns:productId>&#xa;                            &lt;xsl:value-of select=&quot;tns:productId&quot;/>&#xa;                        &lt;/tns:productId>&#xa;                        &lt;tns:quantity>&#xa;                            &lt;xsl:value-of select=&quot;tns:quantity&quot;/>&#xa;                        &lt;/tns:quantity>&#xa;                        &lt;xsl:if test=&quot;tns:unitPrice&quot;>&#xa;                            &lt;tns:unitPrice>&#xa;                                &lt;xsl:value-of select=&quot;tns:unitPrice&quot;/>&#xa;                            &lt;/tns:unitPrice>&#xa;                        &lt;/xsl:if>&#xa;                    &lt;/tns:LineItems>&#xa;                &lt;/xsl:for-each>&#xa;            &lt;/Quote>&#xa;        &lt;/tns1:GenerateQuoteResponse>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="Assign1ToEnd"/>
@@ -2346,12 +2391,39 @@
                 partnerLink="discount-custId"
                 portType="ns:discount-custId" tibex:xpdlId="c4d9f48d-6f3c-4243-86a7-07ce6803bac5">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916PLT" xmlns:tns1="http://tns.tibco.com/bw/REST" xmlns:tns2="http://xmlns.example.com/20160420160916" xmlns:tns3="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns4="http://www.example.org/Quote" xmlns:tns5="http://www.example.org/QuoteRequest" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;&lt;xsl:param name="Receive"/&gt;&lt;xsl:template name="getCustomerDiscount-input" match="/"&gt;&lt;tns:getRequest3&gt;&lt;httpHeaders&gt;&lt;tns1:httpHeaders&gt;&lt;DynamicHeaders&gt;&lt;Header&gt;&lt;Name&gt;&lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;&lt;/Name&gt;&lt;Value&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;&lt;/Value&gt;&lt;/Header&gt;&lt;/DynamicHeaders&gt;&lt;/tns1:httpHeaders&gt;&lt;/httpHeaders&gt;&lt;parameters&gt;&lt;tns3:discount-custIdGetParameters&gt;&lt;custId&gt;&lt;xsl:value-of select="$Receive/parameters/tns2:GenerateQuoteRequest/QuoteRequest/tns5:CustomerId"/&gt;&lt;/custId&gt;&lt;/tns3:discount-custIdGetParameters&gt;&lt;/parameters&gt;&lt;/tns:getRequest3&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns6="http://xmlns.example.com/20160420160916PLT" xmlns:tns7="http://tns.tibco.com/bw/REST" xmlns:tns1="http://xmlns.example.com/20160420160916" xmlns:tns5="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns2="http://www.example.org/QuoteRequest" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;
+    &lt;xsl:param name="Receive"/&gt;
+    &lt;xsl:template name="getCustomerDiscount-input" match="/"&gt;
+        &lt;tns6:getRequest3&gt;
+            &lt;httpHeaders&gt;
+                &lt;tns7:httpHeaders&gt;
+                    &lt;DynamicHeaders&gt;
+                        &lt;Header&gt;
+                            &lt;Name&gt;
+                                &lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;
+                            &lt;/Name&gt;
+                            &lt;Value&gt;
+                                &lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;
+                            &lt;/Value&gt;
+                        &lt;/Header&gt;
+                    &lt;/DynamicHeaders&gt;
+                &lt;/tns7:httpHeaders&gt;
+            &lt;/httpHeaders&gt;
+            &lt;parameters&gt;
+                &lt;tns5:discount-custIdGetParameters&gt;
+                    &lt;custId&gt;
+                        &lt;xsl:value-of select="$Receive/parameters/tns1:GenerateQuoteRequest/QuoteRequest/tns2:CustomerId"/&gt;
+                    &lt;/custId&gt;
+                &lt;/tns5:discount-custIdGetParameters&gt;
+            &lt;/parameters&gt;
+        &lt;/tns6:getRequest3&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns3=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns4=&quot;http://www.example.org/Quote&quot; xmlns:tns5=&quot;http://www.example.org/QuoteRequest&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getCustomerDiscount-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns1:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getCustomerDiscount-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns7:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns7:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns3=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns4=&quot;http://www.example.org/Quote&quot; xmlns:tns5=&quot;http://www.example.org/QuoteRequest&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;getCustomerDiscount-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:discount-custIdGetParameters>&#xa;            &lt;custId>&#xa;                &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns5:CustomerId&quot;/>&#xa;            &lt;/custId>&#xa;        &lt;/tns3:discount-custIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;getCustomerDiscount-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns5:discount-custIdGetParameters>&#xa;            &lt;custId>&#xa;                &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns2:CustomerId&quot;/>&#xa;            &lt;/custId>&#xa;        &lt;/tns5:discount-custIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="ForEach1TogetCustomerDiscount"/>
@@ -2366,7 +2438,7 @@
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"
                     inputVariable="TotalPrice" name="ApplyDiscount"
                     outputVariable="TotalPrice"
-                    tibex:xpdlId="de0986a6-248d-4590-ac93-210fd972cb9d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="398ae5d1-626b-48bc-a934-fad99c05b48b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="getCustomerDiscountToAssign1"/>
                     </bpws:targets>
@@ -2393,87 +2465,124 @@
                     </tibex:config>
                 </tibex:activityExtension>
             </bpws:extensionActivity>
-            <bpws:scope name="ForEach" tibex:group="foreach" tibex:xpdlId="4125b60a-d858-4520-8852-3aee3965e351">
+            <bpws:receive createInstance="yes" name="Receive"
+                operation="GenerateQuote"
+                partnerLink="GenerateQuoteService"
+                portType="ns1:GenerateQuoteService"
+                tibex:xpdlId="bc5ef0ea-5570-42d1-863c-5ca5b4ae968e" variable="Receive">
+                <bpws:sources>
+                    <bpws:source linkName="ReceiveToForEach11"/>
+                </bpws:sources>
+            </bpws:receive>
+            <bpws:scope name="ForEach1" tibex:group="foreach"
+                tibex:indexOriginalName="index"
+                tibex:indexToGlobal="false" tibex:xpdlId="e6063e6b-e5b8-4eee-9cde-f8ac3ee65148">
                 <bpws:targets>
-                    <bpws:target linkName="ReceiveToForEach1"/>
+                    <bpws:target linkName="ReceiveToForEach11"/>
                 </bpws:targets>
                 <bpws:sources>
                     <bpws:source linkName="ForEach1TogetCustomerDiscount"/>
                 </bpws:sources>
                 <bpws:variables>
                     <bpws:variable name="productId" type="xsd:string"/>
-                    <bpws:variable name="FaultName"
+                    <bpws:variable name="FaultName2"
                         sca-bpel:internal="true" type="xsd:string"/>
                     <bpws:variable element="ns0:FaultDetail"
-                        name="FaultDetails" sca-bpel:internal="true"/>
+                        name="FaultDetails2" sca-bpel:internal="true"/>
                 </bpws:variables>
                 <bpws:faultHandlers>
                     <bpws:catch faultElement="ns2:DefaultFault"
                         faultName="ns2:DefaultFault"
-                        faultVariable="DefaultFault" tibex:xpdlId="9512bd6f-d09a-4537-b0d8-e6ffc63f3e5a">
-                        <bpws:scope name="scope1">
-                            <bpws:flow name="flow1">
+                        faultVariable="DefaultFault" tibex:xpdlId="e0eb408e-e4ac-4bcc-a11c-0ac8f886e9fe">
+                        <bpws:scope name="scope4">
+                            <bpws:flow name="flow6">
                                 <bpws:links>
-                                    <bpws:link name="getToReply" tibex:linkType="SUCCESS"/>
-                                    <bpws:link name="ReplyToExit1" tibex:linkType="SUCCESS"/>
-                                    <bpws:link name="LogTogetProduct" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="getToReply1" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="ReplyToExit11" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="LogTogetProduct1" tibex:linkType="SUCCESS"/>
                                 </bpws:links>
                                 <bpws:invoke
-                                    inputVariable="getProduct-input"
-                                    name="getProduct" operation="get"
-                                    outputVariable="getProduct"
+                                    inputVariable="Invoke_getProduct-input"
+                                    name="Invoke_getProduct"
+                                    operation="get"
+                                    outputVariable="Invoke_getProduct"
                                     partnerLink="product-productId"
-                                    portType="ns:product-productId" tibex:xpdlId="8e66e37d-0aff-49ed-bb64-314f3faef14a">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916PLT" xmlns:tns1="http://tns.tibco.com/bw/REST" xmlns:tns2="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;&lt;xsl:param name="DefaultFault"/&gt;&lt;xsl:template name="getProduct-input" match="/"&gt;&lt;tns:getRequest2&gt;&lt;httpHeaders&gt;&lt;tns1:httpHeaders&gt;&lt;DynamicHeaders&gt;&lt;Header&gt;&lt;Name&gt;&lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;&lt;/Name&gt;&lt;Value&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;&lt;/Value&gt;&lt;/Header&gt;&lt;/DynamicHeaders&gt;&lt;/tns1:httpHeaders&gt;&lt;/httpHeaders&gt;&lt;parameters&gt;&lt;tns2:product-productIdGetParameters&gt;&lt;productId&gt;&lt;xsl:value-of select="$DefaultFault/message"/&gt;&lt;/productId&gt;&lt;/tns2:product-productIdGetParameters&gt;&lt;/parameters&gt;&lt;/tns:getRequest2&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    portType="ns:product-productId" tibex:xpdlId="cf266dc2-8a1e-4831-8cf0-c3a4b7fa7f9b">
                                     <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getProduct-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns1:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns7=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getProduct-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns5:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns5:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns2=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;DefaultFault&quot;/>&#xa;    &lt;xsl:template name=&quot;getProduct-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:product-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$DefaultFault/message&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns2:product-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:tns7=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;DefaultFault&quot;/>&#xa;    &lt;xsl:template name=&quot;getProduct-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns7:product-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$DefaultFault/message&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns7:product-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
+                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns6="http://xmlns.example.com/20160420160916PLT" xmlns:tns5="http://tns.tibco.com/bw/REST" xmlns:tns7="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;
+    &lt;xsl:param name="DefaultFault"/&gt;
+    &lt;xsl:template name="getProduct-input" match="/"&gt;
+        &lt;tns6:getRequest2&gt;
+            &lt;httpHeaders&gt;
+                &lt;tns5:httpHeaders&gt;
+                    &lt;DynamicHeaders&gt;
+                        &lt;Header&gt;
+                            &lt;Name&gt;
+                                &lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;
+                            &lt;/Name&gt;
+                            &lt;Value&gt;
+                                &lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;
+                            &lt;/Value&gt;
+                        &lt;/Header&gt;
+                    &lt;/DynamicHeaders&gt;
+                &lt;/tns5:httpHeaders&gt;
+            &lt;/httpHeaders&gt;
+            &lt;parameters&gt;
+                &lt;tns7:product-productIdGetParameters&gt;
+                    &lt;productId&gt;
+                        &lt;xsl:value-of select="$DefaultFault/message"/&gt;
+                    &lt;/productId&gt;
+                &lt;/tns7:product-productIdGetParameters&gt;
+            &lt;/parameters&gt;
+        &lt;/tns6:getRequest2&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                     <bpws:targets>
-                                    <bpws:target linkName="LogTogetProduct"/>
+                                    <bpws:target linkName="LogTogetProduct1"/>
                                     </bpws:targets>
                                     <bpws:sources>
-                                    <bpws:source linkName="getToReply"/>
+                                    <bpws:source linkName="getToReply1"/>
                                     </bpws:sources>
                                 </bpws:invoke>
                                 <bpws:reply faultName="Fault"
-                                    name="Reply"
+                                    name="DefaultFault_Reply"
                                     operation="GenerateQuote"
                                     partnerLink="GenerateQuoteService"
                                     portType="ns1:GenerateQuoteService"
-                                    tibex:xpdlId="0132107d-89ea-48e2-a2b2-785565c82bfc" variable="Reply-input">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916" xmlns:tns1="fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema" version="2.0"&gt;&lt;xsl:param name="getProduct"/&gt;&lt;xsl:template name="Reply-input" match="/"&gt;&lt;tns:GenerateQuoteFault&gt;&lt;parameters&gt;&lt;tns:GenerateQuoteFault&gt;&lt;fault&gt;&lt;xsl:value-of select="concat(&amp;quot;Insufficient Inventory for Product: &amp;quot;, $getProduct/item/tns1:Product/tns1:name)"/&gt;&lt;/fault&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/parameters&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    tibex:xpdlId="4a504a69-8eee-4cab-a861-0f94d023b0e3" variable="DefaultFault_Reply-input">
                                     <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns1=&quot;fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;getProduct.item&quot;/>&#xa;    &lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:GenerateQuoteFault>&#xa;            &lt;fault>&#xa;                &lt;xsl:value-of select=&quot;concat(&amp;quot;Insufficient Inventory for Product: &amp;quot;, $getProduct.item/tns1:name)&quot;/>&#xa;            &lt;/fault>&#xa;        &lt;/tns:GenerateQuoteFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:tns4=&quot;fmc-productcat.pcfdemo.tibco.com:80/T1461187363685Converted/JsonSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Invoke_getProduct&quot;/>&lt;xsl:template name=&quot;DefaultFault_Reply-input&quot; match=&quot;/&quot;>&lt;tns1:GenerateQuoteFault>&lt;parameters>&lt;tns1:GenerateQuoteFault>&lt;fault>&lt;xsl:value-of select=&quot;concat(&amp;quot;Insufficient Inventory for Product: &amp;quot;, $Invoke_getProduct/item/tns4:Product/tns4:name)&quot;/>&lt;/fault>&lt;/tns1:GenerateQuoteFault>&lt;/parameters>&lt;/tns1:GenerateQuoteFault>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <bpws:targets>
-                                    <bpws:target linkName="getToReply"/>
+                                    <bpws:target linkName="getToReply1"/>
                                     </bpws:targets>
                                     <bpws:sources>
-                                    <bpws:source linkName="ReplyToExit1"/>
+                                    <bpws:source linkName="ReplyToExit11"/>
                                     </bpws:sources>
                                 </bpws:reply>
-                                <bpws:exit name="Exit1" tibex:xpdlId="9c537307-eb2b-4874-8ce8-4728b3496667">
+                                <bpws:exit name="DefaultFault_Exit" tibex:xpdlId="d2b0ceba-8734-42a9-a608-1a02156e77ec">
                                     <bpws:targets>
-                                    <bpws:target linkName="ReplyToExit1"/>
+                                    <bpws:target linkName="ReplyToExit11"/>
                                     </bpws:targets>
                                 </bpws:exit>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    inputVariable="Log-input"
-                                    name="Log"
-                                    tibex:xpdlId="3ebf85c7-989a-4209-b3d2-b74a7503746b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    inputVariable="DefaultFault_Log-input"
+                                    name="DefaultFault_Log"
+                                    tibex:xpdlId="40e6d175-6aef-4727-a430-cb5b12b7a443" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
-                                    <bpws:source linkName="LogTogetProduct"/>
+                                    <bpws:source linkName="LogTogetProduct1"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DefaultFault&quot;/>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;$DefaultFault/message&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DefaultFault&quot;/>&lt;xsl:param name=&quot;FaultDetails2&quot;/>&lt;xsl:template name=&quot;DefaultFault_Log-input&quot; match=&quot;/&quot;>&lt;tns3:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;$FaultDetails2/ActivityName&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;$DefaultFault/message&quot;/>&lt;/message>&lt;/tns3:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -2498,49 +2607,49 @@
                             </bpws:flow>
                         </bpws:scope>
                     </bpws:catch>
-                    <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
-                        tibex:faultNameVar="FaultName" tibex:xpdlId="242f6173-6acd-470d-b654-e764033a9abe">
-                        <bpws:scope name="scope2">
-                            <bpws:flow name="flow2">
+                    <bpws:catchAll tibex:faultDetailsVar="FaultDetails2"
+                        tibex:faultNameVar="FaultName2" tibex:xpdlId="0ec62ec3-e7d6-428e-90c6-e37963d02f8c">
+                        <bpws:scope name="scope5">
+                            <bpws:flow name="flow7">
                                 <bpws:links>
-                                    <bpws:link name="Reply1ToExit" tibex:linkType="SUCCESS"/>
-                                    <bpws:link name="Log1ToReply1" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="Reply1ToExit1" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="Log1ToReply11" tibex:linkType="SUCCESS"/>
                                 </bpws:links>
                                 <bpws:reply faultName="Fault"
-                                    name="Reply1"
+                                    name="Exception_Reply"
                                     operation="GenerateQuote"
                                     partnerLink="GenerateQuoteService"
                                     portType="ns1:GenerateQuoteService"
-                                    tibex:xpdlId="43c54eb9-257a-46cf-beeb-d6b3fadd09ae" variable="Reply1-input">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916" version="2.0"&gt;&lt;xsl:param name="FaultDetails"/&gt;&lt;xsl:template name="Reply1-input" match="/"&gt;&lt;tns:GenerateQuoteFault&gt;&lt;parameters&gt;&lt;tns:GenerateQuoteFault&gt;&lt;fault&gt;&lt;xsl:value-of select="$FaultDetails/StackTrace"/&gt;&lt;/fault&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/parameters&gt;&lt;/tns:GenerateQuoteFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    tibex:xpdlId="cd0fde45-5bea-4de3-80b2-148e30aa02c5" variable="Exception_Reply-input">
                                     <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FaultDetails&quot;/>&#xa;    &lt;xsl:template name=&quot;Reply1-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:GenerateQuoteFault>&#xa;            &lt;fault>&#xa;                &lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/>&#xa;            &lt;/fault>&#xa;        &lt;/tns:GenerateQuoteFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FaultDetails2&quot;/>&#xa;    &lt;xsl:template name=&quot;Exception_Reply-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:GenerateQuoteFault>&#xa;            &lt;fault>&#xa;                &lt;xsl:value-of select=&quot;$FaultDetails2/StackTrace&quot;/>&#xa;            &lt;/fault>&#xa;        &lt;/tns1:GenerateQuoteFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
+                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20160420160916" version="2.0"&gt;&lt;xsl:param name="FaultDetails2"/&gt;&lt;xsl:template name="Exception_Reply-input" match="/"&gt;&lt;tns1:GenerateQuoteFault&gt;&lt;parameters&gt;&lt;tns1:GenerateQuoteFault&gt;&lt;fault&gt;&lt;xsl:value-of select="$FaultDetails2/StackTrace"/&gt;&lt;/fault&gt;&lt;/tns1:GenerateQuoteFault&gt;&lt;/parameters&gt;&lt;/tns1:GenerateQuoteFault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                     <bpws:targets>
-                                    <bpws:target linkName="Log1ToReply1"/>
+                                    <bpws:target linkName="Log1ToReply11"/>
                                     </bpws:targets>
                                     <bpws:sources>
-                                    <bpws:source linkName="Reply1ToExit"/>
+                                    <bpws:source linkName="Reply1ToExit1"/>
                                     </bpws:sources>
                                 </bpws:reply>
-                                <bpws:exit name="Exit" tibex:xpdlId="8c654958-3eaf-490f-92ac-ff0014586ebe">
+                                <bpws:exit name="Exception_Exit" tibex:xpdlId="2ef9f539-9ebe-4dfa-b965-a11b3cc791ee">
                                     <bpws:targets>
-                                    <bpws:target linkName="Reply1ToExit"/>
+                                    <bpws:target linkName="Reply1ToExit1"/>
                                     </bpws:targets>
                                 </bpws:exit>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    inputVariable="Log1-input"
-                                    name="Log1"
-                                    tibex:xpdlId="8649e75a-1ae5-40ac-86f6-c4d63d6cb7ba" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    inputVariable="Exception_Log-input"
+                                    name="Exception_Log"
+                                    tibex:xpdlId="4e38dd55-51bc-4c11-a69e-d62981ba8d2c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
-                                    <bpws:source linkName="Log1ToReply1"/>
+                                    <bpws:source linkName="Log1ToReply11"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails2&quot;/>&lt;xsl:template name=&quot;Exception_Log-input&quot; match=&quot;/&quot;>&lt;tns3:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails2/ActivityName&quot;/>&lt;/message>&lt;/tns3:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -2566,16 +2675,16 @@
                         </bpws:scope>
                     </bpws:catchAll>
                 </bpws:faultHandlers>
-                <bpws:sequence name="sequence" tibex:group="foreach">
-                    <bpws:assign name="GroupInit"
+                <bpws:sequence name="sequence1" tibex:group="foreach">
+                    <bpws:assign name="GroupInit1"
                         tibex:group="groupInit"
-                        tibex:xpdlId="eb829baa-53e0-4079-af3f-01e3bb8a4dc1" validate="no">
+                        tibex:xpdlId="db06109c-9bbe-4dcd-8447-1f07f4a76467" validate="no">
                         <bpws:copy>
-                            <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"><![CDATA[<?xml version="1.0" encoding="UTF-8"?> <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+395d2403-85c2-4953-a23f-9051f2b437f0" version="2.0"> <xsl:template name="LineItems" match="/"> <tns:AccumulatedOutput/> </xsl:template> </xsl:stylesheet>]]></bpws:from>
+                            <bpws:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"><![CDATA[<?xml version="1.0" encoding="UTF-8"?> <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://tns.tibco.com/bw/palette/internal/accumulateoutput+519563e5-831c-4efe-90c4-9c10e73de598" version="2.0"> <xsl:template name="Accumulate" match="/"> <tns:AccumulatedOutput/></xsl:template> </xsl:stylesheet>]]></bpws:from>
                             <bpws:to variable="LineItems"/>
                         </bpws:copy>
                     </bpws:assign>
-                    <bpws:forEach counterName="index" name="forEach1"
+                    <bpws:forEach counterName="index" name="forEach"
                         parallel="no" tibex:group="foreach">
                         <tibex:DesignExpression name="final">
                             <tibex:expression
@@ -2583,37 +2692,39 @@
                         </tibex:DesignExpression>
                         <bpws:startCounterValue><![CDATA[1]]></bpws:startCounterValue>
                         <bpws:finalCounterValue expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($Receive.parameters/QuoteRequest/tns1:LineItems)]]></bpws:finalCounterValue>
-                        <bpws:scope name="innerScope1">
-                            <bpws:flow name="flow3">
+                        <bpws:scope name="innerScope">
+                            <bpws:flow name="flow5">
                                 <bpws:links>
                                     <bpws:link
-                                    name="GroupStart1ToCopy_1_checkInventory" tibex:linkType="SUCCESS"/>
+                                    name="GroupStartToAssign_SetProductId" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="Copy_1_checkInventoryToCopy_1_getPrice" tibex:linkType="SUCCESS"/>
+                                    name="Assign_SetProductIdToInvoke_checkInventory" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="Copy_1_getPriceToCopy_1_Assign" tibex:linkType="SUCCESS"/>
+                                    name="Invoke_checkInventoryToThrow_LowInventory"
+                                    tibex:label="Low Inventory" tibex:linkType="SUCCESSWITHCONDITION"/>
                                     <bpws:link
-                                    name="Copy_1_AssignToCopy_1_BuildLineItem" tibex:linkType="SUCCESS"/>
+                                    name="Invoke_checkInventoryToInvoke_getPrice" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="Copy_1_BuildLineItemToGroupEnd" tibex:linkType="SUCCESS"/>
+                                    name="Invoke_getPriceToAssign_UpdateTotalPrice" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="Assign2ToCopy_1_checkInventory" tibex:linkType="SUCCESS"/>
+                                    name="Assign_UpdateTotalPriceToMapper_BuildLineItem" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="checkInventoryToThrow" tibex:linkType="SUCCESSWITHCONDITION"/>
+                                    name="Mapper_BuildLineItemToGroupEnd" tibex:linkType="SUCCESS"/>
                                 </bpws:links>
-                                <bpws:empty name="GroupStart1"
-                                    tibex:group="groupStart" tibex:xpdlId="26685656-2501-40d3-bc2f-1cac0fb4434e">
+                                <bpws:empty name="GroupStart"
+                                    tibex:group="groupStart" tibex:xpdlId="f0935416-6919-4f70-b344-7cb455da6235">
                                     <bpws:sources>
-                                    <bpws:source linkName="GroupStart1ToCopy_1_checkInventory"/>
+                                    <bpws:source linkName="GroupStartToAssign_SetProductId"/>
                                     </bpws:sources>
                                 </bpws:empty>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
                                     name="LineItems"
                                     outputVariable="LineItems"
-                                    tibex:xpdlId="395d2403-85c2-4953-a23f-9051f2b437f0" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:group="groupEnd"
+                                    tibex:xpdlId="519563e5-831c-4efe-90c4-9c10e73de598" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
-                                    <bpws:target linkName="Copy_1_BuildLineItemToGroupEnd"/>
+                                    <bpws:target linkName="Mapper_BuildLineItemToGroupEnd"/>
                                     </bpws:targets>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -2626,132 +2737,8 @@
                                     name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/core/internalactivity#//AccumulateEnd"/>
                                     <value xsi:type="internalactivities:AccumulateEnd">
-                                    <activityNames>BuildLineItem</activityNames>
+                                    <activityNames>Mapper_BuildLineItem</activityNames>
                                     </value>
-                                    </properties>
-                                    </activityConfig>
-                                    </bwext:BWActivity>
-                                    </tibex:config>
-                                    </tibex:activityExtension>
-                                </bpws:extensionActivity>
-                                <bpws:invoke
-                                    inputVariable="checkInventory-input"
-                                    name="checkInventory"
-                                    operation="get"
-                                    outputVariable="checkInventory"
-                                    partnerLink="inventory-productId"
-                                    portType="ns:inventory-productId" tibex:xpdlId="7205a5d2-9f27-4b73-b1a9-3d6d164b6c9d">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916PLT" xmlns:tns1="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns2="http://tns.tibco.com/bw/REST" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;&lt;xsl:param name="productId"/&gt;&lt;xsl:template name="checkInventory-input" match="/"&gt;&lt;tns:getRequest&gt;&lt;httpHeaders&gt;&lt;tns2:httpHeaders&gt;&lt;DynamicHeaders&gt;&lt;Header&gt;&lt;Name&gt;&lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;&lt;/Name&gt;&lt;Value&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;&lt;/Value&gt;&lt;/Header&gt;&lt;/DynamicHeaders&gt;&lt;/tns2:httpHeaders&gt;&lt;/httpHeaders&gt;&lt;parameters&gt;&lt;tns1:inventory-productIdGetParameters&gt;&lt;productId&gt;&lt;xsl:value-of select="$productId"/&gt;&lt;/productId&gt;&lt;/tns1:inventory-productIdGetParameters&gt;&lt;/parameters&gt;&lt;/tns:getRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
-                                    <tibex:inputBindings>
-                                    <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;checkInventory-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns2:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                    <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;checkInventory-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:inventory-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns1:inventory-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                    </tibex:inputBindings>
-                                    <bpws:targets>
-                                    <bpws:target linkName="Assign2ToCopy_1_checkInventory"/>
-                                    </bpws:targets>
-                                    <bpws:sources>
-                                    <bpws:source linkName="Copy_1_checkInventoryToCopy_1_getPrice"/>
-                                    <bpws:source linkName="checkInventoryToThrow">
-                                    <tibex:DesignExpression>
-                                    <tibex:expression
-                                    expression="number($checkInventory/item) &lt; $Receive/parameters/ns1:GenerateQuoteRequest/QuoteRequest/tns1:LineItems[number($index)]/tns1:quantity" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
-                                    </tibex:DesignExpression>
-                                    <bpws:transitionCondition><![CDATA[number($checkInventory.item) < $Receive.parameters/QuoteRequest/tns1:LineItems[number($index)]/tns1:quantity]]></bpws:transitionCondition>
-                                    </bpws:source>
-                                    </bpws:sources>
-                                </bpws:invoke>
-                                <bpws:invoke
-                                    inputVariable="getPrice-input"
-                                    name="getPrice" operation="get"
-                                    outputVariable="getPrice"
-                                    partnerLink="price-productId"
-                                    portType="ns:price-productId" tibex:xpdlId="ac42b214-f43e-4195-98b4-4f6fbc07a9b8">
-                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20160420160916PLT" xmlns:tns1="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns2="http://tns.tibco.com/bw/REST" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;&lt;xsl:param name="productId"/&gt;&lt;xsl:template name="getPrice-input" match="/"&gt;&lt;tns:getRequest1&gt;&lt;httpHeaders&gt;&lt;tns2:httpHeaders&gt;&lt;DynamicHeaders&gt;&lt;Header&gt;&lt;Name&gt;&lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;&lt;/Name&gt;&lt;Value&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;&lt;/Value&gt;&lt;/Header&gt;&lt;/DynamicHeaders&gt;&lt;/tns2:httpHeaders&gt;&lt;/httpHeaders&gt;&lt;parameters&gt;&lt;tns1:price-productIdGetParameters&gt;&lt;productId&gt;&lt;xsl:value-of select="$productId"/&gt;&lt;/productId&gt;&lt;/tns1:price-productIdGetParameters&gt;&lt;/parameters&gt;&lt;/tns:getRequest1&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
-                                    <tibex:inputBindings>
-                                    <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getPrice-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns2:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                    <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;getPrice-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:price-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns1:price-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                    </tibex:inputBindings>
-                                    <bpws:targets>
-                                    <bpws:target linkName="Copy_1_checkInventoryToCopy_1_getPrice"/>
-                                    </bpws:targets>
-                                    <bpws:sources>
-                                    <bpws:source linkName="Copy_1_getPriceToCopy_1_Assign"/>
-                                    </bpws:sources>
-                                </bpws:invoke>
-                                <bpws:extensionActivity>
-                                    <tibex:activityExtension
-                                    expression="$TotalPrice + (xsd:double($getPrice/item) * $Receive/parameters/ns1:GenerateQuoteRequest/QuoteRequest/tns1:LineItems[xsd:integer($index)]/tns1:quantity)"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"
-                                    inputVariable="TotalPrice"
-                                    name="UpdateTotalPrice"
-                                    outputVariable="TotalPrice"
-                                    tibex:xpdlId="9830613f-066f-44f7-8939-9ad0bc887ad2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                                    <bpws:targets>
-                                    <bpws:target linkName="Copy_1_getPriceToCopy_1_Assign"/>
-                                    </bpws:targets>
-                                    <bpws:sources>
-                                    <bpws:source linkName="Copy_1_AssignToCopy_1_BuildLineItem"/>
-                                    </bpws:sources>
-                                    <tibex:inputBindings>
-                                    <tibex:inputBinding
-                                    expression="$TotalPrice + (xsd:double($getPrice.item) * $Receive.parameters/QuoteRequest/tns1:LineItems[xsd:integer($index)]/tns1:quantity)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
-                                    </tibex:inputBindings>
-                                    <tibex:config>
-                                    <bwext:BWActivity
-                                    activityTypeID="bw.generalactivities.bwassign"
-                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                                    <activityConfig>
-                                    <properties
-                                    name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
-                                    <value
-                                    processVariable="TotalPrice" xsi:type="generalactivities:BWAssign"/>
-                                    </properties>
-                                    </activityConfig>
-                                    </bwext:BWActivity>
-                                    </tibex:config>
-                                    </tibex:activityExtension>
-                                </bpws:extensionActivity>
-                                <bpws:extensionActivity>
-                                    <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Quote&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;index&quot;/>&lt;xsl:param name=&quot;getPrice&quot;/>&lt;xsl:param name=&quot;Receive&quot;/>&lt;xsl:param name=&quot;productId&quot;/>&lt;xsl:template name=&quot;BuildLineItem-input&quot; match=&quot;/&quot;>&lt;tns:LineItem>&lt;xsl:variable name=&quot;var&quot; select=&quot;xsd:integer($index)&quot;/>&lt;tns:productId>&lt;xsl:value-of select=&quot;$productId&quot;/>&lt;/tns:productId>&lt;tns:quantity>&lt;xsl:value-of select=&quot;$Receive/parameters/tns1:GenerateQuoteRequest/QuoteRequest/tns2:LineItems[$var]/tns2:quantity&quot;/>&lt;/tns:quantity>&lt;tns:unitPrice>&lt;xsl:value-of select=&quot;xsd:double($getPrice/item)&quot;/>&lt;/tns:unitPrice>&lt;/tns:LineItem>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                                    inputVariable="BuildLineItem-input"
-                                    name="BuildLineItem"
-                                    outputVariable="BuildLineItem"
-                                    tibex:xpdlId="e2470aa0-8a83-4a5a-b9f8-91a2509fab26" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                                    <bpws:targets>
-                                    <bpws:target linkName="Copy_1_AssignToCopy_1_BuildLineItem"/>
-                                    </bpws:targets>
-                                    <bpws:sources>
-                                    <bpws:source linkName="Copy_1_BuildLineItemToGroupEnd"/>
-                                    </bpws:sources>
-                                    <tibex:inputBindings>
-                                    <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Quote&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;getPrice.item&quot;/>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;index&quot;/>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;BuildLineItem-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:LineItem>&#xa;            &lt;xsl:variable name=&quot;var&quot; select=&quot;xsd:integer($index)&quot;/>&#xa;            &lt;tns:productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/tns:productId>&#xa;            &lt;tns:quantity>&#xa;                &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns2:LineItems[$var]/tns2:quantity&quot;/>&#xa;            &lt;/tns:quantity>&#xa;            &lt;tns:unitPrice>&#xa;                &lt;xsl:value-of select=&quot;xsd:double($getPrice.item)&quot;/>&#xa;            &lt;/tns:unitPrice>&#xa;        &lt;/tns:LineItem>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                    </tibex:inputBindings>
-                                    <tibex:config>
-                                    <bwext:BWActivity
-                                    activityTypeID="bw.generalactivities.mapper"
-                                    version="6.0.0.001"
-                                    xmlns:Quote="http://www.example.org/Quote"
-                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                                    <activityConfig>
-                                    <properties
-                                    name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
-                                    <value
-                                    inputQName="Quote:LineItem" xsi:type="generalactivities:Mapper"/>
                                     </properties>
                                     </activityConfig>
                                     </bwext:BWActivity>
@@ -2763,14 +2750,14 @@
                                     expression="$Receive/parameters/ns1:GenerateQuoteRequest/QuoteRequest/tns1:LineItems[xsd:integer($index)]/tns1:productId"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"
                                     inputVariable="productId"
-                                    name="SetProductId"
+                                    name="Assign_SetProductId"
                                     outputVariable="productId"
-                                    tibex:xpdlId="2a33ef64-766b-4e96-ae23-6b32eacfa00b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="f011b4e4-a0b1-455c-93a5-4b50524f3c5c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:targets>
-                                    <bpws:target linkName="GroupStart1ToCopy_1_checkInventory"/>
+                                    <bpws:target linkName="GroupStartToAssign_SetProductId"/>
                                     </bpws:targets>
                                     <bpws:sources>
-                                    <bpws:source linkName="Assign2ToCopy_1_checkInventory"/>
+                                    <bpws:source linkName="Assign_SetProductIdToInvoke_checkInventory"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
@@ -2794,31 +2781,201 @@
                                     </tibex:config>
                                     </tibex:activityExtension>
                                 </bpws:extensionActivity>
-                                <bpws:throw faultName="ns2:DefaultFault"
-                                    faultVariable="InsufficientInventory-input"
-                                    name="InsufficientInventory" tibex:xpdlId="31bc896e-c582-4a73-8c83-9c224d9acaa8">
+                                <bpws:invoke
+                                    inputVariable="Invoke_checkInventory-input"
+                                    name="Invoke_checkInventory"
+                                    operation="get"
+                                    outputVariable="Invoke_checkInventory"
+                                    partnerLink="inventory-productId"
+                                    portType="ns:inventory-productId" tibex:xpdlId="333714a0-3c2e-4d3e-b3df-dd1bad993045">
                                     <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;productId&quot;/>&lt;xsl:template name=&quot;Throw-input&quot; match=&quot;/&quot;>&lt;tns:DefaultFault>&lt;message>&lt;xsl:value-of select=&quot;$productId&quot;/>&lt;/message>&lt;/tns:DefaultFault>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;checkInventory-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns7:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns7:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;checkInventory-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns5:inventory-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns5:inventory-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns6="http://xmlns.example.com/20160420160916PLT" xmlns:tns5="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns7="http://tns.tibco.com/bw/REST" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;
+    &lt;xsl:param name="productId"/&gt;
+    &lt;xsl:template name="checkInventory-input" match="/"&gt;
+        &lt;tns6:getRequest&gt;
+            &lt;httpHeaders&gt;
+                &lt;tns7:httpHeaders&gt;
+                    &lt;DynamicHeaders&gt;
+                        &lt;Header&gt;
+                            &lt;Name&gt;
+                                &lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;
+                            &lt;/Name&gt;
+                            &lt;Value&gt;
+                                &lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;
+                            &lt;/Value&gt;
+                        &lt;/Header&gt;
+                    &lt;/DynamicHeaders&gt;
+                &lt;/tns7:httpHeaders&gt;
+            &lt;/httpHeaders&gt;
+            &lt;parameters&gt;
+                &lt;tns5:inventory-productIdGetParameters&gt;
+                    &lt;productId&gt;
+                        &lt;xsl:value-of select="$productId"/&gt;
+                    &lt;/productId&gt;
+                &lt;/tns5:inventory-productIdGetParameters&gt;
+            &lt;/parameters&gt;
+        &lt;/tns6:getRequest&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    <bpws:targets>
+                                    <bpws:target linkName="Assign_SetProductIdToInvoke_checkInventory"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Invoke_checkInventoryToThrow_LowInventory">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="number($Invoke_checkInventory/item) &lt; $Receive/parameters/ns1:GenerateQuoteRequest/QuoteRequest/tns1:LineItems[number($index)]/tns1:quantity" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[number($Invoke_checkInventory.item) < $Receive.parameters/QuoteRequest/tns1:LineItems[number($index)]/tns1:quantity]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    <bpws:source linkName="Invoke_checkInventoryToInvoke_getPrice"/>
+                                    </bpws:sources>
+                                </bpws:invoke>
+                                <bpws:throw faultName="ns2:DefaultFault"
+                                    faultVariable="Throw_InsufficientInventory-input"
+                                    name="Throw_InsufficientInventory" tibex:xpdlId="e27f57c3-e1c1-4ef3-9d4d-fd662e1b0378">
+                                    <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns5=&quot;http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;Throw-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns5:DefaultFault>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns5:DefaultFault>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <bpws:targets>
-                                    <bpws:target linkName="checkInventoryToThrow"/>
+                                    <bpws:target linkName="Invoke_checkInventoryToThrow_LowInventory"/>
                                     </bpws:targets>
                                 </bpws:throw>
+                                <bpws:invoke
+                                    inputVariable="Invoke_getPrice-input"
+                                    name="Invoke_getPrice"
+                                    operation="get"
+                                    outputVariable="Invoke_getPrice"
+                                    partnerLink="price-productId"
+                                    portType="ns:price-productId" tibex:xpdlId="13bef5ce-32e8-4ebd-8bd2-985d50fbde54">
+                                    <tibex:inputBindings>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getPrice-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns7:httpHeaders>&#xa;            &lt;DynamicHeaders>&#xa;                &lt;Header>&#xa;                    &lt;Name>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;X-Api-Key&amp;quot;&quot;/>&#xa;                    &lt;/Name>&#xa;                    &lt;Value>&#xa;                        &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;api_key&amp;quot;)&quot;/>&#xa;                    &lt;/Value>&#xa;                &lt;/Header>&#xa;            &lt;/DynamicHeaders>&#xa;        &lt;/tns7:httpHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns6=&quot;http://xmlns.example.com/20160420160916PLT&quot; xmlns:tns5=&quot;http://xmlns.example.com/20160420160916PLT/ConceptSchema&quot; xmlns:tns7=&quot;http://tns.tibco.com/bw/REST&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;getPrice-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns5:price-productIdGetParameters>&#xa;            &lt;productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/productId>&#xa;        &lt;/tns5:price-productIdGetParameters>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns6="http://xmlns.example.com/20160420160916PLT" xmlns:tns5="http://xmlns.example.com/20160420160916PLT/ConceptSchema" xmlns:tns7="http://tns.tibco.com/bw/REST" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" version="2.0"&gt;
+    &lt;xsl:param name="productId"/&gt;
+    &lt;xsl:template name="getPrice-input" match="/"&gt;
+        &lt;tns6:getRequest1&gt;
+            &lt;httpHeaders&gt;
+                &lt;tns7:httpHeaders&gt;
+                    &lt;DynamicHeaders&gt;
+                        &lt;Header&gt;
+                            &lt;Name&gt;
+                                &lt;xsl:value-of select="&amp;quot;X-Api-Key&amp;quot;"/&gt;
+                            &lt;/Name&gt;
+                            &lt;Value&gt;
+                                &lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;api_key&amp;quot;)"/&gt;
+                            &lt;/Value&gt;
+                        &lt;/Header&gt;
+                    &lt;/DynamicHeaders&gt;
+                &lt;/tns7:httpHeaders&gt;
+            &lt;/httpHeaders&gt;
+            &lt;parameters&gt;
+                &lt;tns5:price-productIdGetParameters&gt;
+                    &lt;productId&gt;
+                        &lt;xsl:value-of select="$productId"/&gt;
+                    &lt;/productId&gt;
+                &lt;/tns5:price-productIdGetParameters&gt;
+            &lt;/parameters&gt;
+        &lt;/tns6:getRequest1&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                                    <bpws:targets>
+                                    <bpws:target linkName="Invoke_checkInventoryToInvoke_getPrice"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Invoke_getPriceToAssign_UpdateTotalPrice"/>
+                                    </bpws:sources>
+                                </bpws:invoke>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="$TotalPrice + (xsd:double($Invoke_getPrice/item) * $Receive/parameters/ns1:GenerateQuoteRequest/QuoteRequest/tns1:LineItems[xsd:integer($index)]/tns1:quantity)"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"
+                                    inputVariable="TotalPrice"
+                                    name="Assign_UpdateTotalPrice"
+                                    outputVariable="TotalPrice"
+                                    tibex:xpdlId="96696544-0a65-415c-9005-231378dc95f7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Invoke_getPriceToAssign_UpdateTotalPrice"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Assign_UpdateTotalPriceToMapper_BuildLineItem"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="$TotalPrice + (xsd:double($Invoke_getPrice.item) * $Receive.parameters/QuoteRequest/tns1:LineItems[xsd:integer($index)]/tns1:quantity)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.bwassign"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="TotalPrice" xsi:type="generalactivities:BWAssign"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Quote&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;index&quot;/>&lt;xsl:param name=&quot;Receive&quot;/>&lt;xsl:param name=&quot;productId&quot;/>&lt;xsl:param name=&quot;Invoke_getPrice&quot;/>&lt;xsl:template name=&quot;Mapper_BuildLineItem-input&quot; match=&quot;/&quot;>&lt;tns:LineItem>&lt;xsl:variable name=&quot;var&quot; select=&quot;xsd:integer($index)&quot;/>&lt;tns:productId>&lt;xsl:value-of select=&quot;$productId&quot;/>&lt;/tns:productId>&lt;tns:quantity>&lt;xsl:value-of select=&quot;$Receive/parameters/tns1:GenerateQuoteRequest/QuoteRequest/tns2:LineItems[$var]/tns2:quantity&quot;/>&lt;/tns:quantity>&lt;tns:unitPrice>&lt;xsl:value-of select=&quot;xsd:double($Invoke_getPrice/item)&quot;/>&lt;/tns:unitPrice>&lt;/tns:LineItem>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                                    inputVariable="Mapper_BuildLineItem-input"
+                                    name="Mapper_BuildLineItem"
+                                    outputVariable="Mapper_BuildLineItem"
+                                    tibex:xpdlId="8c2daf07-b730-4916-8660-d3ce593b4fec" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="Assign_UpdateTotalPriceToMapper_BuildLineItem"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Mapper_BuildLineItemToGroupEnd"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Quote&quot; xmlns:tns1=&quot;http://xmlns.example.com/20160420160916&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns2=&quot;http://www.example.org/QuoteRequest&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Receive.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;Invoke_getPrice.item&quot;/>&#xa;    &lt;xsl:param name=&quot;index&quot;/>&#xa;    &lt;xsl:param name=&quot;productId&quot;/>&#xa;    &lt;xsl:template name=&quot;Mapper_BuildLineItem-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:LineItem>&#xa;            &lt;xsl:variable name=&quot;var&quot; select=&quot;xsd:integer($index)&quot;/>&#xa;            &lt;tns:productId>&#xa;                &lt;xsl:value-of select=&quot;$productId&quot;/>&#xa;            &lt;/tns:productId>&#xa;            &lt;tns:quantity>&#xa;                &lt;xsl:value-of select=&quot;$Receive.parameters/QuoteRequest/tns2:LineItems[$var]/tns2:quantity&quot;/>&#xa;            &lt;/tns:quantity>&#xa;            &lt;tns:unitPrice>&#xa;                &lt;xsl:value-of select=&quot;xsd:double($Invoke_getPrice.item)&quot;/>&#xa;            &lt;/tns:unitPrice>&#xa;        &lt;/tns:LineItem>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.mapper"
+                                    version="6.0.0.001"
+                                    xmlns:Quote="http://www.example.org/Quote"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="Quote:LineItem" xsi:type="generalactivities:Mapper"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
                             </bpws:flow>
                         </bpws:scope>
                     </bpws:forEach>
                 </bpws:sequence>
             </bpws:scope>
-            <bpws:receive createInstance="yes" name="Receive"
-                operation="GenerateQuote"
-                partnerLink="GenerateQuoteService"
-                portType="ns1:GenerateQuoteService"
-                tibex:xpdlId="bc5ef0ea-5570-42d1-863c-5ca5b4ae968e" variable="Receive">
-                <bpws:sources>
-                    <bpws:source linkName="ReceiveToForEach1"/>
-                </bpws:sources>
-            </bpws:receive>
         </bpws:flow>
     </bpws:scope>
 </bpws:process>

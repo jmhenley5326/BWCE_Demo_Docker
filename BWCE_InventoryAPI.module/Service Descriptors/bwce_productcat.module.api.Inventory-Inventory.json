@@ -11,7 +11,8 @@
   "paths" : {
     "/inventory/{productId}" : {
       "get" : {
-        "description" : "Check Inventory for a Product",
+        "summary" : "Check Inventory for a Product",
+        "description" : "",
         "operationId" : "get-inventory",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -32,6 +33,7 @@
         }
       },
       "put" : {
+        "summary" : "",
         "description" : "",
         "operationId" : "put-inventory",
         "consumes" : [ "application/json" ],

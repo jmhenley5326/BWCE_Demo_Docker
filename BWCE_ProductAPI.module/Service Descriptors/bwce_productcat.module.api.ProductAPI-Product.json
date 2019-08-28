@@ -11,7 +11,8 @@
   "paths" : {
     "/product/{productId}" : {
       "get" : {
-        "description" : "Get Product",
+        "summary" : "Get Product",
+        "description" : "",
         "operationId" : "get-product",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],

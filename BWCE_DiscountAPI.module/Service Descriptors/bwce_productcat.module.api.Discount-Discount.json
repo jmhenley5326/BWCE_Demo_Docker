@@ -11,7 +11,8 @@
   "paths" : {
     "/discount/{custId}" : {
       "get" : {
-        "description" : "Get Discount for a Customer",
+        "summary" : "Get Discount for a Customer",
+        "description" : "",
         "operationId" : "get-discount",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],

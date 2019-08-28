@@ -11,7 +11,8 @@
   "paths" : {
     "/price/{productId}" : {
       "get" : {
-        "description" : "Get Price for a Product",
+        "summary" : "Get Price for a Product",
+        "description" : "",
         "operationId" : "get-price",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
