@@ -20,7 +20,7 @@ To run this demo you will need the following:
 
 ## Setting up Demo for Local Environment
 ### BW Project Setup
-- Download or clone this Repository
+- Download Release from https://github.com/jmhenley5326/BWCE_Demo_Docker/releases
 - Import projects into BusinessWorks Studio
 - Using the Search Menu, select the File... option
   - Containing Text: <i>192.168.1.94</i> 
