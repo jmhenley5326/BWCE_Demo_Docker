@@ -1,6 +1,7 @@
-# BWCE_Demo_Docker - STILL UNDER CONSTRUCTION!!
+# BWCE_Demo_Docker
 ## Getting Started
 To run this demo you will need the following:
+- Local Docker Install (works best on Mac or Linux, I have not tested on Windows)
 - Base TIBCO BWCE Docker Image (currently 2.4.5)
   - Follow these instructions to build this image: https://docs.tibco.com/pub/bwce/2.4.5/doc/html/GUID-91EA80AA-08EF-4CB3-A6A7-E8551A441AC1.html
   - Tag the image as <i>tibco/bwce:2.4.5</i>
@@ -56,3 +57,31 @@ To run this demo you will need the following:
     - You will see an exception in the Container Log file saying it can not read properties but the values will be picked up from the properties file and the container will function as normal
 ### Running the Demo
 - Within the Studio Environment, Right click on each Application Parent Folder (e.g. BWCE_DemoSetup.parent)
+- Select "Run As" --> "Maven build..."
+- In the Edit Configuration Window, set the Goals as follows:
+  - <i>clean package initialize docker:build docker:stop docker:start</i>
+  - DO NOT RUN YET
+- Once you have created this for all Applications, execute the BWCE_DemoSetup.parent Runtime Configuration
+  - Confirm the Maven build completes successfully. You should see 3 SUCCESS messages
+    - [INFO] BWCE_DemoSetup.parent .............................. SUCCESS [  0.406 s]
+    - [INFO] BWCE_DemoSetup.module .............................. SUCCESS [  0.576 s]
+    - [INFO] BWCE_DemoSetup ..................................... SUCCESS [  1.945 s]
+  - Go to your Terminal and run <i>docker ps -a</i>
+  - Confirm you see the <i>tibco/bwce/setup</i> image running as container <i>DemoSetupAPI</i>
+  - Copy the Container Id
+  - run docker logs <container_id>
+    - You may have to run this a few times until the application starts
+  - You should see the following if successful:
+    - 21:10:43.201 INFO  [Thread-7] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300006: Started BW Application [BWCE_DemoSetup:1.0]
+    - 21:10:48.155 INFO  [bwEngThread:In-Memory Process Worker-6] c.t.b.p.g.L.B.module.Log - Complete
+  - You can also go to http://localhost:18086/swagger and view the Swagger UI for the Demo Setup Service
+    - At this point it is already set up but you can reset it at any time with this service
+- Now you can go and execute all the other Runtime Configurations in Studio being sure to run the Quote Application last
+- You can also open Consul and see the registered services as they start up
+- Once all services are up, you can view the Swagger UI for each by altering the port number accordingly: 
+  - http://localhost:18081/swagger - Discount 
+  - http://localhost:18082/swagger - Inventory
+  - http://localhost:18083/swagger - Price
+  - http://localhost:18084/swagger - Product
+  - http://localhost:18085/swagger - Quote
+  - http://localhost:18086/swagger - Demo Setup
