@@ -1355,7 +1355,7 @@
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log-input"
                                     name="Log"
-                                    tibex:xpdlId="2c82f7d3-6fd1-455f-ace5-7be17e1b6280" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="fa3f36c1-e9da-4672-ae57-065dad0e4891" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="LogToReply"/>
                                     </bpws:sources>
@@ -1460,7 +1460,7 @@
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log1-input"
                                     name="Log1"
-                                    tibex:xpdlId="58853abd-69c6-4d4d-822c-61d666fe734c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="438f5a67-6685-4ba5-930f-4498f6c3fac7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="Log1ToGenerateQuote"/>
                                     </bpws:sources>

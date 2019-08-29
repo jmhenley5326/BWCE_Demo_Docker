@@ -11,8 +11,8 @@
   <artifactId>BWCE_DemoSetup</artifactId>
   <packaging>bwear</packaging>
   <properties>
-    <docker.env.property.file>docker-host-env-dev.properties</docker.env.property.file>
     <docker.property.file>docker-dev.properties</docker.property.file>
+    <docker.env.property.file>../BWCE_DemoSetup/docker-env.properties</docker.env.property.file>
     <pcf.property.file>pcfdev.properties</pcf.property.file>
   </properties>
   <build>
@@ -20,7 +20,7 @@
       <plugin>
         <groupId>com.tibco.plugins</groupId>
         <artifactId>bw6-maven-plugin</artifactId>
-        <version>1.2.2</version>
+        <version>2.3.0</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>
@@ -38,7 +38,6 @@
         <configuration>
           <files>
             <file>${docker.property.file}</file>
-            <file>${docker.env.property.file}</file>
             <file>${pcf.property.file}</file>
           </files>
         </configuration>

@@ -58,24 +58,32 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//BWCE_DemoSetup.module///MySQL/jdbcUrl</name>
-			<value>jdbc:mysql://34.201.244.182/bwce_demo</value>
+			<name>//BWCE_DemoSetup.module//SERVICE_NAME</name>
+			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>//BWCE_DemoSetup.module///MySQL/jdbcUrl</name>
+			<value>jdbc:mysql://jhenley-microservice-demo.czl4yoa1ulj2.us-east-1.rds.amazonaws.com/ms_demo</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DemoSetup.module///MySQL/username</name>
-			<value>bwce_demo</value>
+			<value>ms_demo</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DemoSetup.module///MySQL/password</name>
-			<value>#!/tl6R+I2dIHVx8hdGRW+s3rq8N79utWgsYoyXeYA/Ls=</value>
+			<value>#!+2FDuP4t8N6H5XMhzy+co0AtfJl3oYBk9BkFwaC+4Jg=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>

@@ -9,6 +9,7 @@
       <statusLines xmi:id="_rs3OEAyhEeaxlPKMOEu0jA" statusCode="200" reasonPhrase="OK"/>
       <statusLines xmi:id="_srjD4AyhEeaxlPKMOEu0jA" statusCode="400" reasonPhrase="Bad Request"/>
       <statusLines xmi:id="_tF750AyhEeaxlPKMOEu0jA" statusCode="500" reasonPhrase="Internal Server Error"/>
+      <advancedConfig xmi:id="_WLMFMcqBEemp5oHCEKkDOg" blockingQueueSize="2147483647"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_SL1D0QyhEeaxlPKMOEu0jA" bindingName="RestService"/>
   </sca:service>
@@ -19,6 +20,7 @@
   <sca:property xmi:id="_vGi48AycEeaxlPKMOEu0jA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_vGoYgAycEeaxlPKMOEu0jA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_vGsp8AycEeaxlPKMOEu0jA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_QhYmQMqQEemp5oHCEKkDOg" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bN5BYGcnEeeTD-7dZjOWDw" name="/MySQL/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_fB6FkGcnEeeTD-7dZjOWDw" name="/MySQL/password" type="property:password" scaext:simpleValue="#!NnDgxsTWEbMNsJEVSVPoaA==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_fIGNIGcnEeeTD-7dZjOWDw" name="/MySQL/jdbcUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
@@ -28,7 +30,7 @@
       <sca:interface.wsdl xmi:id="_SLwyYQyhEeaxlPKMOEu0jA" interface="http://xmlns.example.com/20160427125553PLT#wsdl.interface(setup)" scaext:wsdlLocation="../Processes/bwce_demosetup/module/Setup.bwp"/>
     </sca:service>
   </sca:component>
-  <sca:component xmi:id="_ATDxMC1tEeicf8W3Hh7JWA" name="ComponentTestSetup" compositeext:version="1.0.0.qualifier">
-    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ATDxMS1tEeicf8W3Hh7JWA" processName="bwce_demosetup.module.TestSetup"/>
+  <sca:component xmi:id="_vVNYcMqTEemp5oHCEKkDOg" name="ComponentTestSetup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_vVNYccqTEemp5oHCEKkDOg" processName="bwce_demosetup.module.TestSetup"/>
   </sca:component>
 </sca:composite>

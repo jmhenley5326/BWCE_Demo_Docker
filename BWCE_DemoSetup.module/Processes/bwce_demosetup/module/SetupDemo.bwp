@@ -1016,7 +1016,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.12"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="26"
+                                    x="41"
                                     xsi:type="notation:Bounds" y="77"/>
                                     </children>
                                     <children type="4017">
@@ -1039,8 +1039,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="1797"
-                                    width="1051" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="354"
+                                    width="761" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>

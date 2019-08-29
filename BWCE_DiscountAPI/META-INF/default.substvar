@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DiscountAPI.module///MySQL/jdbcURL</name>
-			<value>jdbc:mysql://localhost/bwce_schema</value>
+			<value>jdbc:mysql://jhenley-microservice-demo.czl4yoa1ulj2.us-east-1.rds.amazonaws.com/ms_demo</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -75,7 +75,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DiscountAPI.module///MySQL/username</name>
-			<value>bwce</value>
+			<value>ms_demo</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -83,7 +83,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//BWCE_DiscountAPI.module///MySQL/password</name>
-			<value>#!mLehgShvimdIUNyjzFMUfM44g/J1GfXHB9XbNcctNHM=</value>
+			<value>#!Cnr/KvcpxVPb0dIlUVOgKayHhV+8OG+X6sNqBU+b2gI=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>

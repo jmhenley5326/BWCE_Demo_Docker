@@ -121,6 +121,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -185,8 +196,9 @@
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
         createdOn="Wed Apr 27 12:55:53 CDT 2016" description=""
-        modifiers="public" productVersion="1.0.0 V48 2015-11-20"
-        scalable="true" singleton="true" stateless="true" type="IT"/>
+        extraErrorVars="false" modifiers="public"
+        productVersion="1.0.0 V48 2015-11-20" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -948,11 +960,9 @@
                                     </bpws:reply>
                                     <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log-input"
                                     name="Log"
-                                    tibex:xpdlId="cdb58e1e-87b8-4ff7-bc11-ab26700a4d5b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    tibex:xpdlId="4af3ba84-7bad-4996-bb12-5164c5bcd754" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="LogToReply"/>
                                     </bpws:sources>

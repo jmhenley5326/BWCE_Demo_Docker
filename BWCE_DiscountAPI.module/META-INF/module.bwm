@@ -8,6 +8,7 @@
         <parameterMapping xmi:id="_gjquUQcKEeasLes9HPTFQg" parameterName="custId" parameterType="Path"/>
       </parameters>
       <clientFormat>JSON</clientFormat>
+      <advancedConfig xmi:id="_WPogUcqBEemp5oHCEKkDOg" blockingQueueSize="2147483647"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_b0SOEQcKEeasLes9HPTFQg" bindingName="RestService4"/>
   </sca:service>

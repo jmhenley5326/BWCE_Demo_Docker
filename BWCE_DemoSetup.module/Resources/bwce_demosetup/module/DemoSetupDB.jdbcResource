@@ -4,9 +4,9 @@
   <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_XvQXUWcnEeeTD-7dZjOWDw">
     <substitutionBindings xmi:id="_palwoGcnEeeTD-7dZjOWDw" template="username" propName="/MySQL/username"/>
     <substitutionBindings xmi:id="_t_YKcGcnEeeTD-7dZjOWDw" template="password" propName="/MySQL/password"/>
-    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_XvQXUmcnEeeTD-7dZjOWDw" jdbcDriver="com.mysql.jdbc.Driver">
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_XvQXUmcnEeeTD-7dZjOWDw" jdbcDriver="com.mysql.jdbc.Driver" dbURL="jdbc:mysql://&lt;localhost>:&lt;port>/&lt;DBName>">
       <substitutionBindings xmi:id="_xgoDoGcnEeeTD-7dZjOWDw" template="dbURL" propName="/MySQL/jdbcUrl"/>
     </connectionConfig>
-    <connectionProperties xmi:id="_wUMFsGcnEeeTD-7dZjOWDw" key="jarFile" value="mysql"/>
+    <connectionProperties xmi:id="_WJkUkMqBEemp5oHCEKkDOg" key="jarFile" value="mysql"/>
   </jndi:configuration>
 </jndi:namedResource>
