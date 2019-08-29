@@ -1,4 +1,4 @@
-# BWCE_Demo_Docker
+# BWCE_Demo_Docker - STILL UNDER CONSTRUCTION!!
 ## Getting Started
 To run this demo you will need the following:
 - Base TIBCO BWCE Docker Image (currently 2.4.5)
