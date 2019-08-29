@@ -54,3 +54,5 @@ To run this demo you will need the following:
       - SERVICE_NAME <-- Set this to <i>BWCE_Demo</i>
   - If you would like to skip the Consul Key/Value pair setup, simply update all <i>docker-env.properties</i> files and set the appropriate values for the four variables above (SERVICE_NAME is already set in the property files)
     - You will see an exception in the Container Log file saying it can not read properties but the values will be picked up from the properties file and the container will function as normal
+### Running the Demo
+- Within the Studio Environment, Right click on each Application Parent Folder (e.g. BWCE_DemoSetup.parent)
